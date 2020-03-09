@@ -26,7 +26,7 @@ RTC（Real Time Communication）黑客马拉松，是声网Agora面向全球RTC�
 最近很多人都充分体验过了在线办公、视频会议。是不是发现上来看不懂怎么操作？很多功能找不到？界面布局不顺眼？这次给你一个创造的机会，基于我们提供的一个视频通话Demo，给多人视频通话设计一个心目中的最佳 UI 并代码实现。
 
 ## 作品要求：
-* 必须选择官方指定的Demo，并在此基础上做UI定制化开发
+* 必须选择官方指定的Demo，并在此基础上做UI定制化开发（[下载链接](https://rtcdeveloper.com/t/topic/17072))
 * UI设计创意内容不限，可以参考你认为UX体验好的任何相关作品
 * 默认参赛者提交的UI设计原型所有权归参赛者所有，且不存在任何法律纠纷
 * 最终参赛者提交的作品均会以MIT协议对外开源
@@ -61,13 +61,13 @@ Tips：
 
 * 注册Agora开发者帐户 https://www.agora.io/cn/
 
-* 在RTC论坛（链接：）下载对应平台的Demo（只需下载自己参赛对应平台的Demo即可），然后在本地端进行开发
+* 在RTC论坛([链接](https://rtcdeveloper.com/t/topic/17072)）下载对应平台的Demo（只需下载自己参赛对应平台的Demo即可），然后在本地端进行开发
 
 * Fork官方仓库（https://github.com/AgoraIO-Community/RTC-Hackathon） 至个人github仓库
 
 * Clone个人github仓库至本地
 
-* 在本地 UIChallengeProject 文件夹下创建个人项目文件夹，将本地的参赛作品放置个人项目文件夹（以团队名字或其他名字命名，切记不可以用原先下载demo的名字直接提交）
+* 在本地 UIChallengeProject 文件夹下创建个人项目文件夹，将本地的参赛作品放置个人项目文件夹（以团队名字+所选平台命名，比如" 辩之竹+Android "。切记不可以用原先下载demo的名字直接提交）
 
 * Pull Request 提交本人作品至官方仓库
 
@@ -85,7 +85,7 @@ Tips：
 
 * Pull Request 提交本人作品至官方仓库
 
-* 加入官方QQ群（）或论坛 https://rtcdeveloper.com ， 获取相关技术问题的答案
+* 加入官方论坛 https://rtcdeveloper.com ， 获取相关技术问题的答案
 
 PS：提交作品时，本人作品文件夹内须包含源码、Readme文件（若有可执行文件更佳），Readme内容包括作品介绍（包括使用的sdk、应用场景）、团队介绍（包括联系方式）、编译指南等
 
