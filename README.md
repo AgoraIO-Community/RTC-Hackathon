@@ -19,7 +19,7 @@ RTC（Real Time Communication）黑客马拉松，是声网Agora面向全球RTC�
 * 团队规模：本次比赛要求组队参加，每个团队 1-5 人，团队最高人限 5 人，1 人只能参与 1 个团队
 
 # 报名表单
-* [报名表单入口](https://www.huodongxing.com/event/8500759008100)
+* [报名表单入口](https://segmentfault.com/page/rtc-hackathon-2020)
 
 # 赛题介绍 & 作品要求 
 ## 赛题一：为「多人通话」设计UI
@@ -57,7 +57,7 @@ Tips：
 # 怎么参与
 
 ## 赛题一：
-* [填写报名表单]()
+* [填写报名表单](https://segmentfault.com/page/rtc-hackathon-2020)
 
 * 注册Agora开发者帐户 https://www.agora.io/cn/
 
@@ -73,7 +73,7 @@ Tips：
 
 
 ## 赛题二：
-* [填写报名表单]()
+* [填写报名表单](https://segmentfault.com/page/rtc-hackathon-2020)
 
 * 注册Agora开发者帐户 https://www.agora.io/cn/
 
