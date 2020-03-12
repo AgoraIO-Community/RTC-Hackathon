@@ -137,7 +137,7 @@ PS：提交作品时，本人作品文件夹内须包含源码、Readme文件（
 
 # 相关资源：
 * [Agora官网](https://www.agora.io/cn/)
-* [黑客松官网]()
+* [黑客松官网](https://segmentfault.com/page/rtc-hackathon-2020)
 * [Agora Demo & Readme 全集](https://rtcdeveloper.com/t/topic/12820)
 * [往届作品&社区作品](https://github.com/AgoraIO-Community)
 * [RTC技术论坛](https://rtcdeveloper.com/)
