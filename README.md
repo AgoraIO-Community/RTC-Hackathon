@@ -52,6 +52,7 @@ RTC（Real Time Communication）黑客马拉松，是声网Agora面向全球RTC�
 
 Tips：
 （1）官网报名后，即可进入组队和开发阶段
+
 （2）作品提交后，不可修改，特殊需求可联系大赛
 
 # 怎么参与
@@ -133,7 +134,7 @@ PS：提交作品时，本人作品文件夹内须包含源码、Readme文件（
 * 张乾泽：声网Agora Web 研发工程师。毕业于英国牛津大学，原SAP软件工程师，主导SAP Anywhere移动端架构设计开发。2017年加入声网，现为声网Agora高级架构师，致力于RTC技术在娱乐，直播等行业的应用与研发工作。
 
 # 组队指南
-* [组队链接]()
+* [组队链接](https://github.com/AgoraIO-Community/RTC-Hackathon/wiki)
 
 # 相关资源：
 * [Agora官网](https://www.agora.io/cn/)
