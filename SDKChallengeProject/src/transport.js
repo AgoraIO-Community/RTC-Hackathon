@@ -1,4 +1,5 @@
 import AgoraRTM from "agora-rtm-sdk";
+import { EMBED_UID, APP_UID } from "./constant";
 
 const EVENTS = {
   SOURCE_READY: 0,
@@ -108,7 +109,7 @@ export class RtcTransporter {
     });
     this.uid = uid;
     this.client.on("MessageFromPeer", (message, peerId) => {
-      if (!["syncit-embed", "syncit-app"].includes(peerId)) {
+      if (![EMBED_UID, APP_UID].includes(peerId)) {
         return;
       }
       const data = JSON.parse(message.text);
@@ -121,8 +122,19 @@ export class RtcTransporter {
     });
   }
 
-  login() {
-    return this.client.login({ uid: this.uid });
+  async login() {
+    let retry = 5;
+    let loginResult;
+    let loginError;
+    while (retry > 0 || loginResult) {
+      retry--;
+      try {
+        loginResult = await this.client.login({ uid: this.uid });
+      } catch (error) {
+        loginError = error;
+      }
+    }
+    return loginResult || loginError;
   }
 
   sendSourceReady() {
@@ -130,7 +142,7 @@ export class RtcTransporter {
       {
         text: JSON.stringify({ event: EVENTS.SOURCE_READY }),
       },
-      "syncit-app"
+      APP_UID
     );
   }
 
@@ -139,7 +151,7 @@ export class RtcTransporter {
       {
         text: JSON.stringify({ event: EVENTS.MIRROR_READY }),
       },
-      "syncit-embed"
+      EMBED_UID
     );
   }
 
@@ -148,7 +160,7 @@ export class RtcTransporter {
       {
         text: JSON.stringify({ event: EVENTS.SEND_RECORD, payload: record }),
       },
-      "syncit-app"
+      APP_UID
     );
   }
 
@@ -157,7 +169,7 @@ export class RtcTransporter {
       {
         text: JSON.stringify({ event: EVENTS.ACK_RECORD, payload: id }),
       },
-      "syncit-embed"
+      EMBED_UID
     );
   }
 

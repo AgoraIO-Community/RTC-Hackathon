@@ -14,15 +14,20 @@
   <body>
     <div class="count"></div>
     <input type="text" />
+
+    <div class="block1" style="width: 400px; height: 200px;">block-1</div>
+    <div class="block2" style="width: 100px; height: 250px;">block-2</div>
+    <div class="block3" style="width: 300px; height: 300px;">block-3</div>
+
     <script>
       const el = document.querySelector(".count");
       let count = 0;
-      const timer = setInterval(() => {
-        el.innerText = count++;
-        if (count > 100000) {
-          clearInterval(timer);
-        }
-      }, 50);
+      // const timer = setInterval(() => {
+      //   el.innerText = count++;
+      //   if (count > 100000) {
+      //     clearInterval(timer);
+      //   }
+      // }, 50);
     </script>
     <script src="/build/bundle.js"></script>
     <script>

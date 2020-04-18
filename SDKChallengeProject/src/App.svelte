@@ -3,8 +3,9 @@
   import { Replayer } from "rrweb";
   import { RtcTransporter } from "./transport";
   import { BUFFER_MS, MirrorBuffer } from "./buffer";
+  import { APP_UID } from "./constant";
 
-  const transporter = new RtcTransporter("syncit-app");
+  const transporter = new RtcTransporter(APP_UID);
   let login = transporter.login();
 
   let sourceReady = false;
