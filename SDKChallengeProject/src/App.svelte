@@ -1,30 +1,84 @@
 <script>
-	export let name;
+  import { onMount } from "svelte";
+  import { Replayer } from "rrweb";
+  import { transporter } from "./transport";
+
+  let sourceReady = false;
+  let playerDom;
+  let replayer;
+  let started = false;
+
+  function connect() {
+    transporter.sendMirrorReady();
+    replayer = new Replayer([], {
+      root: playerDom,
+      loadTimeout: 100,
+      liveMode: true,
+      insertStyleRules: [".syncit-embed { display: none }"],
+    });
+  }
+
+  onMount(() => {
+    transporter.on("sourceReady", () => {
+      sourceReady = true;
+    });
+    transporter.on("record", (data) => {
+      if (!started) {
+        replayer.startLive(data.payload.timestamp - 500);
+        started = true;
+      }
+      replayer.addEvent(data.payload);
+    });
+  });
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+{#if sourceReady}
+<button on:click="{connect}">connect</button>
+{/if}
+<div bind:this="{playerDom}"></div>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+  :global(.replayer-wrapper) {
+    position: relative;
+  }
+  :global(.replayer-mouse) {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: 0.05s linear;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSIgdmlld0JveD0iMCAwIDUwIDUwIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPkRlc2lnbl90bnA8L3RpdGxlPjxwYXRoIGQ9Ik00OC43MSw0Mi45MUwzNC4wOCwyOC4yOSw0NC4zMywxOEExLDEsMCwwLDAsNDQsMTYuMzlMMi4zNSwxLjA2QTEsMSwwLDAsMCwxLjA2LDIuMzVMMTYuMzksNDRhMSwxLDAsMCwwLDEuNjUuMzZMMjguMjksMzQuMDgsNDIuOTEsNDguNzFhMSwxLDAsMCwwLDEuNDEsMGw0LjM4LTQuMzhBMSwxLDAsMCwwLDQ4LjcxLDQyLjkxWm0tNS4wOSwzLjY3TDI5LDMyYTEsMSwwLDAsMC0xLjQxLDBsLTkuODUsOS44NUwzLjY5LDMuNjlsMzguMTIsMTRMMzIsMjcuNThBMSwxLDAsMCwwLDMyLDI5TDQ2LjU5LDQzLjYyWiI+PC9wYXRoPjwvc3ZnPg==");
+  }
+  :global(.replayer-mouse::after) {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: rgb(73, 80, 246);
+    transform: translate(-10px, -10px);
+    opacity: 0.3;
+  }
+  :global(.replayer-mouse.active::after) {
+    animation: click 0.2s ease-in-out 1;
+  }
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  @keyframes click {
+    0% {
+      opacity: 0.3;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      transform: translate(-10px, -10px);
+    }
+    50% {
+      opacity: 0.5;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      transform: translate(-5px, -5px);
+    }
+  }
 </style>
