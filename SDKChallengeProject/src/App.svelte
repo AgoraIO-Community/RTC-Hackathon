@@ -2,11 +2,17 @@
   import { onMount } from "svelte";
   import { Replayer } from "rrweb";
   import { transporter } from "./transport";
+  import { BUFFER_MS, MirrorBuffer } from "./buffer";
 
   let sourceReady = false;
   let playerDom;
   let replayer;
   let started = false;
+  const buffer = new MirrorBuffer({
+    onRecord({ chunk }) {
+      replayer.addEvent(chunk);
+    },
+  });
 
   function connect() {
     transporter.sendMirrorReady();
@@ -15,6 +21,8 @@
       loadTimeout: 100,
       liveMode: true,
       insertStyleRules: [".syncit-embed { display: none }"],
+      showWarning: true,
+      showDebug: true,
     });
   }
 
@@ -23,11 +31,13 @@
       sourceReady = true;
     });
     transporter.on("record", (data) => {
+      const { id, chunk } = data.payload;
       if (!started) {
-        replayer.startLive(data.payload.timestamp - 500);
+        replayer.startLive(chunk.timestamp - BUFFER_MS);
         started = true;
       }
-      replayer.addEvent(data.payload);
+      buffer.add({ id, chunk });
+      transporter.ackRecord(id);
     });
   });
 </script>

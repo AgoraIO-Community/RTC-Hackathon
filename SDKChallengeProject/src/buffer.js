@@ -1,4 +1,4 @@
-const BUFFER_MS = 1000;
+export const BUFFER_MS = 1000;
 
 export class BaseBuffer {
   constructor() {
@@ -74,6 +74,10 @@ export class MirrorBuffer extends BaseBuffer {
       idx++;
       this.cursor++;
       this.delete(record.id);
+    }
+    const keys = Object.keys(this.buffer);
+    if (keys.length !== 0) {
+      console.log("in area", keys.length);
     }
   }
 }

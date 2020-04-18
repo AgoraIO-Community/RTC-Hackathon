@@ -12,6 +12,20 @@
   </head>
 
   <body>
+    <div class="count"></div>
+    <button>stop</button>
+    <script>
+      const el = document.querySelector(".count");
+      let count = 0;
+      function update() {
+        el.innerText = count++;
+        if (count > 100000) {
+          return;
+        }
+        requestAnimationFrame(update);
+      }
+      update();
+    </script>
     <script src="/build/bundle.js"></script>
     <script>
       new app.Embed({

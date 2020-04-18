@@ -3,12 +3,19 @@
   import { createMachine, interpret } from "@xstate/fsm";
   import { onMount, onDestroy } from "svelte";
   import { transporter } from "./transport";
+  import { SourceBuffer } from "./buffer";
 
   let ref;
   $: ref && document.body.appendChild(ref);
 
   let open = false;
   let stopRecordFn;
+  const buffer = new SourceBuffer({
+    onTimeout(record) {
+      console.log("timeout");
+      // transporter.sendRecord(event)
+    },
+  });
 
   const embedMachine = createMachine(
     {
@@ -48,7 +55,8 @@
         connect() {
           stopRecordFn = record({
             emit(event) {
-              transporter.sendRecord(event);
+              const id = buffer.add(event);
+              transporter.sendRecord(buffer.buffer[id]);
             },
           });
         },
@@ -67,6 +75,9 @@
     });
     transporter.on("mirrorReady", () => {
       service.send("CONNECT");
+    });
+    transporter.on("ack", ({ payload }) => {
+      buffer.delete(payload);
     });
   });
   onDestroy(() => {
