@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@xstate/fsm": "^1.4.0",
+    "agora-rtm-sdk": "^1.2.2",
     "rrweb": "github:rrweb-io/rrweb#state-machine",
     "sirv-cli": "^0.4.4"
   }

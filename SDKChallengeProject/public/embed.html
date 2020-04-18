@@ -13,18 +13,16 @@
 
   <body>
     <div class="count"></div>
-    <button>stop</button>
+    <input type="text" />
     <script>
       const el = document.querySelector(".count");
       let count = 0;
-      function update() {
+      const timer = setInterval(() => {
         el.innerText = count++;
         if (count > 100000) {
-          return;
+          clearInterval(timer);
         }
-        requestAnimationFrame(update);
-      }
-      update();
+      }, 50);
     </script>
     <script src="/build/bundle.js"></script>
     <script>

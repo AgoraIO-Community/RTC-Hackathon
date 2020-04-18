@@ -1,8 +1,11 @@
 <script>
   import { onMount } from "svelte";
   import { Replayer } from "rrweb";
-  import { transporter } from "./transport";
+  import { RtcTransporter } from "./transport";
   import { BUFFER_MS, MirrorBuffer } from "./buffer";
+
+  const transporter = new RtcTransporter("syncit-app");
+  let login = transporter.login();
 
   let sourceReady = false;
   let playerDom;
@@ -42,6 +45,12 @@
   });
 </script>
 
+{#await login}
+<p>...login...</p>
+{:catch error}
+<p style="color: red;">{error.message}</p>
+{/await}
+<!---->
 {#if sourceReady}
 <button on:click="{connect}">connect</button>
 {/if}

@@ -2,8 +2,11 @@
   import { record } from "rrweb";
   import { createMachine, interpret } from "@xstate/fsm";
   import { onMount, onDestroy } from "svelte";
-  import { transporter } from "./transport";
+  import { RtcTransporter } from "./transport";
   import { SourceBuffer } from "./buffer";
+
+  const transporter = new RtcTransporter("syncit-embed");
+  let login = transporter.login();
 
   let ref;
   $: ref && document.body.appendChild(ref);
@@ -12,8 +15,7 @@
   let stopRecordFn;
   const buffer = new SourceBuffer({
     onTimeout(record) {
-      console.log("timeout");
-      // transporter.sendRecord(event)
+      transporter.sendRecord(record);
     },
   });
 
@@ -86,6 +88,12 @@
 </script>
 
 <div class="syncit-embed" bind:this="{ref}">
+  {#await login}
+  <p>...login...</p>
+  {:catch error}
+  <p style="color: red;">{error.message}</p>
+  {/await}
+  <!---->
   <button on:click="{() => open = !open}">{open ? 'close' : 'open'}</button>
   {#if open}
   <div class="syncit-embed-panel">

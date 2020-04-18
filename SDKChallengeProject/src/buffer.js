@@ -58,6 +58,10 @@ export class MirrorBuffer extends BaseBuffer {
     if (!record.id) {
       throw new Error("MirrorBuffer only accept record with id");
     }
+    if (record.id <= this.cursor) {
+      // TODO: explain this
+      return;
+    }
     this.buffer[record.id] = record;
     if (this.onRecord) {
       this.tryToEmit();
@@ -77,7 +81,12 @@ export class MirrorBuffer extends BaseBuffer {
     }
     const keys = Object.keys(this.buffer);
     if (keys.length !== 0) {
-      console.log("in area", keys.length);
+      console.log(
+        "in area",
+        keys.length,
+        this.cursor,
+        records.map((r) => r.id)
+      );
     }
   }
 }
