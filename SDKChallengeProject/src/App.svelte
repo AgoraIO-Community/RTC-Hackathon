@@ -6,7 +6,7 @@
   import { scale } from "svelte/transition";
   import { RtcTransporter } from "./transport";
   import { BUFFER_MS, MirrorBuffer } from "./buffer";
-  import { APP_UID } from "./constant";
+  import { APP_UID, CUSTOM_EVENT_TAGS } from "./constant";
   import { formatBytes } from "./common.js";
   import Panel from "./components/Panel.svelte";
   import LineChart from "./components/LineChart.svelte";
@@ -132,6 +132,8 @@
     sizes = sizes;
   }
 
+  let mouseSize = "syncit-mouse-s2";
+
   let current = appMachine.initialState;
   const service = interpret(appMachine);
   onMount(() => {
@@ -148,8 +150,17 @@
         replayer.startLive(chunk.timestamp - BUFFER_MS);
         service.send("FIRST_RECORD");
       }
-      if (chunk.type === EventType.Custom && chunk.data.tag === "PING") {
+      if (
+        chunk.type === EventType.Custom &&
+        chunk.data.tag === CUSTOM_EVENT_TAGS.PING
+      ) {
         latencies = latencies.concat({ x: t, y: Date.now() - t });
+      }
+      if (
+        chunk.type === EventType.Custom &&
+        chunk.data.tag === CUSTOM_EVENT_TAGS.MOUSE_SIZE
+      ) {
+        mouseSize = `syncit-mouse-s${chunk.data.payload.level}`;
       }
       Promise.resolve().then(() => collectSize(t, pack(chunk)));
       buffer.add({ id, chunk });
@@ -164,7 +175,7 @@
   });
 </script>
 
-<div class="syncit-app">
+<div class="syncit-app {mouseSize}">
   {#await login}
   <div class="syncit-load-text syncit-center">初始化中...</div>
   {:then}
@@ -267,13 +278,25 @@
     background-repeat: no-repeat;
     background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSIgdmlld0JveD0iMCAwIDUwIDUwIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPkRlc2lnbl90bnA8L3RpdGxlPjxwYXRoIGQ9Ik00OC43MSw0Mi45MUwzNC4wOCwyOC4yOSw0NC4zMywxOEExLDEsMCwwLDAsNDQsMTYuMzlMMi4zNSwxLjA2QTEsMSwwLDAsMCwxLjA2LDIuMzVMMTYuMzksNDRhMSwxLDAsMCwwLDEuNjUuMzZMMjguMjksMzQuMDgsNDIuOTEsNDguNzFhMSwxLDAsMCwwLDEuNDEsMGw0LjM4LTQuMzhBMSwxLDAsMCwwLDQ4LjcxLDQyLjkxWm0tNS4wOSwzLjY3TDI5LDMyYTEsMSwwLDAsMC0xLjQxLDBsLTkuODUsOS44NUwzLjY5LDMuNjlsMzguMTIsMTRMMzIsMjcuNThBMSwxLDAsMCwwLDMyLDI5TDQ2LjU5LDQzLjYyWiI+PC9wYXRoPjwvc3ZnPg==");
   }
+  .syncit-mouse-s1 :global(.replayer-mouse) {
+    width: 10px;
+    height: 10px;
+  }
+  .syncit-mouse-s2 :global(.replayer-mouse) {
+    width: 20px;
+    height: 20px;
+  }
+  .syncit-mouse-s3 :global(.replayer-mouse) {
+    width: 30px;
+    height: 30px;
+  }
   :global(.replayer-mouse::after) {
     content: "";
     display: inline-block;
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    background: rgb(73, 80, 246);
+    background: #e75a3a;
     transform: translate(-10px, -10px);
     opacity: 0.3;
   }

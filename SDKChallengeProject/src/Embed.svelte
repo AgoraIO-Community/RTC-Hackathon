@@ -6,7 +6,7 @@
   import { scale } from "svelte/transition";
   import { RtcTransporter } from "./transport";
   import { SourceBuffer } from "./buffer";
-  import { EMBED_UID } from "./constant";
+  import { EMBED_UID, CUSTOM_EVENT_TAGS } from "./constant";
   import Panel from "./components/Panel.svelte";
   import Tag from "./components/Tag.svelte";
 
@@ -69,7 +69,7 @@
             },
           });
           const timer = setInterval(() => {
-            record.addCustomEvent("PING");
+            record.addCustomEvent(CUSTOM_EVENT_TAGS.PING);
           }, 1000);
           stopRecordFn = () => {
             stopRecord();
@@ -147,6 +147,10 @@
     }
   }
 
+  function changeMouseSize(level) {
+    record.addCustomEvent(CUSTOM_EVENT_TAGS.MOUSE_SIZE, { level });
+  }
+
   let current = embedMachine.initialState;
   const service = interpret(embedMachine);
   onMount(() => {
@@ -203,7 +207,17 @@
       {:else if current.matches('connected')}
       <div class="syncit-center">
         <div class="syncit-panel-control">
-          more feature
+          <div>镜像鼠标尺寸</div>
+          <div class="syncit-mouses">
+            {#each ['小', '中', '大'] as size, idx}
+            <button
+              class="{`syncit-mouse-${idx + 1}`} syncit-btn ordinary"
+              on:click="{() => changeMouseSize(idx + 1)}"
+            >
+              {size}
+            </button>
+            {/each}
+          </div>
         </div>
         <button class="syncit-btn" on:click="{() => service.send('STOP')}">
           停止分享
@@ -324,5 +338,11 @@
   .syncit-block-els > :global(span) {
     cursor: pointer;
     margin-right: 4px;
+  }
+
+  .syncit-mouses {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>
