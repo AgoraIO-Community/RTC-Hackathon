@@ -1,63 +1,259 @@
 <script>
-  import { onMount } from "svelte";
-  import { Replayer } from "rrweb";
+  import { onMount, onDestroy } from "svelte";
+  import { Replayer, EventType, pack } from "rrweb";
+  import { createMachine, interpret } from "@xstate/fsm";
+  import { quintOut } from "svelte/easing";
+  import { scale } from "svelte/transition";
   import { RtcTransporter } from "./transport";
   import { BUFFER_MS, MirrorBuffer } from "./buffer";
   import { APP_UID } from "./constant";
+  import { formatBytes } from "./common.js";
+  import Panel from "./components/Panel.svelte";
+  import LineChart from "./components/LineChart.svelte";
 
   const transporter = new RtcTransporter(APP_UID);
   let login = transporter.login();
 
-  let sourceReady = false;
   let playerDom;
   let replayer;
-  let started = false;
   const buffer = new MirrorBuffer({
     onRecord({ chunk }) {
       replayer.addEvent(chunk);
     },
   });
 
+  let open = false;
+  $: icon = open ? "./icons/close.svg" : "./icons/team.svg";
+
+  const appMachine = createMachine(
+    {
+      initial: "idle",
+      states: {
+        idle: {
+          on: {
+            SOURCE_READY: {
+              target: "sourceReady",
+            },
+          },
+        },
+        sourceReady: {
+          on: {
+            CONNECT: {
+              target: "waiting_first_record",
+            },
+          },
+        },
+        waiting_first_record: {
+          on: {
+            FIRST_RECORD: {
+              target: "connected",
+            },
+          },
+        },
+        connected: {
+          on: {
+            STOP: {
+              target: "stopped",
+              actions: ["stop"],
+            },
+          },
+        },
+        stopped: {
+          on: {
+            RESET: "idle",
+          },
+        },
+      },
+    },
+    {
+      actions: {
+        stop() {
+          replayer.pause();
+          playerDom.innerHTML = "";
+        },
+      },
+    }
+  );
+
   function connect() {
+    service.send("CONNECT");
     transporter.sendMirrorReady();
     replayer = new Replayer([], {
       root: playerDom,
       loadTimeout: 100,
       liveMode: true,
-      insertStyleRules: [".syncit-embed { display: none }"],
+      insertStyleRules: [".syncit-embed { display: none !important }"],
       showWarning: true,
       showDebug: true,
     });
   }
 
+  let latencies = [];
+  let sizes = [];
+  function normalizePoints(points) {
+    if (points.length > 20) {
+      points = points.slice(points.length - 20, points.length);
+    } else {
+      points = new Array(20 - points.length)
+        .fill()
+        .map((_, idx) => ({
+          x: points[0] ? points[0].x - 1000 * (21 - points.length - idx) : 0,
+          y: 0,
+        }))
+        .concat(points);
+    }
+    return points;
+  }
+  $: _latencies = normalizePoints(latencies);
+  $: _sizes = normalizePoints(sizes);
+  $: {
+    if (latencies.length > 20) {
+      latencies = latencies.slice(latencies.length - 20, latencies.length);
+    }
+    if (sizes.length > 20) {
+      sizes = sizes.slice(sizes.length - 20, sizes.length);
+    }
+  }
+  $: lastSize = formatBytes(_sizes[_sizes.length - 1].y);
+  function getSizeOfString(str) {
+    return encodeURI(str).split(/%(?:u[0-9A-F]{2})?[0-9A-F]{2}|./).length - 1;
+  }
+  function collectSize(timestamp, str) {
+    if (sizes.length === 0) {
+      sizes.push({ x: Date.now(), y: 0 });
+    }
+    const lastSize = sizes[sizes.length - 1];
+    const size = getSizeOfString(str);
+    if (timestamp - lastSize.x < 1000) {
+      lastSize.y += size;
+    } else {
+      sizes.push({ x: Date.now(), y: size });
+    }
+    sizes = sizes;
+  }
+
+  let current = appMachine.initialState;
+  const service = interpret(appMachine);
   onMount(() => {
+    service.start();
+    service.subscribe((state) => {
+      current = state;
+    });
     transporter.on("sourceReady", () => {
-      sourceReady = true;
+      service.send("SOURCE_READY");
     });
     transporter.on("record", (data) => {
-      const { id, chunk } = data.payload;
-      if (!started) {
+      const { id, chunk, t } = data.payload;
+      if (!current.matches("connected")) {
         replayer.startLive(chunk.timestamp - BUFFER_MS);
-        started = true;
+        service.send("FIRST_RECORD");
       }
+      if (chunk.type === EventType.Custom && chunk.data.tag === "PING") {
+        latencies = latencies.concat({ x: t, y: Date.now() - t });
+      }
+      Promise.resolve().then(() => collectSize(t, pack(chunk)));
       buffer.add({ id, chunk });
       transporter.ackRecord(id);
     });
+    transporter.on("stop", () => {
+      service.send("STOP");
+    });
+  });
+  onDestroy(() => {
+    service.stop();
   });
 </script>
 
-{#await login}
-<p>...login...</p>
-{:catch error}
-<p style="color: red;">{error.message}</p>
-{/await}
-<!---->
-{#if sourceReady}
-<button on:click="{connect}">connect</button>
-{/if}
-<div bind:this="{playerDom}"></div>
+<div class="syncit-app">
+  {#await login}
+  <div class="syncit-load-text syncit-center">初始化中...</div>
+  {:then}
+  <!---->
+  <div bind:this="{playerDom}"></div>
+  {#if current.matches('idle')}
+  <div class="syncit-center">
+    <div class="syncit-load-text syncit-hint">
+      <h3>等待连接中</h3>
+      <div>源端点击“启用 syncit 分享”按钮，即可建立连接。</div>
+    </div>
+  </div>
+  {:else if current.matches('sourceReady') ||
+  current.matches('waiting_first_record')}
+  <div class="syncit-center">
+    <button
+      class="syncit-btn"
+      on:click="{connect}"
+      disabled="{!current.matches('sourceReady')}"
+    >
+      建立连接
+    </button>
+  </div>
+  {:else if current.matches('connected')}
+  <div class="syncit-app-control">
+    {#if open}
+    <div
+      transition:scale="{{duration: 500, opacity: 0.5, easing: quintOut}}"
+      style="transform-origin: right bottom;"
+    >
+      <Panel>
+        <div class="syncit-metric">
+          <div class="syncit-chart-title">
+            延时
+            <span style="color: #41efc5;">
+              {_latencies.length ? _latencies[_latencies.length - 1].y : '-'} ms
+            </span>
+          </div>
+          <div class="syncit-metric-line">
+            <LineChart points="{_latencies}"></LineChart>
+          </div>
+        </div>
+        <div class="syncit-metric">
+          <div class="syncit-chart-title">
+            流量
+            <span style="color: #8c83ed;">
+              {lastSize.value} {lastSize.unit}
+            </span>
+          </div>
+          <div class="syncit-metric-line">
+            <LineChart points="{_sizes}" color="#8C83ED"></LineChart>
+          </div>
+        </div>
+      </Panel>
+    </div>
+    {/if}
+    <!---->
+    <button class="syncit-toggle syncit-btn" on:click="{() => open = !open}">
+      <img alt="icon" src="{icon}" />
+    </button>
+  </div>
+  {:else if current.matches('stopped')}
+  <div class="syncit-center">
+    <div class="syncit-load-text syncit-hint">
+      <div>连接已被断开</div>
+      <button
+        class="syncit-btn"
+        on:click="{() => service.send('RESET')}"
+        style="display: block; margin: 0.5em auto;"
+      >
+        重新准备
+      </button>
+    </div>
+  </div>
+  {/if}
+  <!---->
+  {:catch error}
+  <div class="syncit-error syncit-center">{error.message}</div>
+  {/await}
+</div>
 
 <style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+  }
+  :global(iframe) {
+    border: none;
+  }
   :global(.replayer-wrapper) {
     position: relative;
   }
@@ -100,5 +296,109 @@
       border-radius: 5px;
       transform: translate(-5px, -5px);
     }
+  }
+
+  .syncit-app {
+    width: 100%;
+    height: 100%;
+  }
+
+  button {
+    outline: none;
+  }
+  .syncit-btn:hover {
+    background: #3399ff;
+  }
+
+  .syncit-btn,
+  .syncit-btn:active {
+    cursor: pointer;
+    background: #0078f0;
+    border: 1px solid rgba(62, 70, 82, 0.18);
+    box-shadow: 0px 1px 2px rgba(184, 192, 204, 0.6);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 0.5em;
+  }
+
+  .syncit-btn.ordinary {
+    background: #fff;
+    color: #3e4652;
+    border: 1px solid rgba(129, 138, 153, 0.6);
+  }
+  .syncit-btn.ordinary:hover {
+    background: #f5f7fa;
+  }
+  .syncit-btn.ordinary:active {
+    background: #dfe4eb;
+  }
+
+  .syncit-center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .syncit-load-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: #3e4652;
+  }
+
+  .syncit-load-text h3 {
+    margin: 8px 0;
+  }
+
+  .syncit-error {
+    color: #e75a3a;
+  }
+
+  .syncit-hint {
+    background: rgba(245, 247, 250, 0.6);
+    border-radius: 4px;
+    padding: 8px;
+    min-width: 150px;
+  }
+
+  .syncit-toggle,
+  .syncit-toggle:active {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    padding: 0;
+    align-self: flex-end;
+  }
+
+  .syncit-app-control {
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .syncit-metric {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .syncit-chart-title {
+    font-size: 13px;
+    line-height: 20px;
+    color: #3e4652;
+    width: 100px;
+    margin-right: 8px;
+  }
+
+  .syncit-metric-line {
+    flex: 1;
   }
 </style>

@@ -62,15 +62,23 @@
           transporter.sendSourceReady();
         },
         connect() {
-          stopRecordFn = record({
+          const stopRecord = record({
             emit(event) {
               const id = buffer.add(event);
               transporter.sendRecord(buffer.buffer[id]);
             },
           });
+          const timer = setInterval(() => {
+            record.addCustomEvent("PING");
+          }, 1000);
+          stopRecordFn = () => {
+            stopRecord();
+            clearInterval(timer);
+          };
         },
         stop() {
           stopRecordFn();
+          transporter.sendStop();
         },
       },
     }
@@ -193,9 +201,14 @@
       {:else if current.matches('ready')}
       <div class="syncit-center syncit-load-text">已启用，等待连接中</div>
       {:else if current.matches('connected')}
-      <button class="syncit-btn" on:click="{() => service.send('STOP')}">
-        停止分享
-      </button>
+      <div class="syncit-center">
+        <div class="syncit-panel-control">
+          more feature
+        </div>
+        <button class="syncit-btn" on:click="{() => service.send('STOP')}">
+          停止分享
+        </button>
+      </div>
       {/if}
       <!---->
       {:catch error}
@@ -213,7 +226,7 @@
 </div>
 
 <style>
-  :global(button) {
+  button {
     outline: none;
   }
 
@@ -291,7 +304,7 @@
     pointer-events: none;
     z-index: 999999;
     background: rgba(136, 194, 232, 0.75);
-    border: 1px solid rgba(5, 150, 45, 0.5);
+    border: 1px solid #3399ff;
   }
 
   .syncit-panel-control {

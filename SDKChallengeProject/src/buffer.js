@@ -79,14 +79,14 @@ export class MirrorBuffer extends BaseBuffer {
       this.cursor++;
       this.delete(record.id);
     }
-    const keys = Object.keys(this.buffer);
-    if (keys.length !== 0) {
-      console.log(
-        "in area",
-        keys.length,
-        this.cursor,
-        records.map((r) => r.id)
-      );
-    }
+    // const keys = Object.keys(this.buffer);
+    // if (keys.length !== 0) {
+    //   console.log(
+    //     "in area",
+    //     keys.length,
+    //     this.cursor,
+    //     records.map((r) => r.id)
+    //   );
+    // }
   }
 }

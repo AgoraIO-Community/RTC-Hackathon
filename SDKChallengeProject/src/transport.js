@@ -6,10 +6,12 @@ const EVENTS = {
   MIRROR_READY: 1,
   SEND_RECORD: 2,
   ACK_RECORD: 3,
+  STOP: 4,
   0: "SOURCE_READY",
   1: "MIRROR_READY",
   2: "SEND_RECORD",
   3: "ACK_RECORD",
+  4: "STOP",
 };
 
 // for testing
@@ -21,6 +23,7 @@ export class LocalTransporter {
       MIRROR_READY: [],
       SEND_RECORD: [],
       ACK_RECORD: [],
+      STOP: [],
     };
     localStorage.removeItem(STORAGE_KEY);
     window.addEventListener("storage", (e) => {
@@ -75,6 +78,12 @@ export class LocalTransporter {
     });
   }
 
+  sendStop() {
+    this.setItem({
+      event: EVENTS.SOURCE_READY,
+    });
+  }
+
   on(event, handler) {
     switch (event) {
       case "sourceReady":
@@ -88,6 +97,9 @@ export class LocalTransporter {
         break;
       case "ack":
         this.handlers.ACK_RECORD.push(handler);
+        break;
+      case "stop":
+        this.handlers.STOP.push(handler);
         break;
       default:
         break;
@@ -103,6 +115,7 @@ export class RtcTransporter {
       MIRROR_READY: [],
       SEND_RECORD: [],
       ACK_RECORD: [],
+      STOP: [],
     };
     this.client = AgoraRTM.createInstance(AGORA_APP_ID, {
       logFilter: AgoraRTM.LOG_FILTER_WARNING,
@@ -123,7 +136,7 @@ export class RtcTransporter {
   }
 
   async login() {
-    return;
+    // return;
     let retry = 5;
     let loginResult;
     let loginError;
@@ -174,6 +187,15 @@ export class RtcTransporter {
     );
   }
 
+  sendStop() {
+    return this.client.sendMessageToPeer(
+      {
+        text: JSON.stringify({ event: EVENTS.STOP }),
+      },
+      APP_UID
+    );
+  }
+
   on(event, handler) {
     switch (event) {
       case "sourceReady":
@@ -187,6 +209,9 @@ export class RtcTransporter {
         break;
       case "ack":
         this.handlers.ACK_RECORD.push(handler);
+        break;
+      case "stop":
+        this.handlers.STOP.push(handler);
         break;
       default:
         break;
