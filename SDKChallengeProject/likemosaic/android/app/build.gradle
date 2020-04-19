@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         release {
-            storeFile file('/Users/bear/FlutterProjects/likeMosaic/android/app/mosaic')
+            storeFile file('./mosaic')
             storePassword 'mosaic2020'
             keyAlias = 'mosaic'
             keyPassword 'mosaic2020'
