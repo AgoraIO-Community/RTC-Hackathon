@@ -1,12 +1,17 @@
 <script>
-  import { record } from "rrweb";
+  import { record, mirror } from "rrweb";
   import { createMachine, interpret } from "@xstate/fsm";
   import { onMount, onDestroy } from "svelte";
   import { quintOut } from "svelte/easing";
   import { scale } from "svelte/transition";
   import { RtcTransporter } from "./transport";
   import { SourceBuffer } from "./buffer";
-  import { EMBED_UID, CUSTOM_EVENT_TAGS } from "./constant";
+  import {
+    EMBED_UID,
+    CUSTOM_EVENT_TAGS,
+    REMOTE_CONTROL_ACTIONS,
+  } from "./constant";
+  import { applyMirrorAction } from "./common";
   import Panel from "./components/Panel.svelte";
   import Tag from "./components/Tag.svelte";
 
@@ -84,6 +89,43 @@
     }
   );
 
+  const controlMachine = createMachine(
+    {
+      initial: "not_control",
+      states: {
+        not_control: {
+          on: {
+            REQUEST: {
+              target: "requesting",
+            },
+          },
+        },
+        requesting: {
+          on: {
+            ACCEPT: {
+              target: "controlled",
+              actions: ["accept"],
+            },
+          },
+        },
+        controlled: {
+          on: {
+            STOP: {
+              target: "not_control",
+            },
+          },
+        },
+      },
+    },
+    {
+      actions: {
+        accept() {
+          record.addCustomEvent(CUSTOM_EVENT_TAGS.ACCEPT_REMOTE_CONTROL);
+        },
+      },
+    }
+  );
+
   let selecting = false;
   let mask;
   $: mask && document.body.appendChild(mask);
@@ -136,6 +178,7 @@
     blockElSet.delete(el);
     blockElSet = blockElSet;
     removeHighlight();
+    el.classList.remove("rr-block");
   };
   function handleSelectBlock() {
     if (selecting) {
@@ -151,22 +194,50 @@
     record.addCustomEvent(CUSTOM_EVENT_TAGS.MOUSE_SIZE, { level });
   }
 
+  function stopRemoteControl() {
+    record.addCustomEvent(CUSTOM_EVENT_TAGS.STOP_REMOTE_CONTROL);
+    controlService.send("STOP");
+  }
+
   let current = embedMachine.initialState;
   const service = interpret(embedMachine);
+
+  let controlCurrent = controlMachine.initialState;
+  const controlService = interpret(controlMachine);
+
   onMount(() => {
     service.start();
     service.subscribe((state) => {
       current = state;
     });
+    controlService.start();
+    controlService.subscribe((state) => {
+      controlCurrent = state;
+    });
+
     transporter.on("mirrorReady", () => {
       service.send("CONNECT");
     });
     transporter.on("ack", ({ payload }) => {
       buffer.delete(payload);
     });
+    transporter.on("remoteControl", ({ payload }) => {
+      switch (payload.action) {
+        case REMOTE_CONTROL_ACTIONS.REQUEST:
+          controlService.send("REQUEST");
+          break;
+        case REMOTE_CONTROL_ACTIONS.STOP:
+          controlService.send("STOP");
+          break;
+        default:
+          applyMirrorAction(mirror, payload);
+          break;
+      }
+    });
   });
   onDestroy(() => {
     service.stop();
+    controlService.stop();
   });
 </script>
 
@@ -203,11 +274,22 @@
         </button>
       </div>
       {:else if current.matches('ready')}
-      <div class="syncit-center syncit-load-text">已启用，等待连接中</div>
+      <div class="syncit-center syncit-load-text">
+        <div class="syncit-load-text">
+          已启用，等待连接中
+        </div>
+        <button
+          style="margin-top: 8px;"
+          class="syncit-btn ordinary"
+          on:click="{() => transporter.sendSourceReady()}"
+        >
+          重试
+        </button>
+      </div>
       {:else if current.matches('connected')}
       <div class="syncit-center">
         <div class="syncit-panel-control">
-          <div>镜像鼠标尺寸</div>
+          <p>镜像鼠标尺寸</p>
           <div class="syncit-mouses">
             {#each ['小', '中', '大'] as size, idx}
             <button
@@ -218,6 +300,29 @@
             </button>
             {/each}
           </div>
+          <p>
+            远程控制：
+            <!---->
+            {#if controlCurrent.matches('not_control')}未启用
+            <!---->
+            {:else if controlCurrent.matches('requesting')}申请中
+            <!---->
+            {:else if controlCurrent.matches('controlled')}已启用
+            <!---->
+            {/if}
+          </p>
+          {#if controlCurrent.matches('requesting')}
+          <button
+            class="syncit-btn ordinary"
+            on:click="{() => controlService.send('ACCEPT')}"
+          >
+            允许远程控制
+          </button>
+          {:else if controlCurrent.matches('controlled')}
+          <button class="syncit-btn ordinary" on:click="{stopRemoteControl}">
+            终止远程控制
+          </button>
+          {/if}
         </div>
         <button class="syncit-btn" on:click="{() => service.send('STOP')}">
           停止分享

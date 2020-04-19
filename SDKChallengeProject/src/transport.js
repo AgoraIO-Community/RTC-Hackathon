@@ -7,11 +7,13 @@ const EVENTS = {
   SEND_RECORD: 2,
   ACK_RECORD: 3,
   STOP: 4,
+  REMOTE_CONTROL: 5,
   0: "SOURCE_READY",
   1: "MIRROR_READY",
   2: "SEND_RECORD",
   3: "ACK_RECORD",
   4: "STOP",
+  5: "REMOTE_CONTROL",
 };
 
 // for testing
@@ -24,6 +26,7 @@ export class LocalTransporter {
       SEND_RECORD: [],
       ACK_RECORD: [],
       STOP: [],
+      REMOTE_CONTROL: [],
     };
     localStorage.removeItem(STORAGE_KEY);
     window.addEventListener("storage", (e) => {
@@ -80,7 +83,14 @@ export class LocalTransporter {
 
   sendStop() {
     this.setItem({
-      event: EVENTS.SOURCE_READY,
+      event: EVENTS.STOP,
+    });
+  }
+
+  sendRemoteControl(payload) {
+    this.setItem({
+      event: EVENTS.REMOTE_CONTROL,
+      payload,
     });
   }
 
@@ -101,6 +111,9 @@ export class LocalTransporter {
       case "stop":
         this.handlers.STOP.push(handler);
         break;
+      case "remoteControl":
+        this.handlers.REMOTE_CONTROL.push(handler);
+        break;
       default:
         break;
     }
@@ -116,6 +129,7 @@ export class RtcTransporter {
       SEND_RECORD: [],
       ACK_RECORD: [],
       STOP: [],
+      REMOTE_CONTROL: [],
     };
     this.client = AgoraRTM.createInstance(AGORA_APP_ID, {
       logFilter: AgoraRTM.LOG_FILTER_WARNING,
@@ -196,6 +210,15 @@ export class RtcTransporter {
     );
   }
 
+  sendRemoteControl(payload) {
+    return this.client.sendMessageToPeer(
+      {
+        text: JSON.stringify({ event: EVENTS.REMOTE_CONTROL, payload }),
+      },
+      EMBED_UID
+    );
+  }
+
   on(event, handler) {
     switch (event) {
       case "sourceReady":
@@ -212,6 +235,9 @@ export class RtcTransporter {
         break;
       case "stop":
         this.handlers.STOP.push(handler);
+        break;
+      case "remoteControl":
+        this.handlers.REMOTE_CONTROL.push(handler);
         break;
       default:
         break;

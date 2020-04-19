@@ -6,8 +6,12 @@
   import { scale } from "svelte/transition";
   import { RtcTransporter } from "./transport";
   import { BUFFER_MS, MirrorBuffer } from "./buffer";
-  import { APP_UID, CUSTOM_EVENT_TAGS } from "./constant";
-  import { formatBytes } from "./common.js";
+  import {
+    APP_UID,
+    CUSTOM_EVENT_TAGS,
+    REMOTE_CONTROL_ACTIONS,
+  } from "./constant";
+  import { formatBytes, onMirror, isIgnoredOnRmoteControl } from "./common.js";
   import Panel from "./components/Panel.svelte";
   import LineChart from "./components/LineChart.svelte";
 
@@ -75,6 +79,63 @@
     }
   );
 
+  let stopControl;
+  const controlMachine = createMachine(
+    {
+      initial: "not_control",
+      states: {
+        not_control: {
+          on: {
+            REQUEST: {
+              target: "requested",
+              actions: ["request"],
+            },
+          },
+        },
+        requested: {
+          on: {
+            ACCEPTED: {
+              target: "controlling",
+              actions: ["accepted"],
+            },
+          },
+        },
+        controlling: {
+          on: {
+            STOP_CONTROL: {
+              target: "not_control",
+              actions: ["stopControl"],
+            },
+          },
+        },
+      },
+    },
+    {
+      actions: {
+        request() {
+          transporter.sendRemoteControl({
+            action: REMOTE_CONTROL_ACTIONS.REQUEST,
+          });
+        },
+        accepted() {
+          replayer.enableInteract();
+          stopControl = onMirror(replayer.iframe, (payload) => {
+            transporter.sendRemoteControl(payload);
+          });
+        },
+        stopControl() {
+          transporter.sendRemoteControl({
+            action: REMOTE_CONTROL_ACTIONS.STOP,
+          });
+          replayer.disableInteract();
+          if (stopControl) {
+            stopControl();
+          }
+        },
+      },
+    }
+  );
+
   function connect() {
     service.send("CONNECT");
     transporter.sendMirrorReady();
@@ -136,11 +197,20 @@
 
   let current = appMachine.initialState;
   const service = interpret(appMachine);
+
+  let controlCurrent = controlMachine.initialState;
+  const controlService = interpret(controlMachine);
+
   onMount(() => {
     service.start();
     service.subscribe((state) => {
       current = state;
     });
+    controlService.start();
+    controlService.subscribe((state) => {
+      controlCurrent = state;
+    });
+
     transporter.on("sourceReady", () => {
       service.send("SOURCE_READY");
     });
@@ -150,20 +220,31 @@
         replayer.startLive(chunk.timestamp - BUFFER_MS);
         service.send("FIRST_RECORD");
       }
-      if (
-        chunk.type === EventType.Custom &&
-        chunk.data.tag === CUSTOM_EVENT_TAGS.PING
-      ) {
-        latencies = latencies.concat({ x: t, y: Date.now() - t });
-      }
-      if (
-        chunk.type === EventType.Custom &&
-        chunk.data.tag === CUSTOM_EVENT_TAGS.MOUSE_SIZE
-      ) {
-        mouseSize = `syncit-mouse-s${chunk.data.payload.level}`;
+      if (chunk.type === EventType.Custom) {
+        switch (chunk.data.tag) {
+          case CUSTOM_EVENT_TAGS.PING:
+            latencies = latencies.concat({ x: t, y: Date.now() - t });
+            break;
+          case CUSTOM_EVENT_TAGS.MOUSE_SIZE:
+            mouseSize = `syncit-mouse-s${chunk.data.payload.level}`;
+            break;
+          case CUSTOM_EVENT_TAGS.ACCEPT_REMOTE_CONTROL:
+            controlService.send("ACCEPTED");
+            break;
+          case CUSTOM_EVENT_TAGS.STOP_REMOTE_CONTROL:
+            controlService.send("STOP_CONTROL");
+            break;
+          default:
+            break;
+        }
       }
       Promise.resolve().then(() => collectSize(t, pack(chunk)));
-      buffer.add({ id, chunk });
+      if (
+        !controlCurrent.matches("controlling") ||
+        !isIgnoredOnRmoteControl(chunk)
+      ) {
+        buffer.add({ id, chunk });
+      }
       transporter.ackRecord(id);
     });
     transporter.on("stop", () => {
@@ -172,6 +253,7 @@
   });
   onDestroy(() => {
     service.stop();
+    controlService.stop();
   });
 </script>
 
@@ -229,6 +311,28 @@
             <LineChart points="{_sizes}" color="#8C83ED"></LineChart>
           </div>
         </div>
+        <div>
+          <p>远程控制</p>
+          {#if controlCurrent.matches('not_control')}
+          <button
+            class="syncit-btn ordinary"
+            on:click="{() => controlService.send('REQUEST')}"
+          >
+            申请控制
+          </button>
+          {:else if controlCurrent.matches('requested')}
+          <button class="syncit-btn ordinary" disabled>
+            已申请
+          </button>
+          {:else if controlCurrent.matches('controlling')}
+          <button
+            class="syncit-btn ordinary"
+            on:click="{() => controlService.send('STOP_CONTROL')}"
+          >
+            停止控制
+          </button>
+          {/if}
+        </div>
       </Panel>
     </div>
     {/if}
@@ -264,6 +368,10 @@
   }
   :global(iframe) {
     border: none;
+  }
+  :global(p) {
+    margin-top: 0;
+    margin-bottom: 8px;
   }
   :global(.replayer-wrapper) {
     position: relative;
