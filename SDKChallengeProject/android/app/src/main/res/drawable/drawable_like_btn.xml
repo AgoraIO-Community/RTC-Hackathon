@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item
+        android:drawable="@drawable/btn_like_00000"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00012"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00022"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00032"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00042"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00052"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00062"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00072"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00082"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00092"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00102"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00112"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00122"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00132"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00142"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00152"
+        android:duration="150" />
+    <item
+        android:drawable="@drawable/btn_like_00162"
+        android:duration="150" />
+</animation-list>

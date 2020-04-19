@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_video_chat_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_home"
+    tools:context=".call.VideoCallActivity">
+
+    <FrameLayout
+        android:id="@+id/remote_video_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="228dp"
+        android:background="@color/remoteBackground" />
+
+    <ImageView
+        android:id="@+id/iv_like"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/drawable_like_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/remote_video_view_container" />
+
+    <ImageView
+        android:id="@+id/btn_mute"
+        android:layout_width="@dimen/other_button_size"
+        android:layout_height="@dimen/other_button_size"
+        android:layout_marginTop="22dp"
+        android:layout_marginRight="22dp"
+        android:elevation="1dp"
+        android:onClick="onLocalAudioMuteClicked"
+        android:scaleType="centerCrop"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/btn_mute" />
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="@dimen/other_button_size"
+        android:layout_height="@dimen/other_button_size"
+        android:layout_marginLeft="22dp"
+        android:elevation="1dp"
+        android:onClick="onLocalAudioMuteClicked"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_mute"
+        app:srcCompat="@drawable/icon_quit" />
+
+    <ProgressBar
+        android:id="@+id/pb_like"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="90dp"
+        android:layout_height="10dp"
+        android:max="300"
+        android:progress="60"
+        android:progressDrawable="@drawable/drawable_like_progress"
+        app:layout_constraintBottom_toBottomOf="@id/iv_like"
+        app:layout_constraintLeft_toRightOf="@id/iv_like"
+        app:layout_constraintTop_toTopOf="@id/iv_like" />
+
+    <TextView
+        android:id="@+id/tv_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_like"
+        app:layout_constraintLeft_toRightOf="@id/pb_like"
+        app:layout_constraintTop_toTopOf="@id/iv_like">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/drawable_round_react"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="12dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/remote_video_view_container"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/local_video_view_container" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/local_video_view_container"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_alignBottom="@id/remote_video_view_container"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/local_preview_margin_right"
+        android:layout_marginBottom="180dp"
+        android:background="@color/localBackground"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    </androidx.cardview.widget.CardView>
+
+    <com.ismaeltoe.FlowLayout
+        android:id="@+id/fl_tag"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        app:horizontalPadding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/local_video_view_container"
+        app:verticalPadding="16dp">
+
+        <ImageView
+            android:id="@+id/btn_refresh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_refresh"
+            android:tag="@string/refresh" />
+
+    </com.ismaeltoe.FlowLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
