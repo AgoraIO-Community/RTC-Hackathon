@@ -2,12 +2,13 @@
   import { record } from "rrweb";
   import { createMachine, interpret } from "@xstate/fsm";
   import { onMount, onDestroy } from "svelte";
+  import { quintOut } from "svelte/easing";
+  import { scale } from "svelte/transition";
   import { RtcTransporter } from "./transport";
   import { SourceBuffer } from "./buffer";
   import { EMBED_UID } from "./constant";
   import Panel from "./components/Panel.svelte";
-  import { quintOut } from "svelte/easing";
-  import { scale, blur } from "svelte/transition";
+  import Tag from "./components/Tag.svelte";
 
   const transporter = new RtcTransporter(EMBED_UID);
   let login = transporter.login();
@@ -76,23 +77,37 @@
   );
 
   let selecting = false;
+  let mask;
+  $: mask && document.body.appendChild(mask);
+  let blockElSet = new Set();
+  $: blockEls = Array.from(blockElSet);
+
+  const highlight = (target) => {
+    const { x, y, width, height } = target.getBoundingClientRect();
+    Object.assign(mask.style, {
+      left: `${x}px`,
+      top: `${y}px`,
+      width: `${width}px`,
+      height: `${height}px`,
+    });
+  };
+  const removeHighlight = () => {
+    Object.assign(mask.style, {
+      left: 0,
+      top: 0,
+      width: 0,
+      height: 0,
+    });
+  };
+
   const over = (event) => {
     if (
       event.target &&
       ref !== event.target &&
       !ref.contains(event.target) &&
-      event.target.classList
+      event.target !== document.body
     ) {
-      event.target.classList.add("syncit-block");
-    }
-  };
-  const out = (event) => {
-    if (
-      event.target &&
-      event.target.classList &&
-      !event.target.classList.contains("rr-block")
-    ) {
-      event.target.classList.remove("syncit-block");
+      highlight(event.target);
     }
   };
   const click = (event) => {
@@ -100,21 +115,26 @@
       return;
     }
     event.target.classList.add("rr-block");
+    blockElSet = blockElSet.add(event.target);
     cancelSelect();
   };
   const cancelSelect = () => {
     selecting = false;
-    window.removeEventListener("mouseover", over, { capture: true });
-    window.removeEventListener("mouseout", out, { capture: true });
+    removeHighlight();
+    window.removeEventListener("mousemove", over, { capture: true });
     window.removeEventListener("click", click, { capture: true });
+  };
+  const removeBlockEl = (el) => {
+    blockElSet.delete(el);
+    blockElSet = blockElSet;
+    removeHighlight();
   };
   function handleSelectBlock() {
     if (selecting) {
       cancelSelect();
     } else {
       selecting = true;
-      window.addEventListener("mouseover", over, { capture: true });
-      window.addEventListener("mouseout", out, { capture: true });
+      window.addEventListener("mousemove", over, { capture: true });
       window.addEventListener("click", click, { capture: true });
     }
   }
@@ -151,9 +171,21 @@
       <!-- -->
       {#if current.matches('idle')}
       <div class="syncit-center">
-        <button class="syncit-btn ordinary" on:click="{handleSelectBlock}">
-          {selecting ? '取消' : '选择屏蔽区域'}
-        </button>
+        <div class="syncit-panel-control">
+          <button class="syncit-btn ordinary" on:click="{handleSelectBlock}">
+            {selecting ? '取消' : '选择屏蔽区域'}
+          </button>
+          <div class="syncit-block-els">
+            {#each blockEls as el, idx}
+            <Tag
+              on:mouseover="{() => highlight(el)}"
+              on:mouseout="{removeHighlight}"
+              on:click="{() => removeBlockEl(el)}"
+              >区域-{idx + 1}
+            </Tag>
+            {/each}
+          </div>
+        </div>
         <button class="syncit-btn" on:click="{() => service.send('START')}">
           启用 syncit 分享
         </button>
@@ -177,14 +209,12 @@
     <img alt="icon" src="{icon}" />
   </button>
   <!---->
+  <div bind:this="{mask}" class="syncit-mask"></div>
 </div>
 
 <style>
   :global(button) {
     outline: none;
-  }
-  :global(.syncit-block) {
-    box-shadow: 0 0 6px #e75a3a;
   }
 
   .syncit-embed {
@@ -252,5 +282,34 @@
 
   .syncit-error {
     color: #e75a3a;
+  }
+
+  .syncit-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 999999;
+    background: rgba(136, 194, 232, 0.75);
+    border: 1px solid rgba(5, 150, 45, 0.5);
+  }
+
+  .syncit-panel-control {
+    flex: 1;
+    width: 100%;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(235, 239, 245, 0.6);
+    margin-bottom: 8px;
+  }
+
+  .syncit-block-els {
+    display: flex;
+    overflow: auto;
+    word-break: keep-all;
+  }
+
+  .syncit-block-els > :global(span) {
+    cursor: pointer;
+    margin-right: 4px;
   }
 </style>

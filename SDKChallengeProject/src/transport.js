@@ -123,6 +123,7 @@ export class RtcTransporter {
   }
 
   async login() {
+    return;
     let retry = 5;
     let loginResult;
     let loginError;
