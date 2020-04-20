@@ -40,6 +40,7 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
     private var mLikeCountOther2Me = 50
     private var mTimerCount = 0
     private val LOCK_LIKE_COUNT = Any()
+    private var mOtherOnline = false
     private lateinit var mTimer: Timer
 
     init {
@@ -57,7 +58,7 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                     mLikeCountOther2Me--
                 }
 
-                view?.refreshLike(mLikeCountOther2Me)
+                view?.refreshLike(mLikeCountMe2Other)
 
                 if (mLikeCountMe2Other <= 0) {
                     //好感度为0，聊天结束
@@ -67,14 +68,18 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                 }
 
                 if (mLikeCountOther2Me <= 0) {
-                    view?.onUserLeft()
+//                    view?.onUserLeft()
                     mTimer.cancel()
                     return
                 }
 
                 mTimerCount++
+
                 if (mTimerCount == 5) {
                     view?.showQuitBtn()
+                    if (!mOtherOnline) {
+                        view?.onUserLeft()
+                    }
                 }
 
                 if (mTimerCount == 10) {
@@ -85,7 +90,7 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                     view?.showNote("对方对你的好感度降至冰点了！")
                 }
 
-                if (mLikeCountOther2Me == 20) {
+                if (mLikeCountMe2Other == 20) {
                     view?.showNote("双击对方的画面，可以增加你对他/她的好感度哦！")
                 }
 
@@ -131,7 +136,6 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                     super.onUserOffline(uid, reason)
                     view?.onUserLeft()
                 }
-
             })
         } catch (e: Exception) {
             Log.e(TAG, Log.getStackTraceString(e))
@@ -156,6 +160,8 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                 return@registerMessage
             }
 
+            mOtherOnline = true
+
             when (message.key) {
                 MessageBean.KEY_SELECT_TOPIC -> {
                     view?.receiveSelectTag(message.data as SelectTopicBean?)
@@ -179,11 +185,15 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                         }
                     }
                     mLikeCountOther2Me = likeCount
-                    view?.refreshLike(mLikeCountOther2Me)
+//                    view?.refreshLike(mLikeCountMe2Other)
                 }
 
                 MessageBean.KEY_QUIT_ROOM -> {
 //                    view?.onUserLeft()
+                }
+
+                MessageBean.KEY_ONLINE_IN_ROOM -> {
+                    mOtherOnline = true
                 }
             }
 //            if (!TextUtils.isEmpty(message.text)) {
@@ -209,7 +219,7 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
 
     override fun quitRoom() {
         //发送离开频道的消息
-        sendQuitRoomMessage()
+//        sendQuitRoomMessage()
         //
         mRtcEngine?.leaveChannel()
         mModel?.logoutRtm()

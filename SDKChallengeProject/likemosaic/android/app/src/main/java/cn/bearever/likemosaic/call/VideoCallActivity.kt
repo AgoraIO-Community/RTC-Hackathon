@@ -332,7 +332,6 @@ class VideoCallActivity : BaseActivity<VideoCallPresenter?>(), VideoCallContact.
 
     private fun leaveChannel() {
         mPresenter?.quitRoom()
-        finish()
     }
 
     fun onLocalAudioMuteClicked(view: View?) {
@@ -351,6 +350,7 @@ class VideoCallActivity : BaseActivity<VideoCallPresenter?>(), VideoCallContact.
         removeLocalVideo()
         removeRemoteVideo()
         leaveChannel()
+        finish()
     }
 
     private fun removeLocalVideo() {

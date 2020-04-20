@@ -28,4 +28,7 @@ public class MessageBean<D extends Serializable> implements Serializable {
     public static final String KEY_REMOTE_LIKE_CHANGE = "KEY_REMOTE_LIKE_CHANGE";
 
     public static final String KEY_QUIT_ROOM = "KEY_QUIT_ROOM";
+
+    //用于告诉对方我已经进入房间了，如果5秒内没有收到对方的消息，则表示对方不在线
+    public static final String KEY_ONLINE_IN_ROOM= "KEY_ONLINE_IN_ROOM";
 }
