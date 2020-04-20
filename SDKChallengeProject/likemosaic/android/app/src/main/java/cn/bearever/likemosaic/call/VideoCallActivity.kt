@@ -119,6 +119,7 @@ class VideoCallActivity : BaseActivity<VideoCallPresenter?>(), VideoCallContact.
             }
         }
 
+        imageView.visibility = View.VISIBLE
         imageView.measure(0, 0)
         imageView.x = x - imageView.measuredWidth / 2
         imageView.y = y - imageView.measuredHeight
