@@ -44,7 +44,7 @@
 | 罗明 | 负责Android项目和服务端开发，负责马赛克算法实现 | luomingbear@163.com |
 
 ## 编译说明
-整个项目文件夹说明如下，客户端目前仅有`Android`端，使用Android Studio开发，服务端使用SpringBoot开发。
+整个项目文件夹说明如下，客户端目前仅有`Android`端，使用Android Studio开发，服务端基于SpringBoot使用intelliJ开发。
 
 ```javascript
 |-- android //Android项目的代码文件夹
