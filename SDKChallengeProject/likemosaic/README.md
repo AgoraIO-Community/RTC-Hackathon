@@ -32,6 +32,15 @@
 
 下载链接：[https://github.com/Luomingbear/likeMosaic/releases/download/1.0/mosaic01.apk](https://github.com/Luomingbear/likeMosaic/releases/download/1.0/mosaic01.apk)
 
+## 团队介绍
+团队名：神隆架
+团队成员及分工
+| 成员 | 分工 |
+|---|---|
+| 周神 | 负责Flutter项目的开发和Android项目开发 |
+| 朝仪 | 负责产品的UI设计、产品交互设计等 |
+| 罗明 | 负责Android项目和服务端开发，负责马赛克算法实现 |
+
 ## 编译说明
 整个项目文件夹说明如下，客户端目前仅有`Android`端，使用Android Studio开发，服务端使用SpringBoot开发。
 
