@@ -12,8 +12,6 @@
 extern "C" {
 
 
-unsigned char ClipValue(unsigned char x, unsigned char min_val, unsigned char max_val);
-
 int convertColor(int color, int size);
 
 /**
@@ -38,6 +36,7 @@ JNIEXPORT jbyteArray JNICALL Java_cn_bearever_likemosaic_home_MosaicVideoSink_mo
     pixStyleYuv(input, out, width, height, scale, bit);
     jbyteArray outData = env->NewByteArray(len);
     env->SetByteArrayRegion(outData, 0, len, (jbyte *) out);
+    free(out);
     return outData;
 }
 
@@ -143,43 +142,5 @@ pixStyleYuv(unsigned char *input_yuv, unsigned char *output_yuv, int width, int 
     free(out_v);
     printf("pix style yuv end\n");
 }
-unsigned char ClipValue(unsigned char x, unsigned char min_val, unsigned char max_val) {
-    if (x > max_val) {
-        return max_val;
-    } else if (x < min_val) {
-        return min_val;
-    } else {
-        return x;
-    }
-}
-unsigned char *rgb2yuv420(unsigned char *rgb24, int width, int height) {
-    unsigned char *ptrY, *ptrU, *ptrV;
-    unsigned char *yuv420p = (unsigned char *) malloc(width * height * 3 / 2);
-    memset(yuv420p, 0, width * height * 3 / 2);
-    ptrY = yuv420p;
-    ptrU = yuv420p + width * height;
-    ptrV = ptrU + (width * height * 1 / 4);
-    unsigned char y, u, v, r, g, b;
-    int index = 0;
-    for (int j = 0; j < height; j++) {
-        for (int i = 0; i < width; i++) {
-            index = width * j * 3 + i * 3;
-            r = rgb24[index];
-            g = rgb24[index + 1];
-            b = rgb24[index + 2];
-            y = (unsigned char) ((66 * r + 129 * g + 25 * b + 128) >> 8) + 16;
-            u = (unsigned char) ((-38 * r - 74 * g + 112 * b + 128) >> 8) + 128;
-            v = (unsigned char) ((112 * r - 94 * g - 18 * b + 128) >> 8) + 128;
-            *(ptrY++) = ClipValue(y, 0, 255);
-            if (j % 2 == 0 && i % 2 == 0) {
-                *(ptrU++) = ClipValue(u, 0, 255);
-            } else if (i % 2 == 0) {
-                *(ptrV++) = ClipValue(v, 0, 255);
-            }
-        }
-    }
-    return yuv420p;
-}
-
 
 }

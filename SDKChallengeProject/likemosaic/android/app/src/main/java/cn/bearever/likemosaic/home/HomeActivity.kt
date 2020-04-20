@@ -63,6 +63,7 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
 
     override fun initPresenter() {
         mPresenter = HomePresenter(this, this)
+        initRtcEngine()
     }
 
     override fun initView() {
@@ -70,6 +71,7 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         btn_match.setOnClickListener {
             it.isEnabled = false
             it.isSelected = !it.isSelected
+            mStartCallVideo = false
             if (it.isSelected) {
                 requestPermission()
             } else {
@@ -221,14 +223,12 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         }
         mRtcEngine.setLocalVideoRenderer(localView)
         if (AsyncPermission.with(this).checkNoTest(Manifest.permission.CAMERA)) {
-            mRtcEngine.startPreview()
+            fl_mine_container.post {
+                mRtcEngine.startPreview()
+            }
         }
     }
 
-    private fun removeLocalVideo() {
-        mRtcEngine.stopPreview()
-        fl_mine_container.removeAllViews()
-    }
 
     private fun setupRemoteVideo(uid: Int) {
         fl_remote_container.removeAllViews()
@@ -267,8 +267,12 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
 
     override fun onResume() {
         super.onResume()
-        initRtcEngine()
         setupLocalVideo()
+    }
+
+    private fun removeLocalVideo() {
+        mRtcEngine.stopPreview()
+        fl_mine_container.removeAllViews()
     }
 
     override fun onStop() {

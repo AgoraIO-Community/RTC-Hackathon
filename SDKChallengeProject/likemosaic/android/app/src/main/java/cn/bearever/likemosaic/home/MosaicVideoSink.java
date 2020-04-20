@@ -50,6 +50,8 @@ public class MosaicVideoSink extends AgoraTextureView {
         int bit = 64;
         byte[] out = mosaicI420(data, width, height, mosaiclevel, bit);
         super.consumeByteArrayFrame(out, pixelFormat, width, height, rotation, ts);
+        data = null;
+        out=null;
     }
 
     /**

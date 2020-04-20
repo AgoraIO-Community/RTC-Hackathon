@@ -98,27 +98,35 @@ class VideoCallActivity : BaseActivity<VideoCallPresenter?>(), VideoCallContact.
     }
 
     private fun startDoubleClickAnimation(v: View, x: Float, y: Float) {
-        if (remote_video_view_container.childCount > 3) {
-            Log.d(TAG, "点赞动画太多了！")
-            return
+        var imageView: ImageView? = null
+        if (remote_video_view_container.childCount < 3) {
+            imageView = ImageView(this)
+            val p = FrameLayout.LayoutParams(DipPxUtil.dip2px(300F), DipPxUtil.dip2px(300F))
+            imageView.layoutParams = p
+            imageView.setImageDrawable(resources.getDrawable(R.drawable.drawable_like_click))
+            imageView.setTag("likeClickanimation")
+            remote_video_view_container.addView(imageView)
+        } else {
+            for (i in 0 until remote_video_view_container.childCount) {
+                val child = remote_video_view_container.getChildAt(i)
+                if (child is ImageView && child.visibility == View.GONE) {
+                    imageView = child
+                    break
+                }
+            }
+            if (imageView == null) {
+                return
+            }
         }
 
-        val imageView = ImageView(this)
-        val p = FrameLayout.LayoutParams(DipPxUtil.dip2px(300F), DipPxUtil.dip2px(300F))
-        imageView.layoutParams = p
-        imageView.setImageDrawable(resources.getDrawable(R.drawable.drawable_like_click))
-        imageView.setTag("likeClickanimation")
-        remote_video_view_container.addView(imageView)
         imageView.measure(0, 0)
-        imageView.x = x - p.width / 2
-        imageView.y = y - p.height
-
+        imageView.x = x - imageView.measuredWidth / 2
+        imageView.y = y - imageView.measuredHeight
         val animation = (imageView.drawable as AnimationDrawable)
         animation.start()
-        remote_video_view_container.postDelayed(object : Runnable {
+        imageView.postDelayed(object : Runnable {
             override fun run() {
-                imageView.clearAnimation()
-                remote_video_view_container.removeView(imageView)
+                imageView.visibility = View.GONE
             }
         }, 1500)
     }
