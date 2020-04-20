@@ -30,7 +30,7 @@
 
 兼容性：支持Android SDK >= 17
 
-下载链接：[https://github.com/Luomingbear/likeMosaic/releases/download/1.0/mosaic01.apk](https://github.com/Luomingbear/likeMosaic/releases/download/1.0/mosaic01.apk)
+下载链接：[https://github.com/Luomingbear/likeMosaic/releases/download/1.0.1/mosaic101.apk](https://github.com/Luomingbear/likeMosaic/releases/download/1.0.1/mosaic101.apk)
 
 ## 团队介绍
 
