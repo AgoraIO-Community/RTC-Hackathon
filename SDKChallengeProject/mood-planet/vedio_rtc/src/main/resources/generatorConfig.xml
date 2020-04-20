@@ -1,0 +1,84 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE generatorConfiguration-->
+<!--        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">-->
+<!--<generatorConfiguration>-->
+<!--    &lt;!&ndash;加载配置文件，为下面读取数据库信息准备&ndash;&gt;-->
+<!--&lt;!&ndash;    <properties resource="application.yml"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <classPathEntry location="E:\code\mysql-connector-java-5.1.46.jar"/>&ndash;&gt;-->
+
+<!--    &lt;!&ndash;defaultModelType="flat" 大数据字段，不分表 &ndash;&gt;-->
+<!--    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">-->
+<!--        <property name="autoDelimitKeywords" value="true" />-->
+<!--        <property name="beginningDelimiter" value="`" />-->
+<!--        <property name="endingDelimiter" value="`" />-->
+<!--        <property name="javaFileEncoding" value="utf-8" />-->
+<!--        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />-->
+
+<!--        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+
+<!--&lt;!&ndash;        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>&ndash;&gt;-->
+
+<!--        &lt;!&ndash; 注释 &ndash;&gt;-->
+<!--        <commentGenerator >-->
+<!--            <property name="suppressAllComments" value="true"/>&lt;!&ndash; 是否取消注释 &ndash;&gt;-->
+<!--            <property name="suppressDate" value="true" /> &lt;!&ndash; 是否生成注释代时间戳&ndash;&gt;-->
+<!--        </commentGenerator>-->
+
+<!--        &lt;!&ndash;数据库链接地址账号密码&ndash;&gt;-->
+<!--&lt;!&ndash;        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"&ndash;&gt;-->
+<!--&lt;!&ndash;                        connectionURL="${spring.datasource.url}"&ndash;&gt;-->
+<!--&lt;!&ndash;                        userId="${spring.datasource.username}"&ndash;&gt;-->
+<!--&lt;!&ndash;                        password="${spring.datasource.password}">&ndash;&gt;-->
+<!--&lt;!&ndash;        </jdbcConnection>&ndash;&gt;-->
+
+<!--        <jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+<!--                        connectionURL="jdbc:mysql://localhost:3306/testdata" userId="root"-->
+<!--                        password="root">-->
+<!--        </jdbcConnection>-->
+
+<!--        &lt;!&ndash; 类型转换 &ndash;&gt;-->
+<!--        <javaTypeResolver>-->
+<!--            &lt;!&ndash; 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） &ndash;&gt;-->
+<!--            <property name="forceBigDecimals" value="false"/>-->
+<!--        </javaTypeResolver>-->
+
+<!--        &lt;!&ndash;生成Model类存放位置&ndash;&gt;-->
+<!--        <javaModelGenerator targetPackage="com.learnhow.springboot.web.entity" targetProject="src/main/java">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--            <property name="trimStrings" value="true"/>-->
+<!--        </javaModelGenerator>-->
+
+<!--        &lt;!&ndash; 生成mapxml文件 &ndash;&gt;-->
+<!--        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/mybatis" >-->
+<!--            <property name="enableSubPackages" value="false" />-->
+<!--        </sqlMapGenerator>-->
+
+<!--        &lt;!&ndash; 生成mapxml对应client，也就是接口dao &ndash;&gt;-->
+<!--        <javaClientGenerator targetPackage="com.learnhow.springboot.web.dao" targetProject="src/main/java" type="XMLMAPPER" >-->
+<!--            <property name="enableSubPackages" value="false" />-->
+<!--        </javaClientGenerator>-->
+
+<!--        <table tableName="user_t" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+<!--        </table>-->
+
+<!--        <table tableName="role_t" domainObjectName="Role" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+<!--        </table>-->
+
+<!--        <table tableName="permission_t" domainObjectName="Permission" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+<!--        </table>-->
+
+<!--        <table tableName="user_role_t" domainObjectName="UserRole" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+<!--        </table>-->
+
+<!--        <table tableName="role_permission_t" domainObjectName="RolePermission" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+<!--        </table>-->
+
+<!--    </context>-->
+<!--</generatorConfiguration>-->
