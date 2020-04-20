@@ -33,7 +33,9 @@
 下载链接：[https://github.com/Luomingbear/likeMosaic/releases/download/1.0/mosaic01.apk](https://github.com/Luomingbear/likeMosaic/releases/download/1.0/mosaic01.apk)
 
 ## 团队介绍
-团队名：神隆架
+
+团队名：**神隆架**
+
 团队成员及分工
 | 成员 | 分工 |
 |---|---|
