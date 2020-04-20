@@ -63,6 +63,9 @@ dependencies {
 
     implementation 'io.agora.rtc:full-sdk:3.0.0'
     implementation 'io.agora.rtm:rtm-sdk:1.1.0'
+    implementation 'com.tencent.bugly:crashreport:3.1.0'
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 }
 repositories {
     mavenCentral()

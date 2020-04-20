@@ -19,6 +19,7 @@ import cn.bearever.likemosaic.call.VideoCallPresenter
 import cn.bearever.mingbase.app.mvp.BaseActivity
 import cn.bearever.mingbase.app.permission.AsyncPermission
 import cn.bearever.mingbase.app.util.DipPxUtil
+import cn.bearever.mingbase.app.util.ScreenUtil
 import cn.bearever.mingbase.app.util.ToastUtil
 import com.jaeger.library.StatusBarUtil
 import io.agora.rtc.IRtcEngineEventHandlerEx
@@ -90,6 +91,24 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         mMePositionStart = fl_mine_root.y
     }
 
+    private fun setupAnimationPosition() {
+        if (mOtherPositionStart == 0F) {
+            fl_remote_container.measure(0, 0)
+            fl_mine_root.measure(0, 0)
+            iv_loading.measure(0, 0)
+            mOtherPositionStart = (-fl_remote_container.measuredHeight).toFloat()
+            mMePositionStart = ScreenUtil.getHeight(this) / 3F
+            mLoadingPositionStart = (-DipPxUtil.dip2px(14F)).toFloat()
+            mBtnPositionStart = ScreenUtil.getHeight(this) * 0.7F
+
+            mOtherPositionEnd = ScreenUtil.getHeight(this) * 0.45F - fl_remote_container.measuredHeight
+            mMePositionEnd = ScreenUtil.getHeight(this) * 0.55F
+            mLoadingPositionEnd = ScreenUtil.getHeight(this) / 2F - iv_loading.measuredHeight
+            mBtnPositionEnd = mMePositionEnd + fl_mine_root.measuredHeight +
+                    (ScreenUtil.getHeight(this) - mMePositionEnd - fl_mine_root.measuredHeight) / 2 -
+                    iv_loading.measuredHeight
+        }
+    }
 
     private fun requestPermission() {
         AsyncPermission.with(this).requestNoTest(
@@ -139,21 +158,6 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         }
         animationStart.cancel()
         animationStart.start()
-    }
-
-    private fun setupAnimationPosition() {
-        if (mOtherPositionStart == 0F) {
-            relativeLayout.measure(0, 0)
-            mOtherPositionStart = (-fl_remote_container.measuredHeight).toFloat()
-            mMePositionStart = relativeLayout.measuredHeight / 2F
-            mLoadingPositionStart = (-DipPxUtil.dip2px(14F)).toFloat()
-            mBtnPositionStart = mMePositionStart + fl_mine_root.measuredHeight + DipPxUtil.dip2px(50F)
-
-            mOtherPositionEnd = relativeLayout.measuredHeight / 4F
-            mMePositionEnd = relativeLayout.measuredHeight * 3 / 4F
-            mLoadingPositionEnd = mOtherPositionEnd + fl_remote_container.measuredHeight + (mMePositionEnd - (mMePositionStart)) / 2F - iv_loading.measuredHeight
-            mBtnPositionEnd = mMePositionEnd + fl_mine_root.measuredHeight + DipPxUtil.dip2px(50F)
-        }
     }
 
     override fun stopMatch() {
@@ -221,6 +225,11 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         }
     }
 
+    private fun removeLocalVideo() {
+        mRtcEngine.stopPreview()
+        fl_mine_container.removeAllViews()
+    }
+
     private fun setupRemoteVideo(uid: Int) {
         fl_remote_container.removeAllViews()
         val remoteVideo = MosaicVideoSink(this, false)
@@ -228,18 +237,17 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         mRtcEngine.setRemoteVideoRenderer(uid, remoteVideo)
     }
 
+    private var mStartCallVideo = false
     private fun goVideoChat(matchResultBean: MatchResultBean) {
+        btn_match.isSelected = false
+        mStartCallVideo = true
+
         intent = Intent()
         intent.setClass(this, VideoCallActivity::class.java)
         intent.putExtra(Constant.KEY_MATCH_BEAN, matchResultBean)
         startActivity(intent)
-        btn_match.isSelected = false
     }
 
-    override fun onPause() {
-        super.onPause()
-        mRtcEngine.leaveChannel()
-    }
 
     private fun initRtcEngine() {
         mRtcEngine = RtcEngine.create(this, getString(R.string.agora_app_id), object : IRtcEngineEventHandlerEx() {
@@ -265,8 +273,15 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
 
     override fun onStop() {
         super.onStop()
-        //
-        fl_mine_container.removeAllViews()
+        if (this::animationStart.isInitialized) {
+            animationStart.cancel()
+        }
+        if (this::animationStop.isInitialized) {
+            animationStop.cancel()
+        }
+        if (!mStartCallVideo) {
+            removeLocalVideo()
+        }
         setupInitLayout()
     }
 

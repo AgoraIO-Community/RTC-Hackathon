@@ -178,21 +178,33 @@ public class VideoCallModel implements VideoCallContact.Model {
         Call<TopicListResultBean> call = mService.getTopics();
         call.enqueue(new Callback<TopicListResultBean>() {
             @Override
-            public void onResponse(Call<TopicListResultBean> call, Response<TopicListResultBean> response) {
+            public void onResponse(Call<TopicListResultBean> call, final Response<TopicListResultBean> response) {
                 if (callback != null) {
-                    if (response.body().code == BaseResultBean.CODE_SUCCEED) {
-                        callback.suc(response.body());
-                    } else {
-                        callback.fail(response.body().msg, response.body().code);
-                    }
+                    AsyncChain.withMain(new AsyncChainRunnable() {
+                        @Override
+                        public void run(AsyncChainTask task) throws Exception {
+                            if (response.body().code == BaseResultBean.CODE_SUCCEED) {
+                                callback.suc(response.body());
+                            } else {
+                                callback.fail(response.body().msg, response.body().code);
+                            }
+                            task.onComplete();
+                        }
+                    }).go(mContext);
                 }
             }
 
             @Override
-            public void onFailure(Call<TopicListResultBean> call, Throwable t) {
-                if (callback != null) {
-                    callback.fail(t.getMessage(), BaseResultBean.CODE_FAILED);
-                }
+            public void onFailure(Call<TopicListResultBean> call, final Throwable t) {
+                AsyncChain.withMain(new AsyncChainRunnable() {
+                    @Override
+                    public void run(AsyncChainTask task) throws Exception {
+                        if (callback != null) {
+                            callback.fail(t.getMessage(), BaseResultBean.CODE_FAILED);
+                        }
+                        task.onComplete();
+                    }
+                }).go(mContext);
             }
         });
     }

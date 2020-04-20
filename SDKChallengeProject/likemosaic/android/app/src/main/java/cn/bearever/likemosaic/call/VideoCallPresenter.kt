@@ -65,9 +65,11 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                     mTimer.cancel()
                     return
                 }
+
                 if (mLikeCountOther2Me <= 0) {
                     view?.onUserLeft()
                     mTimer.cancel()
+                    return
                 }
 
                 mTimerCount++
@@ -75,8 +77,16 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                     view?.showQuitBtn()
                 }
 
+                if (mTimerCount == 10) {
+                    view?.showNote("双方选择同样的话题会用粉色表示哦！")
+                }
+
                 if (mLikeCountOther2Me == 10) {
                     view?.showNote("对方对你的好感度降至冰点了！")
+                }
+
+                if (mLikeCountOther2Me == 20) {
+                    view?.showNote("双击对方的画面，可以增加你对他/她的好感度哦！")
                 }
 
                 LikeManager.getInstance().setLikeCountMe2Other(mLikeCountMe2Other)
@@ -115,6 +125,11 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                     if (reason == CONNECTION_CHANGED_INVALID_TOKEN) {
                         Log.e(TAG, "生成的token无效")
                     }
+                }
+
+                override fun onUserOffline(uid: Int, reason: Int) {
+                    super.onUserOffline(uid, reason)
+                    view?.onUserLeft()
                 }
 
             })
@@ -168,7 +183,7 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
                 }
 
                 MessageBean.KEY_QUIT_ROOM -> {
-                    view?.onUserLeft()
+//                    view?.onUserLeft()
                 }
             }
 //            if (!TextUtils.isEmpty(message.text)) {
@@ -228,7 +243,7 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
 
     override fun addLike() {
         synchronized(LOCK_LIKE_COUNT) {
-            mLikeCountMe2Other+=2
+            mLikeCountMe2Other += 2
         }
     }
 

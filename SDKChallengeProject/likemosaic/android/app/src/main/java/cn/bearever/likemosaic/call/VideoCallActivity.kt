@@ -98,7 +98,7 @@ class VideoCallActivity : BaseActivity<VideoCallPresenter?>(), VideoCallContact.
     }
 
     private fun startDoubleClickAnimation(v: View, x: Float, y: Float) {
-        if (remote_video_view_container.childCount > 5) {
+        if (remote_video_view_container.childCount > 3) {
             Log.d(TAG, "点赞动画太多了！")
             return
         }
@@ -347,6 +347,7 @@ class VideoCallActivity : BaseActivity<VideoCallPresenter?>(), VideoCallContact.
     }
 
     private fun endCall() {
+        mCallEnd = true
         removeLocalVideo()
         removeRemoteVideo()
         leaveChannel()
@@ -369,5 +370,4 @@ class VideoCallActivity : BaseActivity<VideoCallPresenter?>(), VideoCallContact.
         //屏蔽返回操作，仅允许通过点击返回按钮退出房间
 //        super.onBackPressed()
     }
-
 }
