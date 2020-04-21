@@ -19,6 +19,11 @@ export class BaseBuffer {
   delete(id) {
     delete this.buffer[id];
   }
+
+  reset() {
+    this.buffer = {};
+    this.cursor = 0;
+  }
 }
 
 export class SourceBuffer extends BaseBuffer {
@@ -81,7 +86,7 @@ export class MirrorBuffer extends BaseBuffer {
     }
     // const keys = Object.keys(this.buffer);
     // if (keys.length !== 0) {
-    //   console.log(
+    //   console.info(
     //     "in area",
     //     keys.length,
     //     this.cursor,

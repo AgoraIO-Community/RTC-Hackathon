@@ -1,6 +1,6 @@
 <script>
   import { onMount, onDestroy } from "svelte";
-  import { Replayer, EventType, pack } from "rrweb";
+  import { Replayer, EventType, pack, mirror } from "rrweb";
   import { createMachine, interpret } from "@xstate/fsm";
   import { quintOut } from "svelte/easing";
   import { scale } from "svelte/transition";
@@ -14,6 +14,9 @@
   import { formatBytes, onMirror, isIgnoredOnRmoteControl } from "./common.js";
   import Panel from "./components/Panel.svelte";
   import LineChart from "./components/LineChart.svelte";
+  import Icon from "./components/Icon.svelte";
+
+  window.mirror = mirror;
 
   const transporter = new RtcTransporter(APP_UID);
   let login = transporter.login();
@@ -22,12 +25,16 @@
   let replayer;
   const buffer = new MirrorBuffer({
     onRecord({ chunk }) {
-      replayer.addEvent(chunk);
+      if (
+        !controlCurrent.matches("controlling") ||
+        !isIgnoredOnRmoteControl(chunk)
+      ) {
+        replayer.addEvent(chunk);
+      }
     },
   });
 
   let open = false;
-  $: icon = open ? "./icons/close.svg" : "./icons/team.svg";
 
   const appMachine = createMachine(
     {
@@ -74,6 +81,7 @@
         stop() {
           replayer.pause();
           playerDom.innerHTML = "";
+          buffer.reset();
         },
       },
     }
@@ -239,12 +247,7 @@
         }
       }
       Promise.resolve().then(() => collectSize(t, pack(chunk)));
-      if (
-        !controlCurrent.matches("controlling") ||
-        !isIgnoredOnRmoteControl(chunk)
-      ) {
-        buffer.add({ id, chunk });
-      }
+      buffer.add({ id, chunk });
       transporter.ackRecord(id);
     });
     transporter.on("stop", () => {
@@ -338,7 +341,7 @@
     {/if}
     <!---->
     <button class="syncit-toggle syncit-btn" on:click="{() => open = !open}">
-      <img alt="icon" src="{icon}" />
+      <Icon name={open ? 'close' : 'team'}></Icon>
     </button>
   </div>
   {:else if current.matches('stopped')}

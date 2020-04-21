@@ -14,6 +14,7 @@
   import { applyMirrorAction } from "./common";
   import Panel from "./components/Panel.svelte";
   import Tag from "./components/Tag.svelte";
+  import Icon from './components/Icon.svelte'
 
   const transporter = new RtcTransporter(EMBED_UID);
   let login = transporter.login();
@@ -22,7 +23,6 @@
   $: ref && document.body.appendChild(ref);
 
   let open = false;
-  $: icon = open ? "./icons/close.svg" : "./icons/team.svg";
 
   let stopRecordFn;
   const buffer = new SourceBuffer({
@@ -72,6 +72,7 @@
               const id = buffer.add(event);
               transporter.sendRecord(buffer.buffer[id]);
             },
+            inlineStylesheet: false
           });
           const timer = setInterval(() => {
             record.addCustomEvent(CUSTOM_EVENT_TAGS.PING);
@@ -84,6 +85,7 @@
         stop() {
           stopRecordFn();
           transporter.sendStop();
+          buffer.reset();
         },
       },
     }
@@ -139,6 +141,7 @@
       top: `${y}px`,
       width: `${width}px`,
       height: `${height}px`,
+      display: 'inherit'
     });
   };
   const removeHighlight = () => {
@@ -147,6 +150,7 @@
       top: 0,
       width: 0,
       height: 0,
+      display: 'none'
     });
   };
 
@@ -338,7 +342,7 @@
   {/if}
   <!---->
   <button class="syncit-toggle syncit-btn" on:click="{() => open = !open}">
-    <img alt="icon" src="{icon}" />
+    <Icon name={open ? 'close' : 'team'}></Icon>
   </button>
   <!---->
   <div bind:this="{mask}" class="syncit-mask"></div>
@@ -350,11 +354,12 @@
   }
 
   .syncit-embed {
-    position: absolute;
+    position: fixed;
     right: 1em;
     bottom: 1em;
     display: flex;
     flex-direction: column;
+    z-index: 9999;
   }
 
   .syncit-btn:hover {
@@ -417,13 +422,14 @@
   }
 
   .syncit-mask {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     pointer-events: none;
     z-index: 999999;
     background: rgba(136, 194, 232, 0.75);
     border: 1px solid #3399ff;
+    display: none;
   }
 
   .syncit-panel-control {

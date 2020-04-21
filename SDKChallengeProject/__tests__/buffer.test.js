@@ -67,4 +67,14 @@ describe("MirrorBuffer", () => {
     expect(mockFn.mock.calls[0][0]).toEqual(record_1);
     expect(mockFn.mock.calls[1][0]).toEqual(record_2);
   });
+
+  it("can be reset", () => {
+    const buffer = new BaseBuffer();
+    const id = buffer.add("test");
+    expect(buffer.cursor).toEqual(1);
+    expect(buffer.buffer[id].chunk).toEqual("test");
+    buffer.reset();
+    expect(buffer.cursor).toEqual(0);
+    expect(buffer.buffer).toEqual({});
+  });
 });

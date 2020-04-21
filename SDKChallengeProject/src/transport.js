@@ -135,17 +135,49 @@ export class RtcTransporter {
       logFilter: AgoraRTM.LOG_FILTER_WARNING,
     });
     this.uid = uid;
+
+    const fragmentPool = {};
     this.client.on("MessageFromPeer", (message, peerId) => {
       if (![EMBED_UID, APP_UID].includes(peerId)) {
         return;
       }
-      const data = JSON.parse(message.text);
-      this.handlers[EVENTS[data.event]].map((h) =>
-        h({
-          e: data.event,
-          payload: data.payload,
-        })
-      );
+      let data;
+      try {
+        data = JSON.parse(message.text);
+        this.handlers[EVENTS[data.event]].map((h) =>
+          h({
+            e: data.event,
+            payload: data.payload,
+          })
+        );
+      } catch (_) {
+        const [, current, total, id, raw] = message.text.match(
+          /(\d+)\/(\d+)\/(\d+)_(.+)?/
+        );
+        if (!fragmentPool[id]) {
+          fragmentPool[id] = [];
+        }
+        fragmentPool[id][current] = raw;
+        let complete = true;
+        let concatRaw = "";
+        // check whether every idx in the array was filled
+        for (let i = 1; i <= total; i++) {
+          if (typeof fragmentPool[id][i] !== "string") {
+            complete = false;
+          } else {
+            concatRaw += fragmentPool[id][i];
+          }
+        }
+        if (complete) {
+          data = JSON.parse(concatRaw);
+          this.handlers[EVENTS[data.event]].map((h) =>
+            h({
+              e: data.event,
+              payload: data.payload,
+            })
+          );
+        }
+      }
     });
   }
 
@@ -184,11 +216,19 @@ export class RtcTransporter {
   }
 
   sendRecord(record) {
-    return this.client.sendMessageToPeer(
-      {
-        text: JSON.stringify({ event: EVENTS.SEND_RECORD, payload: record }),
-      },
-      APP_UID
+    const texts = JSON.stringify({
+      event: EVENTS.SEND_RECORD,
+      payload: record,
+    }).match(/(.|[\r\n]){1,31000}/g);
+    return Promise.all(
+      texts.map((text, idx) =>
+        this.client.sendMessageToPeer(
+          {
+            text: `${idx + 1}/${texts.length}/${record.id}_${text}`,
+          },
+          APP_UID
+        )
+      )
     );
   }
 
