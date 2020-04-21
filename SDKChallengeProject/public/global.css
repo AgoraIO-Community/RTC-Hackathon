@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  color: #333;
+  color: #3e4652;
   margin: 0;
   padding: 8px;
   box-sizing: border-box;
@@ -15,16 +15,11 @@ body {
 }
 
 a {
-  color: rgb(0, 100, 200);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-}
-
-a:visited {
-  color: rgb(0, 80, 160);
 }
 
 label {
@@ -49,4 +44,8 @@ input:disabled {
 
 input[type="range"] {
   height: 0;
+}
+
+h1.slogan {
+  color: #ff7c7c;
 }

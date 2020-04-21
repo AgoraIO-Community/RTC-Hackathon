@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Syncit: 压力测试</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/build/bundle.css" />
+    <link rel="stylesheet" href="./bulma.css" />
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      a,
+      a:visited {
+        color: #21243d;
+        opacity: 0.7;
+      }
+      .count {
+        font-size: 48px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .count:nth-of-type(1) {
+        animation-duration: 1s;
+      }
+      .count:nth-of-type(2) {
+        animation-duration: 1.5s;
+      }
+      .count:nth-of-type(3) {
+        animation-duration: 2s;
+      }
+      .count:nth-of-type(4) {
+        animation-duration: 2.5s;
+      }
+      .count:nth-of-type(5) {
+        animation-duration: 3s;
+      }
+      .count:nth-of-type(6) {
+        animation-duration: 3.5s;
+      }
+      .count:nth-of-type(7) {
+        animation-duration: 4s;
+      }
+      .count:nth-of-type(8) {
+        animation-duration: 4.5s;
+      }
+      @keyframes trip {
+        0% {
+          transform: translate(-200px, 0);
+        }
+        50% {
+          transform: translate(200px, 0);
+        }
+        100% {
+          transform: translate(-200px, 0);
+        }
+      }
+
+      .title {
+        font-family: Roboto Slab, sans-serif;
+        text-align: center;
+        padding-top: 30px;
+        margin-bottom: 0 !important;
+        font-weight: 300;
+        font-size: 3rem;
+      }
+
+      .vue-logo {
+        height: 55px;
+        position: relative;
+        top: 10px;
+      }
+
+      .speed-buttons {
+        text-align: center;
+        padding-top: 30px;
+      }
+      .speed-buttons .button {
+        height: 2.5em;
+      }
+
+      button.button.is-primary,
+      button.button.is-primary:hover,
+      button.button.is-primary:active {
+        background: #ff7c7c;
+      }
+      button.button.is-primary:hover {
+        opacity: 0.7;
+      }
+      button.button.is-primary:active {
+        opacity: 1;
+      }
+
+      .main-buttons {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 30px;
+        margin-bottom: 0 !important;
+      }
+
+      .count-section {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      .fas {
+        padding-left: 5px;
+      }
+
+      .deck {
+        margin-left: 30px;
+        padding-top: 30px;
+      }
+
+      .card {
+        width: 75px;
+        height: 100px;
+        float: left;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        border-radius: 2px;
+      }
+
+      .card__suit {
+        width: 100%;
+        display: block;
+      }
+
+      .card__suit--top {
+        text-align: left;
+        padding-left: 5px;
+      }
+
+      .card__suit--bottom {
+        position: absolute;
+        bottom: 0px;
+        text-align: left;
+        transform: rotate(180deg);
+        padding-left: 5px;
+      }
+
+      .card__number {
+        width: 100%;
+        position: absolute;
+        top: 38%;
+        text-align: center;
+      }
+
+      .red {
+        color: #ff0000;
+      }
+
+      .black {
+        color: #000;
+      }
+
+      .twitter-section {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+      .twitter-section .fa-twitter-square {
+        color: #00d1b2;
+        font-size: 30px;
+      }
+
+      .shuffleSlow-move {
+        transition: transform 2s;
+      }
+
+      .shuffleMedium-move {
+        transition: transform 1s;
+      }
+
+      .shuffleFast-move {
+        transition: transform 0.5s;
+      }
+
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.5s;
+      }
+
+      .fade-enter,
+      .fade-leave-to {
+        opacity: 0;
+      }
+
+      @media (max-width: 1210px) {
+        .deck {
+          position: initial;
+          top: 0;
+        }
+
+        .twitter-section {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="slogan">Syncit</h1>
+      <a href="./1-live.html#all">返回</a>
+
+      <div>
+        <button class="button is-primary">animate</button>
+        <div class="count">0</div>
+        <div class="count">0</div>
+        <div class="count">0</div>
+        <div class="count">0</div>
+        <div class="count">0</div>
+        <div class="count">0</div>
+        <div class="count">0</div>
+        <div class="count">0</div>
+      </div>
+      <!-- <div id="app">
+        <div class="deck">
+          <div
+            v-for="card in cards"
+            :key="Math.random()"
+            class="card"
+            :class="suitColor[card.suit]"
+          >
+            <span class="card__suit card__suit--top">{{ card.suit }}</span>
+            <span class="card__number">{{ card.rank }} </span>
+            <span class="card__suit card__suit--bottom">{{ card.suit }}</span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <script src="/build/bundle.js"></script>
+    <script>
+      new app.Embed({
+        target: document.body,
+      });
+    </script>
+    <script src="./vue.min.js"></script>
+    <script>
+      document.querySelector(".is-primary").addEventListener("click", () => {
+        document.querySelectorAll(".count").forEach((el, idx) => {
+          let count = 0;
+          const timer = setInterval(() => {
+            count = count + idx + 1;
+            el.innerText = count;
+            if (count > 100000) {
+              clearInterval(timer);
+            }
+          }, 300);
+          el.style.animationName = "trip";
+          el.style.animationIterationCount = "infinite";
+        });
+      });
+      new Vue({
+        el: "#app",
+        data: {
+          ranks: [
+            "A",
+            "2",
+            "3",
+            "4",
+            "5",
+            // "6",
+            // "7",
+            // "8",
+            // "9",
+            // "10",
+            // "J",
+            // "Q",
+            // "K",
+          ],
+          suits: ["♥", "♦", "♠", "♣"],
+          cards: [],
+          suitColor: {
+            "♠": "black",
+            "♣": "black",
+            "♦": "red",
+            "♥": "red",
+          },
+          shuffleSpeed: "shuffleSlow",
+          shuffleTypes: ["Slow", "Medium", "Fast"],
+          isDeckShuffled: false,
+          shuffleCount: 0,
+        },
+        created() {
+          this.displayInitialDeck();
+          setInterval(() => {
+            this.shuffleDeck();
+          }, 200);
+        },
+        methods: {
+          displayInitialDeck() {
+            let id = 1;
+            this.cards = [];
+
+            for (let s = 0; s < this.suits.length; s++) {
+              for (let r = 0; r < this.ranks.length; r++) {
+                let card = {
+                  id: id,
+                  rank: this.ranks[r],
+                  suit: this.suits[s],
+                };
+                this.cards.push(card);
+                id++;
+              }
+            }
+
+            this.isDeckShuffled = false;
+            this.shuffleCount = 0;
+          },
+          shuffleDeck() {
+            for (let i = this.cards.length - 1; i > 0; i--) {
+              let randomIndex = Math.floor(Math.random() * i);
+
+              let temp = this.cards[i];
+              Vue.set(this.cards, i, this.cards[randomIndex]);
+              Vue.set(this.cards, randomIndex, temp);
+            }
+
+            this.isDeckShuffled = true;
+            this.shuffleCount = this.shuffleCount + 1;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

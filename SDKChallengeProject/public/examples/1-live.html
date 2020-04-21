@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Syncit: 分享屏幕</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/build/bundle.css" />
+    <style>
+      h1 {
+        text-align: center;
+      }
+      .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      button.next {
+        cursor: pointer;
+        background: #ff7c7c;
+        border: 1px solid rgba(62, 70, 82, 0.18);
+        box-shadow: 0px 1px 2px rgba(184, 192, 204, 0.6);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 22px;
+        margin-left: 40px;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+      }
+      button.next:hover {
+        opacity: 0.7;
+      }
+      button.next:active {
+        opacity: 1;
+      }
+      .steps li {
+        display: none;
+        list-style: none;
+      }
+      a,
+      a:visited {
+        color: #21243d;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="slogan">Syncit</h1>
+      <h2>什么是 Syncit？</h2>
+      <ul class="steps">
+        <li id="s1">
+          <h3>1. 远程屏幕共享🖥</h3>
+          <a href="./2-pressure.html">像素级同步、低时延、超低流量。</a>
+        </li>
+        <li id="s2">
+          <h3>2. 隐私保护🔒</h3>
+          <a href="./3-form.html">灵活遮挡内容，而不是位置</a>
+        </li>
+        <li id="s3">
+          <h3>3. 反向远程控制🚀</h3>
+          <a href="./3-form.html">Teamviewer for the Web，但无需安装客户端。</a>
+        </li>
+      </ul>
+      <button class="next">Next</button>
+    </div>
+
+    <script src="/build/bundle.js"></script>
+    <script>
+      new app.Embed({
+        target: document.body,
+      });
+    </script>
+    <script>
+      let step = 0;
+      const btn = document.querySelector("button.next");
+      if (location.hash === "#all") {
+        document.querySelectorAll("li").forEach((el) => {
+          el.style.display = "inherit";
+        });
+        btn.style.display = "none";
+      } else {
+        btn.addEventListener("click", () => {
+          step++;
+          document.querySelector(`li#s${step}`).style.display = "inherit";
+          if (step === 3) {
+            btn.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

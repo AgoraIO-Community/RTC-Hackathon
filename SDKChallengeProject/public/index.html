@@ -9,16 +9,29 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/global.css" />
     <link rel="stylesheet" href="/build/bundle.css" />
+    <style>
+      .message {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        font-size: 13px;
+        line-height: 20px;
+        color: #fff;
+        background-color: #ff7c7c;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
+    <div class="message">Mirror</div>
     <script src="/build/bundle.js"></script>
     <script>
       new app.App({
         target: document.body,
-        props: {
-          // name: "world",
-        },
       });
     </script>
   </body>
