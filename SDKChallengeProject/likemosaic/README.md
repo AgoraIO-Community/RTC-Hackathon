@@ -1,4 +1,4 @@
-# Pixel Chat
+# [Pixel Chat](http://live.2fun.xyz)
 
 声网2020春季开发者大赛参赛作品，该应用可以让陌生人随机匹配进行视频聊天，并且使用马赛克的形式进行展示，马赛克特效主要是为了降低陌生人交流时的尴尬和紧张感。通过增加好感度，马赛克级别会降低，直到以原始面貌交流。
 
@@ -30,7 +30,7 @@
 
 兼容性：支持Android SDK >= 17
 
-下载链接：[https://github.com/Luomingbear/likeMosaic/releases/download/1.0.1/mosaic101.apk](https://github.com/Luomingbear/likeMosaic/releases/download/1.0.1/mosaic101.apk)
+下载链接：[live.2fun.xyz](http://live.2fun.xyz)
 
 ## 团队介绍
 
