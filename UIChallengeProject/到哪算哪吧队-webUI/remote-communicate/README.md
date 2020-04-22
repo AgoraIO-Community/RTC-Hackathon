@@ -7,10 +7,13 @@
 ## 项目预览
 
 可以直接打开根目录下面`dist`文件夹中的`index.html`。
-登录信息：
+
+### 登录信息：
+```
 App ID： myid
 Channel: mychannel
 Token: mytoken
+```
 
 ## 运行项目
 ```
