@@ -6,9 +6,7 @@
 
 基于 Web 的像素级、低流量屏幕共享，以及神奇的远程控制
 
-Demo 视频：
-
-<p><video src="http://lab.myriptide.com/syncit-demo/syncit.mp4"></p>
+[Demo 视频](http://lab.myriptide.com/syncit-demo/syncit.mp4)
 
 ## 什么是 Syncit
 
