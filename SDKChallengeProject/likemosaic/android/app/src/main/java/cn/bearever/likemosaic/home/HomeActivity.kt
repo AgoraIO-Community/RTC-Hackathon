@@ -22,6 +22,7 @@ import cn.bearever.mingbase.app.util.DipPxUtil
 import cn.bearever.mingbase.app.util.ScreenUtil
 import cn.bearever.mingbase.app.util.ToastUtil
 import com.jaeger.library.StatusBarUtil
+import io.agora.rtc.IRtcEngineEventHandler
 import io.agora.rtc.IRtcEngineEventHandlerEx
 import io.agora.rtc.RtcEngine
 import io.agora.rtc.mediaio.IVideoSink
@@ -29,6 +30,7 @@ import io.agora.rtc.video.VideoEncoderConfiguration
 import io.agora.rtm.RtmCallEventListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_video_chat_view.*
+import java.lang.Exception
 
 
 /**
@@ -50,7 +52,7 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
     private var mLoadingPositionEnd = 0F
     private var mBtnPositionEnd = 0F
 
-    private lateinit var mRtcEngine: RtcEngine
+    private var mRtcEngine: RtcEngine? = null
 
 
     companion object {
@@ -63,6 +65,7 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
 
     override fun initPresenter() {
         mPresenter = HomePresenter(this, this)
+        Log.d(TAG, "initPresenter")
         initRtcEngine()
     }
 
@@ -91,6 +94,7 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         fl_mine_root.y = mMePositionStart
         btn_match.y = mBtnPositionStart
         mMePositionStart = fl_mine_root.y
+        btn_match.isSelected = false
     }
 
     private fun setupAnimationPosition() {
@@ -142,8 +146,6 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
 
             animationStart.addUpdateListener {
                 val percent = it.animatedValue as Float / 100F
-                Log.d(TAG, "vvvvvvvv:" + percent)
-                //计算按钮的位置
                 //对方的画面
                 val y1 = mOtherPositionStart + (mOtherPositionEnd - mOtherPositionStart) * percent
                 fl_remote_container.y = y1
@@ -221,20 +223,12 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
             localView.tag = "mine"
             fl_mine_container.addView(localView)
         }
-        mRtcEngine.setLocalVideoRenderer(localView)
+        mRtcEngine?.setLocalVideoRenderer(localView)
         if (AsyncPermission.with(this).checkNoTest(Manifest.permission.CAMERA)) {
             fl_mine_container.post {
-                mRtcEngine.startPreview()
+                mRtcEngine?.startPreview()
             }
         }
-    }
-
-
-    private fun setupRemoteVideo(uid: Int) {
-        fl_remote_container.removeAllViews()
-        val remoteVideo = MosaicVideoSink(this, false)
-        fl_remote_container.addView(remoteVideo)
-        mRtcEngine.setRemoteVideoRenderer(uid, remoteVideo)
     }
 
     private var mStartCallVideo = false
@@ -248,35 +242,41 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         startActivity(intent)
     }
 
+    private val mRtcEventHandler = object : IRtcEngineEventHandler() {
+
+    }
 
     private fun initRtcEngine() {
-        mRtcEngine = RtcEngine.create(this, getString(R.string.agora_app_id), object : IRtcEngineEventHandlerEx() {
-            override fun onFirstRemoteVideoDecoded(uid: Int, width: Int, height: Int, elapsed: Int) {
-                super.onFirstRemoteVideoDecoded(uid, width, height, elapsed)
-//                setupRemoteVideo(uid)
+        if (mRtcEngine == null) {
+            try {
+                mRtcEngine = RtcEngine.create(this, getString(R.string.agora_app_id), mRtcEventHandler)
+                mRtcEngine?.enableVideo()
+                mRtcEngine?.setVideoEncoderConfiguration(VideoEncoderConfiguration(
+                        VideoEncoderConfiguration.VD_120x120,
+                        VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
+                        VideoEncoderConfiguration.STANDARD_BITRATE,
+                        VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT))
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-        })
-
-        mRtcEngine.enableVideo()
-        mRtcEngine.setVideoEncoderConfiguration(VideoEncoderConfiguration(
-                VideoEncoderConfiguration.VD_120x120,
-                VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
-                VideoEncoderConfiguration.STANDARD_BITRATE,
-                VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT))
+        }
     }
 
     override fun onResume() {
         super.onResume()
+        Log.d(TAG, "onResume")
+        initRtcEngine()
         setupLocalVideo()
     }
 
     private fun removeLocalVideo() {
-        mRtcEngine.stopPreview()
+        mRtcEngine?.stopPreview()
         fl_mine_container.removeAllViews()
     }
 
     override fun onStop() {
         super.onStop()
+        Log.d(TAG, "onStop")
         if (this::animationStart.isInitialized) {
             animationStart.cancel()
         }
@@ -286,7 +286,17 @@ class HomeActivity : BaseActivity<HomePresenter>(), HomeContact.View {
         if (!mStartCallVideo) {
             removeLocalVideo()
         }
+
         setupInitLayout()
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy")
+        RtcEngine.destroy()
+        mRtcEngine?.removeHandler(mRtcEventHandler)
+        mRtcEngine = null
     }
 
 }

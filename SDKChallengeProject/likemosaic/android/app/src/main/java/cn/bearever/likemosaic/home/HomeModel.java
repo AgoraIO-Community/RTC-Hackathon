@@ -122,6 +122,7 @@ public class HomeModel implements HomeContact.Model {
     public void onDetach() {
         mService = null;
         context = null;
+        mGetStateCallback = null;
     }
 
     public interface HomeService {

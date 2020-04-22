@@ -221,7 +221,9 @@ class VideoCallPresenter(view: VideoCallContact.View?, context: Context?) :
         //发送离开频道的消息
 //        sendQuitRoomMessage()
         //
+//        RtcEngine.destroy()
         mRtcEngine?.leaveChannel()
+        mRtcEngine = null
         mModel?.logoutRtm()
         mTimer.cancel()
     }

@@ -215,6 +215,7 @@ public class VideoCallModel implements VideoCallContact.Model {
         mRtmClient = null;
         mService = null;
         mContext = null;
+        mOnMessageChangeListener = null;
     }
 
     public interface VideoCallService {

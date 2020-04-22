@@ -1,7 +1,10 @@
 package cn.bearever.mingbase.app.util;
 
 import android.content.Context;
+import android.os.Looper;
 import android.widget.Toast;
+
+import java.util.logging.Handler;
 
 import cn.bearever.mingbase.app.BaseApplication;
 

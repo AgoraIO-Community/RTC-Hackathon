@@ -1,5 +1,6 @@
 package cn.bearever.mingbase;
 
+import androidx.annotation.NonNull;
 import cn.bearever.mingbase.app.util.ToastUtil;
 import cn.bearever.mingbase.chain.AsyncChain;
 import cn.bearever.mingbase.chain.core.AsyncChainRunnable;
@@ -17,7 +18,7 @@ public abstract class BaseCallback<T> {
      *
      * @param data
      */
-    public abstract void suc(T data);
+    public abstract void suc(@NonNull T data);
 
     /**
      * 失败

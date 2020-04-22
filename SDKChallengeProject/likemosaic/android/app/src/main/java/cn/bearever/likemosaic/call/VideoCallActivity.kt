@@ -319,7 +319,6 @@ class VideoCallActivity : BaseActivity<VideoCallPresenter?>(), VideoCallContact.
         if (!mCallEnd) {
             leaveChannel()
         }
-        RtcEngine.destroy()
     }
 
     private var mLastShowNoteTime = 0L
