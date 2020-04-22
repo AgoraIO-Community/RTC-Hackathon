@@ -6,11 +6,11 @@
 
     <title>Syncit: 分享屏幕</title>
 
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="stylesheet" href="/build/bundle.css" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../build/bundle.css" />
     <style>
-      h1 {
+      .logo {
         text-align: center;
       }
       .container {
@@ -52,7 +52,7 @@
 
   <body>
     <div class="container">
-      <h1 class="slogan">Syncit</h1>
+      <div class="logo"><img src="../syncit.png" alt="logo" /></div>
       <h2>什么是 Syncit？</h2>
       <ul class="steps">
         <li id="s1">
@@ -71,7 +71,7 @@
       <button class="next">Next</button>
     </div>
 
-    <script src="/build/bundle.js"></script>
+    <script src="../build/bundle.js"></script>
     <script>
       new app.Embed({
         target: document.body,

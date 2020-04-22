@@ -82,6 +82,8 @@
           replayer.pause();
           playerDom.innerHTML = "";
           buffer.reset();
+          latencies = []
+          sizes = []
         },
       },
     }
@@ -294,7 +296,7 @@
       <Panel>
         <div class="syncit-metric">
           <div class="syncit-chart-title">
-            延时
+            时延
             <span style="color: #41efc5;">
               {_latencies.length ? _latencies[_latencies.length - 1].y : '-'} ms
             </span>
@@ -494,7 +496,7 @@
   }
 
   .syncit-hint {
-    background: rgba(245, 247, 250, 0.6);
+    background: rgba(245, 247, 250);
     border-radius: 4px;
     padding: 8px;
     min-width: 150px;
