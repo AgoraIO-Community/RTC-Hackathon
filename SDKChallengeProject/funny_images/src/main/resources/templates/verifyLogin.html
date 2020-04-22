@@ -1,0 +1,194 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>>
+
+    <title>审核</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="FUNIMG是集趣图，最新，随机，GIF，视频，上传，我的，审核为一体的休闲趣味网站，旨在使用户在浏览过程中放松心情" />
+  <meta name="keywords" content="FUNIMG，趣图，最新，随机，GIF，视频，上传，我的，审核" />
+  <meta name="author" content="ouyangxiaobai" />
+
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/open-iconic-bootstrap.min.css}">
+
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+
+    <link rel="stylesheet" th:href="@{/css/icomoon.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+  <!--<link rel="stylesheet" th:href="@{/css/zoomify.min.css}">-->
+
+  <script th:src="@{/js/jquery-1.4.4.min.js}"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-4298235222624575",
+          enable_page_level_ads: true
+      });
+  </script>
+  <script>
+      (function(){
+          var bp = document.createElement('script');
+          var curProtocol = window.location.protocol.split(':')[0];
+          if (curProtocol === 'https') {
+              bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+          }
+          else {
+              bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+          }
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(bp, s);
+      })();
+  </script>
+
+</head>
+  <body>
+    <aside class="probootstrap-aside js-probootstrap-aside">
+      <a href="#" class="probootstrap-close-menu js-probootstrap-close-menu d-md-none"><span class="oi oi-arrow-left"></span> Close</a>
+      <div class="probootstrap-site-logo probootstrap-animate" data-animate-effect="fadeInLeft">
+
+        <a href="#" class="mb-2 d-block probootstrap-logo">FunImg</a>
+        <p class="mb-0">每天好心情</p>
+      </div>
+      <div class="probootstrap-overflow">
+        <nav class="probootstrap-nav">
+          <ul>
+            <li class="probootstrap-animate " data-animate-effect="fadeInLeft"><a href="/home/gohome">最新</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="/home/goRandom">随机</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="/home/goGifIndex">GIF</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="/home/goVideoIndex">视频</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="/home/goUpload">上传</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="#">我的</a></li>
+            <li class="probootstrap-animate active" data-animate-effect="fadeInLeft"><a href="/home/goVerifyLogin">审核</a></li>
+            <li class="probootstrap-animate" data-animate-effect="fadeInLeft"><a href="/home/goUploadVideo">视频播客</a></li>
+            <div style="clear: both;"></div>
+          </ul>
+        </nav>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- 趣图网左下角菜单下面 -->
+        <div style="height: 240px">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-4298235222624575"
+               data-ad-slot="1029851383"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+          <div style="clear: both;"></div>
+        </div>
+
+        <footer style="margin-top: 5px;" class="probootstrap-aside-footer probootstrap-animate" data-animate-effect="fadeInLeft">
+          <!--<ul class="list-unstyled d-flex probootstrap-aside-social">-->
+          <!--<li><a href="#" class="p-2"><span class="icon-twitter"></span></a></li>-->
+          <!--<li><a href="#" class="p-2"><span class="icon-instagram"></span></a></li>-->
+          <!--<li><a href="#" class="p-2"><span class="icon-dribbble"></span></a></li>-->
+          <!--</ul>-->
+          <p><a href="http://www.beian.miit.gov.cn" target="_blank">蜀ICP备16024393号</a></p>
+          <p>&copy; 2019 By ouyangxiaobai   </p>
+          <p>素材取材网络 如有侵权请联系</p>
+
+        </footer>
+      </div>
+    </aside>
+
+    <main role="main" class="probootstrap-main js-probootstrap-main">
+      <div class="probootstrap-bar">
+        <a href="#" class="probootstrap-toggle js-probootstrap-toggle"><span class="oi oi-menu"></span></a>
+        <div class="probootstrap-main-site-logo"><a href="#">FUNIMG</a></a></div>
+      </div>
+      <div id="cardList" class="card-columns">
+        <div style="margin: 0px auto">
+          <img id="erwei">
+          <div style="clear: both;"></div>
+        </div>
+
+      </div>
+	<div class="tlinks">Collect from <a href="#" ></a></div>
+
+      <div class="container-fluid d-md-none">
+        <div class="row">
+          <div class="col-md-12">
+            <p><a href="http://www.beian.miit.gov.cn" target="_blank">蜀ICP备16024393号</a></p>
+            <p>&copy; 2019 By ouyangxiaobai   </p>
+            <p>素材取材网络 如有侵权请联系</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <!--<script th:src="@{/js/zoomify.min.js}"></script>-->
+
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/jquery.waypoints.min.js}"></script>
+    <script th:src="@{/js/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/js/imagesloaded.pkgd.min.js}"></script>
+
+    <script th:src="@{/js/main.js}"></script>
+
+    //加载验证码图片
+  <script>
+    var randomStr=_getRandomString(32);
+      $.ajax({
+          url:"/img/createImg",
+          data: {"randomStr":randomStr},
+          async:false,
+          success:function (res) {
+              $("#erwei").attr("src",res);
+          }
+      });
+
+
+    setInterval(function(){
+        $.ajax({
+            url:"/login/verifyLogin",
+            data: {"broRandom":randomStr},
+            async:false,
+            success:function (res) {
+                //登录成功
+                if(res==true){
+                    window.location.href="/home/goVerify"
+                }
+                else{
+                    console.log("登录尝试中。。。")
+                }
+            }
+        });
+    },1000);
+
+
+
+    // 获取长度为len的随机字符串
+    function _getRandomString(len) {
+        len = len || 32;
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'; // 默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
+    }
+
+  </script>
+
+
+
+
+
+
+  </body>
+
+</html>

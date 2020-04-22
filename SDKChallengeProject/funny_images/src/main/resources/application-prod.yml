@@ -1,0 +1,65 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: uAiqwVwjJ8-i
+    url: jdbc:mysql://127.0.0.1:3306/funny_images?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+
+  jpa:
+    show-sql: true
+
+
+  thymeleaf:
+         cache: false
+         mode: LEGACYHTML5
+         encoding: utf-8
+  http:
+    encoding:
+      charset: UTF-8
+
+  devtools:
+      restart:
+        additional-paths: src/main/java
+        enabled: true
+
+  data:
+      mongodb:
+        password: bgy123456
+        port: 27017
+        host: 47.92.193.157
+        name: bgy
+  jmx:
+    enabled: false
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200000000
+      max-request-size: 200000000
+mongodb:
+  database: attachmentsDB
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.asdf.funny.images.model
+
+redis:
+  hostName: 47.92.193.157
+  maxWaitMillis: 1000
+  password: bgy123456
+  testOnBorrow: true
+  testWhileIdle: true
+  maxIdle: 300
+  minEvictableIdleTimeMillis: 300000
+  timeBetweenEvictionRunsMillis: 30000
+  port: 6379
+  maxTotal: 1000
+  timeout: 10000
+  numTestsPerEvictionRun: 1024
+
+uploadVideoFilePar: /usr/local/uploadVideo/
+
+
+
+
+
+

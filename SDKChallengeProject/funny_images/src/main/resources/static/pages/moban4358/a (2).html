@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    .talk_con {
+      width: 600px;
+      height: 500px;
+      border: 1px solid #666;
+      margin: 50px auto 0;
+      background: #f9f9f9;
+    }
+ 
+    .talk_show {
+      width: 580px;
+      height: 420px;
+      border: 1px solid #666;
+      background: #fff;
+      margin: 10px auto 0;
+      overflow: auto;
+    }
+ 
+    .talk_input {
+      width: 580px;
+      margin: 10px auto 0;
+    }
+ 
+    .whotalk {
+      width: 80px;
+      height: 30px;
+      float: left;
+      outline: none;
+    }
+ 
+    .talk_word {
+      width: 420px;
+      height: 26px;
+      padding: 0px;
+      float: left;
+      margin-left: 10px;
+      outline: none;
+      text-indent: 10px;
+    }
+ 
+    .talk_sub {
+      width: 56px;
+      height: 30px;
+      float: left;
+      margin-left: 10px;
+    }
+ 
+    .atalk {
+      margin: 10px;
+    }
+ 
+    .atalk span {
+      display: inline-block;
+      background: #0181cc;
+      border-radius: 10px;
+      color: #fff;
+      padding: 5px 10px;
+    }
+ 
+    .btalk {
+      margin: 10px;
+      text-align: right;
+    }
+ 
+    .btalk span {
+      display: inline-block;
+      background: #ef8201;
+      border-radius: 10px;
+      color: #fff;
+      padding: 5px 10px;
+    }
+  </style>
+  <script src='./vendor/jquery.min.js'></script>
+  <script>
+  $(function(){
+    $('#talksub').click(function(){
+      //发送单击，获取用户输入的数据value属性值
+      var vals=$('#talkwords').val()
+      //如果输入的数据为空，则弹窗提示
+      if (vals=='')
+      {
+        alert('请输入数据！')
+        return
+      }
+      //条件下拉列表中的value值是0还是1
+      var whovals=$('#who').val()
+      var str=""
+      //选择A发送还是B发送
+      if (whovals==0){
+        str='<div class="atalk"><span>A：'+ vals+'</span></div>'
+      }
+      else{
+        str='<div class="btalk"><span>B：'+ vals+'</span></div>'
+      }
+      //原有的内容+str,否则会覆盖掉原有内容
+      $('#words').html($('#words').html()+str)
+      //发送完数据后清空输入框
+      $('#talkwords').val('')
+    })
+  })
+  </script>
+</head>
+ 
+<body>
+ <div class="talk_con">
+    <div class="talk_show" id="words">
+      <div class="atalk"><span>A：你还好吗？</span></div>
+      <div class="btalk"><span>B：嗯，你呢？</span></div>
+	   <div class="atalk"><span>A：你还好吗？</span></div>
+      <div class="btalk"><span>B：嗯，你呢？</span></div>
+
+    </div>
+    <div class="talk_input">
+      <select class="whotalk" id="who">
+        <option value="0">A：</option>
+        <option value="1">B：</option>
+      </select>
+      <input type="text" class="talk_word" id="talkwords">
+      <input type="button" value="发送" class="talk_sub" id="talksub">
+    </div>
+  </div>
+</body>
+ 
+</html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asdf.funny.images.dao.ImgDao">
+
+    <insert id="inserImg">
+        insert into images values(#{imgId},#{nowDate},#{mongoId},#{fileTyle},0,#{fileName},0)
+    </insert>
+
+    <insert id="inserImgYasuo">
+        insert into images values(#{imgId},#{nowDate},#{mongoId},#{fileTyle},1,#{fileName},0)
+    </insert>
+    
+    <select id="newImg" resultType="map">
+        select
+          *
+        from images where file_tyle!='mp4' and if_compress=1 and if_verify=1 order by create_time desc limit #{startNum},#{pageSize}
+    </select>
+
+    <select id="randImg" resultType="map">
+        select
+          *
+        from images where if_compress=1 and if_verify=1 order by RAND() desc limit #{startNum},#{pageSize}
+    </select>
+
+
+
+    <select id="newImgVerify" resultType="map">
+        select
+          *
+        from images where if_verify=0 and if_compress=1 order by create_time desc limit #{startNum},#{pageSize}
+    </select>
+
+    <update id="verifyPass" parameterType="java.lang.Long">
+        update images set if_verify=1 where id=#{imgId}
+    </update>
+    <update id="verifyFail" parameterType="java.lang.Long">
+        update images set if_verify=2 where id=#{imgId}
+    </update>
+
+
+
+    <select id="newGifImg" resultType="map">
+        select
+          *
+        from images where file_tyle='gif' and if_compress=1 and if_verify=1 order by create_time desc limit #{startNum},#{pageSize}
+    </select>
+
+    <select id="newvideoImg" resultType="map">
+        select
+          *
+        from images where file_tyle='mp4' and if_compress=0 and if_verify=1 order by create_time desc limit #{startNum},#{pageSize}
+    </select>
+
+
+
+
+
+    <select id="totalNum" resultType="java.lang.Integer">
+        select
+          count(1)
+        from images where file_tyle!='mp4' and if_compress=1 order by create_time desc
+    </select>
+
+    <select id="totalNumVerify" resultType="java.lang.Integer">
+        select
+          count(1)
+        from images where if_verify=0 order by create_time desc
+    </select>
+
+
+
+    <select id="giftotalNum" resultType="java.lang.Integer">
+        select
+          count(1)
+        from images where file_tyle='gif' and if_compress=1 order by create_time desc
+    </select>
+
+    <select id="videototalNum" resultType="java.lang.Integer">
+        select
+          count(1)
+        from images where file_tyle='mp4' and if_compress=0 order by create_time desc
+    </select>
+
+
+    <select id="get499ImgMongodbId" resultType="java.lang.String">
+        SELECT mongo_id FROM images where file_tyle='png' ORDER by id limit 18
+    </select>
+
+    <select id="get400jpgImgMongodbId" resultType="java.lang.String">
+        SELECT mongo_id FROM images where file_tyle='jpg' ORDER by id limit 517,400
+    </select>
+    <select id="compressjpeg" resultType="java.lang.String">
+        SELECT mongo_id FROM images where file_tyle='jpeg' ORDER by id
+    </select>
+
+
+    <select id="getAllGif" resultType="java.lang.String">
+          select mongo_id from images where file_tyle='gif'
+    </select>
+
+    <select id="findAllMp4Mongo" resultType="java.lang.String">
+          select mongo_id from images where file_tyle='mp4'
+    </select>
+
+    <insert id="insertVideo">
+        insert into blog_video(id,title,file_name,create_time)
+        values(#{id},#{title},#{fileName},#{nowStr})
+    </insert>
+
+
+
+
+
+
+</mapper>

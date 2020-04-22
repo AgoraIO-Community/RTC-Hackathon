@@ -1,0 +1,367 @@
+/****************
+Night Mood
+****************/
+
+.btn-night-mode .btn-night-mode-switch {
+    display: inline-block;
+    height: 18px;
+    width: 37px;
+    right: 17px;
+    position: absolute;
+    margin-top: 3px;
+}
+
+.btn-night-mode .uk-switch-button {
+    background-color: rgba(0, 0, 0, 0.09);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 500px;
+    bottom: 0;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: .2s;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.07);
+}
+
+.btn-night-mode .uk-switch-button:before {
+    content: '';
+    background-color: #a9a9a9;
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    left: 0px;
+    bottom: -1px;
+    border-radius: 50%;
+    transition-property: transform, box-shadow;
+    transition-duration: .2s;
+}
+
+.night-mode .btn-night-mode .uk-switch-button {
+    background-color: #4e4e4e !important;
+}
+
+.night-mode .btn-night-mode .uk-switch-button:before {
+    transform: scale(1.3);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.22);
+    transform: translateX(17px);
+    background: #62d76b;
+}
+
+
+.night-mode html , 
+.night-mode body , 
+.night-mode .main_content ,
+.night-mode header .head_search .head_search_cont input ,
+.night-mode .bg-gradient-warning{
+    background-color: #08090f !important;
+    border-color: #545454 !important;
+    color: hsla(0, 0%, 100%, 0.79) !important;
+}
+ 
+.night-mode .main_sidebar .sidebar-header ,
+.night-mode .sidebar , 
+.night-mode header{
+    background-color: #12141E!important;
+}
+
+ 
+ 
+
+/* all theme custom cards */
+.night-mode .channal-card ,
+.night-mode .nav-channal ,
+.night-mode .setting-menu ,
+.night-mode .moviecontent{
+    background-color: #12141e;
+    box-shadow: 0px 2px 10px 0px #0000001a;
+}
+
+.night-mode #logo img {
+      display:none;
+  }
+ .night-mode #logo .logo-inverse{
+      display:inline !important
+  }
+ 
+/* Titles & texts */
+.night-mode .uk-h1,
+.night-mode h1,
+.night-mode .uk-h2,
+.night-mode h2,
+.night-mode .uk-h3,
+.night-mode h3,
+.night-mode .uk-h4,
+.night-mode h4,
+.night-mode .uk-h5,
+.night-mode h5,
+.night-mode .uk-h6,
+.night-mode h6,
+.night-mode .uk-text-black,
+.night-mode .uk-text-danger,
+.night-mode .uk-text-primary,
+.night-mode .uk-text-sucess,
+.night-mode .uk-text-muted,
+.night-mode .uk-card-default .uk-card-title,
+.night-mode .uk-card-default,
+.night-mode .uk-text-lead,
+.night-mode .text-black,
+.night-mode .text-danger,
+.night-mode .text-primary,
+.night-mode .text-sucess,
+.night-mode .text-muted,
+.night-mode .text-lead ,
+.night-mode .section-header-left>* {
+    color: #dbdbdb !important;
+}
+
+
+/* Buttons */
+.night-mode .button,
+.night-mode .button.danger,
+.night-mode .button.grey,
+.night-mode .button.info,
+.night-mode .button.warning,
+.night-mode .button.white,
+.night-mode .button.success,
+.night-mode .button.secondary,
+.night-mode .button.primary,
+.night-mode .button.light,
+.night-mode .button.default,
+.night-mode .uk-button,
+.night-mode .uk-button-default ,
+.night-mode .Markup-botton,
+.night-mode .iconbox ,
+.night-mode :not(pre)>code,
+.night-mode .uk-label,
+.night-mode .uk-icon-button,
+.night-mode .uk-pagination>*>*,
+.night-mode .uk-modal-close-full,
+.night-mode .uk-tooltip,
+.night-mode .display-as a.active,
+.night-mode .slidenav-next,
+.night-mode .slidenav-prev,
+.night-mode #backtotop a,
+.night-mode .display-as .active,
+.night-mode .btn-filter,
+.night-mode .Markup-botton ,
+.night-mode .slide-nav-next.uk-invisible:hover,
+.night-mode .subs-amount {
+    background: #201f23 !important;
+    border-color: transparent;
+    color: white;
+}
+
+/* button hover */
+.night-mode .button:hover,
+.night-mode .button.danger:hover,
+.night-mode .button.grey:hover,
+.night-mode .button-info:hover,
+.night-mode .button.white:hover,
+.night-mode .button.success:hover,
+.night-mode .button.secondary:hover,
+.night-mode .button.primary:hover,
+.night-mode .button.light:hover,
+.night-mode .button.dark:hover,
+.night-mode .button.default:hover,
+.night-mode .Markup-botton:hover,
+.night-mode :not(pre)>code:hover,
+.night-mode .uk-label:hover,
+.night-mode .uk-icon-button:hover,
+.night-mode .uk-modal-close-full:hover,
+.night-mode .uk-pagination>.uk-active>*,
+.night-mode .slidenav-next:hover,
+.night-mode .slidenav-prev:hover,
+.night-mode #backtotop a:hover,
+.night-mode .comment-by a.reply,
+.night-mode .Markup-botton:hover,
+.night-mode .Markup-botton::before ,
+.night-mode .grid-slider-header .slide-nav-prev, 
+.night-mode .grid-slider-header .slide-nav-next  ,
+.night-mode  header .btn-upload ,
+.night-mode  header .btn-upgrade {
+    background-color: #393942 !important;
+    color: white !important;
+}
+
+
+
+/* reset links */
+.night-mode a,
+.night-mode #breadcrumbs,
+.night-mode .uk-accordion .uk-accordion-title,
+.night-mode .uk-accordion-title::before,
+.night-mode .dropdown-user-name,
+.night-mode .dropdown-user-name span,
+.night-mode .comment-by {
+    color: #c7c7c7 !important;
+}
+
+.night-mode a:hover,
+.night-mode #breadcrumbs ul li a,
+.night-mode .uk-accordion .uk-open .uk-accordion-title,
+.night-mode .uk-accordion-title::before,
+.night-mode .responsive-tab.style-2.uk-active,
+.night-mode .responsive-tab .uk-active a,
+.night-mode .uk-tab>.uk-active>a{
+    color: white !important;
+}
+ 
+/* all borders  */ 
+.night-mode .sidebar .sidebar_innr .sections ,
+.night-mode ul.dropdown-user-menu .menu-divider, 
+.night-mode ul.dropdown-search-list .list-title,
+.night-mode ul.dropdown-search-list .menu-divider,
+.night-mode .dropdown-notifications-content ul li, 
+.night-mode .dropdown-notifications-headline,
+.night-mode .dropdown-notifications-footer ,
+.night-mode .dropdown-user-details, 
+.night-mode .uk-tab>.uk-active>a ,
+.night-mode .main_sidebar .sidebar-header ,
+.night-mode pre{
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+
+
+/* Remove border color  */
+
+.night-mode header ,
+.night-mode header .icon-browse .more-app ,
+.night-mode .section-header,
+.night-mode .footer,
+.night-mode .uk-tab::before{
+    border-color: transparent;
+}
+
+
+
+/* reset all bg */
+.night-mode .bg-primary,
+.night-mode .bg-secondary,
+.night-mode .bg-success,
+.night-mode .bg-info,
+.night-mode .bg-warning,
+.night-mode .bg-danger,
+.night-mode .bg-grey,
+.night-mode .bg-light,
+.night-mode .bg-dark {
+    background-color: #201f23 !important;
+}
+
+.night-mode .bg-white, 
+.night-mode .bg-transparent, 
+.night-mode .slide-nav-next.uk-invisible {
+    background-color: #131313 !important;
+}
+
+.night-mode .responsive-tab:before ,
+.night-mode .responsive-tab .uk-active a:before {
+    background: transparent;
+}
+ 
+  
+/* framework */
+.night-mode .dropdown-notifications-footer ,
+.night-mode .uk-card-default,
+.night-mode .uk-card-primary,
+.night-mode .uk-card-muted,
+.night-mode .uk-card-secondary,
+.night-mode .uk-background-default,
+.night-mode .uk-background-muted,
+.night-mode .uk-background-primary,
+.night-mode .uk-background-secondary,
+.night-mode .bg-gradient-primary,
+.night-mode .bg-gradient-secondary,
+.night-mode .bg-gradient-success,
+.night-mode .bg-gradient-info,
+.night-mode .bg-gradient-warning,
+.night-mode .bg-gradient-danger,
+.night-mode .bg-gradient-light,
+.night-mode .bg-gradient-grey,
+.night-mode .night-mode .uk-alert,
+.night-mode .uk-input,
+.night-mode .uk-select,
+.night-mode .uk-textarea,
+.night-mode .uk-input:focus,
+.night-mode .uk-textarea:focus,
+.night-mode .uk-drop,
+.night-mode .uk-dropdown,
+.night-mode .uk-modal-dialog,
+.night-mode .uk-notification-message,
+.night-mode .uk-offcanvas-bar,
+.night-mode .uk-list-striped>li:nth-of-type(odd),
+.night-mode .uk-overlay-default,
+.night-mode .uk-table-striped>tr:nth-of-type(odd),
+.night-mode .uk-table-striped tbody tr:nth-of-type(odd)  ,
+.night-mode .glyph.fs1:hover span:not([class*="mls"]) {
+    background: #12141E !important;
+}
+
+.night-mode .uk-form-label {
+    color: #dbdbdb !important;
+}
+
+.night-mode *+hr,
+*+.night-mode .uk-hr,
+.night-mode .uk-heading-line> ::before,
+.night-mode .uk-heading-line> ::after,
+.night-mode .uk-input,
+.night-mode .uk-select,
+.night-mode .uk-textarea,
+.night-mode .uk-heading-divider,
+.night-mode .uk-input:disabled,
+.night-mode .uk-select:disabled, 
+.night-mode .uk-textarea:disabled ,
+.night-mode .uk-heading-bullet::before,
+.night-mode .uk-divider-small::after ,
+.night-mode .uk-list-divider>li:nth-child(n+2),
+.night-mode .uk-table-divider>tr:not(:first-child),
+.night-mode .uk-table-divider> :not(:first-child)>tr,
+.night-mode .uk-list-large.uk-list-striped>li:nth-of-type(odd),
+.night-mode .uk-table-divider> :first-child>tr:not(:first-child),
+.night-mode .uk-list-striped>li:nth-of-type(odd),
+.night-mode .uk-table-striped>tr:nth-of-type(odd),
+.night-mode .uk-table-striped tbody tr:nth-of-type(odd) {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.night-mode .syntaxhighlighter,
+.night-mode .syntaxhighlighter .line.alt1 ,
+.night-mode .syntaxhighlighter .line.alt2 , 
+.night-mode pre {
+    background-color: #393942 !important;
+}
+
+/* background-color level three */
+.night-mode header .icon-browse .more-app ,
+.night-mode .header-searchbox , 
+.night-mode .sidebar .sidebar_innr .sections li.active a{
+    background-color: #45454d !important;
+
+}
+.night-mode .sidebar .sidebar_innr .sections li a:hover,
+.night-mode .sidebar .sidebar_innr .sections li a:focus ,
+.night-mode .sidebar .sidebar_innr .sections li.active a{
+    background-color: transparent !important;
+}
+.sidebar .sidebar_innr .sections li.active a{
+    color: orange !important;
+}
+.night-mode header .btn-upload:hover, .night-mode header .btn-upload{
+    background-color:white;
+}
+.night-mode .btn-subscribe .button:before ,.night-mode .dropdown-option-nav:before{
+    border-color:transparent
+}
+  
+.night-mode .dropdown-notifications-content ul li:hover,
+.night-mode .notifications-not-read   ,
+.night-mode .dropdown-notifications-headline ,
+.night-mode ul.dropdown-search-list .list-title  ,
+.night-mode ul.dropdown-search-list li a:hover ,
+.night-mode .setting-menu ul li a:hover{
+    background-color: #191d2f !important;
+}

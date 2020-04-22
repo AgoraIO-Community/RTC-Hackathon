@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="icon" href="../assets/images/favicon.png">
+
+    <!-- CSS 
+    ================================================== -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/night-mode.css">
+    <link rel="stylesheet" href="../assets/css/framework.css">
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="../assets/css/icons.css">
+
+
+</head>
+
+
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper" class="sidebar-out">
+
+    <!-- sidebar -->
+    <div class="main_sidebar">
+        <div class="side-overlay" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></div>
+
+        <!-- sidebar header -->
+        <div class="sidebar-header">
+            <h4> Navigation</h4>
+            <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
+        </div>
+
+        <!-- sidebar Menu -->
+        <div class="sidebar">
+            <div class="sidebar_innr" data-simplebar>
+
+                <div class="sections">
+                    <h3> Browse </h3>
+                    <ul>
+                        <li class="active"> <a href="home.html"> <i class="uil-home-alt"></i> Home </a></li>
+                        <li> <a href="browse-channals.html"> <i class="uil-users-alt"></i> Subscriptions </a></li>
+                        <li> <a href="browse-catagroies.html"> <i class="uil-layers"></i> Catagories </a></li>
+                    </ul>
+                </div>
+
+
+                <div class="sections">
+                    <h3> Subscriptions </h3>
+                    <ul>
+                        <li> <a href="single-channal.html"> <img src="../assets/images/avatars/avatar-3.jpg" alt="">
+                            Stella Johnson <span class="dot-notiv"></span></a></li>
+                        <li>  <a href="single-channal.html">  <img src="../assets/images/avatars/avatar-2.jpg" alt="">
+                            Alex Dolgove <span class="dot-notiv"></span></a></li>
+                        <li>  <a href="single-channal.html">  <img src="../assets/images/avatars/avatar-4.jpg" alt="">
+                            Adrian Mohani </a> </li>
+                        <li>  <a href="single-channal.html">  <img src="../assets/images/avatars/avatar-2.jpg" alt="">
+                            Stella Johnson </a> </li>
+                    </ul>
+
+                    <!-- view more subcription-->
+                    <div class="uk-flex uk-flex-center mb-3">
+                        <a href="browse-channals.html" class="button default circle px-5">
+                            <i class="uil-plus mr-2"></i> More Channals</a>
+                    </div>
+
+                </div>
+
+                <div class="sections">
+                    <h3> PAGES </h3>
+                    <ul>
+                        <li> <a href="#"><i class="uil-code"></i> Development </a>
+                            <ul>
+                                <li>
+                                    <a href="development-elements.html"> Elements </a>
+                                    <a href="development-components.html"> Components</a>
+                                    <a href="development-icons.html"> Icons Pack </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li> <a href="#"><i class="uil-user-circle"></i> Accounts </a>
+                            <ul>
+                                <li>
+                                    <a href="form-login.html"> Login </a>
+                                    <a href="form-register.html"> Register </a>
+                                    <a href="form-modern-login.html"> Simple Register</a>
+                                    <a href="form-modern-singup.html"> Simple Register</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="foot">
+
+                    <ul>
+                        <li> <a href="#"> About Us </a></li>
+                        <li> <a href="#"> Setting </a></li>
+                        <li> <a href="#"> Privacy Policy </a></li>
+                        <li> <a href="#">  Terms - Conditions </a></li>
+                    </ul>
+
+
+                    <div class="foot-content">
+                        <p>© 2019 <strong>GoTube</strong>. All Rights Reserved. </p>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- header -->
+    <div id="main_header" class="uk-light bg-dark">
+        <header>
+
+            <!-- Logo
+            <i class="header-traiger uil-bars"
+                uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></i>
+-->
+            <!-- Logo-->
+            <div id="logo">
+                <a href="#"> <img src="../img/Logo.png" alt=""></a>
+                <a href="#"> <img src="../img/Logo.png" class="logo-inverse" alt=""></a>
+            </div>
+
+            <!-- form search-->
+            <div class="head_search">
+                <form>
+                    <div class="head_search_cont">
+                        <input value="" type="text" class="form-control"
+                               placeholder="" autocomplete="off">
+                        <i class="s_icon uil-search-alt"></i>
+                    </div>
+
+                    <!-- Search box dropdown -->
+                    <div uk-dropdown="pos: top;mode:click;animation: uk-animation-slide-bottom-small"
+                         class="dropdown-search">
+                        <!-- User menu -->
+
+
+                    </div>
+
+
+                </form>
+            </div>
+
+            <!-- user icons -->
+            <div class="head_user">
+
+
+
+                <!-- profile -image -->
+                <a class="opts_account"> <img src="../assets/images/avatars/avatar-1.jpg" alt=""></a>
+
+
+        </header>
+
+    </div>
+
+    <!-- contents -->
+    <div class="main_content content-expand">
+        <div class="main_content_inner">
+
+
+            <div uk-grid>
+                <div class="uk-width-2-3@m">
+
+                    <div id="video-box" uk-sticky="top: 400 ;media : @s"
+                         cls-active="video-resized uk-animation-slide-right;">
+                            <span class="icon-feather-x btn-box-close"
+                                  uk-toggle="target: #video-box ; cls: video-resized-hedden uk-animation-slide-left"></span>
+
+                        <div class="embed-video">
+                            <iframe th:src="@{../video/{filename}(filename=${fileName})}" frameborder="0"
+                                    uk-video="automute: true" allowfullscreen uk-responsive></iframe>
+                        </div>
+                    </div>
+
+                    <div class="video-info mt-3">
+
+                        <!-- video title -->
+                        <div class="video-info-title">
+                            <h1 th:text="${title}">  </h1>
+                        </div>
+
+                        <div class="uk-flex uk-flex-between">
+
+                            <div class="video-info-details">
+                                <span>210 views </span>
+                            </div>
+                            <div class="video-likes">
+                                <div class="like-btn" uk-tooltip="I like it">
+                                    <i class="uil-thumbs-up"></i>
+                                    <span class="likes"></span>
+                                </div>
+                                <div class="video-info-element">
+                                    <div class="views-bar"></div>
+                                    <div class="views-bar blue" style="width: 98%"></div>
+                                </div>
+                                <div class="like-btn" uk-tooltip="I Hate it">
+                                    <i class="uil-thumbs-down"></i>
+                                    <span class="likes"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="uk-flex uk-flex-between uk-flex-middle" uk-grid>
+                            <div class="user-details-card uk-width-expand">
+                                <a href="single-channal.html" class="uk-flex">
+                                    <div class="user-details-card-avatar">
+                                        <img src="../img/my.jpg" alt="">
+                                    </div>
+                                    <div class="user-details-card-name">
+                                        欧阳小白 <span >上传 on </span><span th:text="${nowStr}"> </span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="uk-width-auto uk-flex">
+
+
+                                <div class="btn-subscribe">
+                                    <a href="#" class="button danger"> <i class="icon-feather-plus"></i>
+                                        分享 </a>
+                                    <span class="subs-amount">1214</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+                <div class="uk-width-expand@m">
+
+                    <div style="text-align:center" class="uk-flex uk-flex-middle uk-flex-between px-1 pb-3">
+                        <p style="margin:0px auto" class="mb-0 uk-h5"> 众筹植发资金-Thanks♪(･ω･)ﾉ </p>
+
+                    </div>
+                    <div class="video-list-small uk-child-width-1-1@m uk-child-width-1-2@s" uk-grid>
+
+                        <img style="    height: 100%;
+    width: 50%;
+    margin: 0px auto;margin-top:80px;" src="../img/微信.png">
+
+                        <img style="    height: 100%;
+    width: 50%;
+    margin: 0px auto;margin-top:80px;" src="../img/支付.jpg">
+
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- footer
+               ================================================== -->
+                <div class="footer">
+                    <div class="uk-grid-collapse" uk-grid>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- For Night mode -->
+    <script>
+        (function (window, document, undefined) {
+            'use strict';
+            if (!('localStorage' in window)) return;
+            var nightMode = localStorage.getItem('gmtNightMode');
+            if (nightMode) {
+                document.documentElement.className += ' night-mode';
+            }
+        })(window, document);
+
+
+        (function (window, document, undefined) {
+
+            'use strict';
+
+            // Feature test
+            if (!('localStorage' in window)) return;
+
+            // Get our newly insert toggle
+            var nightMode = document.querySelector('#night-mode');
+            if (!nightMode) return;
+
+            // When clicked, toggle night mode on or off
+            nightMode.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.documentElement.classList.toggle('night-mode');
+                if (document.documentElement.classList.contains('night-mode')) {
+                    localStorage.setItem('gmtNightMode', true);
+                    return;
+                }
+                localStorage.removeItem('gmtNightMode');
+            }, false);
+
+        })(window, document);
+    </script>
+
+
+    <!-- javaScripts
+                ================================================== -->
+    <script src="../assets/js/framework.js"></script>
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../assets/js/simplebar.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
