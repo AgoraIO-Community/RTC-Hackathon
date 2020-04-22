@@ -7,6 +7,10 @@
 ## 项目预览
 
 可以直接打开根目录下面`dist`文件夹中的`index.html`。
+登录信息：
+App ID： myid
+Channel: mychannel
+Token: mytoken
 
 ## 运行项目
 ```
@@ -17,7 +21,7 @@ npm install
 npm i node-sass sass-loader --save
 ```
 
-### Compiles and hot-reloads for development
+### 启动项目
 ```
 npm run serve
 ```
