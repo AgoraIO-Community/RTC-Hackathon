@@ -1,0 +1,221 @@
+body{
+	background-color: #f3f3f3;
+}
+
+/* agora-Ui导航条样式开始 */
+.agora__ui__nav{
+	display: flex;
+	color: #fff;
+}
+.agora__ui__title{
+	flex: 3;
+	font-size: 1.5em;
+	line-height: 56px;
+}
+.agora__ui__setting{
+	flex: 8;
+	display: flex;
+	margin: 0;
+	padding-right: 2%;
+}
+.agora__ui__setting .agora__ui__space{
+	flex: 8;
+}
+.agora__ui__setting .agora__ui__using,
+.agora__ui__setting .agora__ui__toggle__language{
+	flex: 3;
+}
+.agora__ui__setting .agora__ui__toggle__color{
+	flex: 2;
+}
+.agora__ui__setting .agora__ui__toggle{
+	display: block;
+	height: 100%;
+	text-align: center;
+	padding: 1em 0;
+	cursor: pointer;
+}
+.agora__ui__setting .agora__ui__toggle i{
+	padding: 0 5px;
+}
+
+.toggle__color__selected .color__selected__circle{
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	margin-right: 0.5em;
+}
+
+.toggle__color__selected li:hover,
+.toggle__language__selected li:hover{
+	background-color: rgba(255,255,255,0.5);
+	transition: background-color 0.5s; 
+}
+
+.select-enter,
+.select-leave-to {
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+.select-enter-active,
+.select-leave-active {
+  transition: all 0.6s ease;
+}
+/* agora-Ui导航条样式结束 */
+
+/*  agora-Ui使用说明样式开始  */
+.agora__ui__tips{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 40vw;
+	height: 80vh;
+	padding: 1em;
+	border-radius: 15px;
+	box-sizing: border-box;
+	z-index: 10;
+	color: #3B3A27;
+	box-shadow: 0 0 10px #ccc;
+}
+.agora__ui__tips .tips__title{
+	padding: 1em 0;
+	border-bottom: 2px solid #3B3A27;
+}
+.agora__ui__tips .tips__body{
+	padding: 1em;
+	height: 70%;
+	overflow-y: scroll;
+}
+.agora__ui__tips .tips__body .tips{
+	margin: 1.5em 0;
+}
+.agora__ui__tips .tips__body .tips p{
+	padding: 0.5em 1em;
+}
+.agora__ui__tips .tips__body .tips p a{
+	color: #3B3A27;
+	text-decoration: underline;
+}
+.agora__ui__tips .tips__foot{
+	text-align: center;
+}
+.agora__ui__tips .tips__foot button{
+	display: inline-block;
+	width: 10vw;
+	height: 30px;
+	color: #fff;
+	cursor: pointer;
+	border: none;
+}
+/*  agora-Ui使用说明样式结束  */
+
+/* agora-Ui连接功能容器样式开始 */
+.agora__ui__control{
+	position: absolute;
+	top: 50%;
+	left: 0.5%;
+	transform: translateY(-50%);
+	display: flex;
+}
+.card .input-field{
+	padding: 0 0.4em;
+}
+.card .input-field > label{
+	color: #3B3A27;
+}
+.card .input-field > input[type="text"]{
+	border-bottom: 1px solid #3B3A27;
+	padding: 0 0.4em;
+}
+.card .input-field > input[type="text"]::-webkit-input-placeholder{
+	color: #C1BFA8;
+}
+
+.control__hidden__card{
+	width: 30px;
+	height: 100px;
+	text-align: center;
+	margin-top: 30%;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	cursor: pointer;
+}
+.control__hidden__card>i{
+	font-size: 18px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 100px;
+}
+
+.control-enter,
+.control-leave-to {
+  opacity: 0;
+  transform: translateX(-443px);
+}
+
+.control-enter-active,
+.control-leave-active {
+  transition: all 0.6s ease;
+}
+/* agora-Ui连接功能容器样式结束 */
+
+
+/* agora-Ui连接功能设置容器样式开始 */
+.control__setting__btn{
+	color: #fff;
+	margin-top: 0.3em;
+	text-transform: uppercase;
+}
+
+.setting__dialog{
+	width: 350px;
+	position: absolute;
+	top: 50%;
+	left: 55%;
+	transform: translate(-50%,-50%);
+	z-index: 5;
+	padding: 1em;
+}
+.setting__dialog .input-field > label{
+	color: #3B3A27;
+}
+.setting__dialog .input-field > input,
+.select-wrapper input.select-dropdown{
+	border-bottom: 1px solid #3B3A27;
+	padding: 0 0.4em;
+}
+.setting__dialog .input-field > input::-webkit-input-placeholder{
+	color: #C1BFA8;
+}
+.set-enter,
+.set-leave-to {
+  opacity: 0;
+}
+
+.set-enter-active,
+.set-leave-active {
+  transition: all 0.6s ease;
+}
+
+.dialog__setting__btns{
+	text-align: center;
+}
+.dialog__setting__btns button{
+	width: 90px;
+	height: 30px;
+	outline: none;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}
+.dialog__setting__btns .dialog__close{
+	margin-right: 8px;
+}
+.dialog__setting__btns .dialog__save{
+	margin-left: 8px;
+}
+/* agora-Ui连接功能设置容器样式结束 */
+

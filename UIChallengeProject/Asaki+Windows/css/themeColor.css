@@ -1,0 +1,220 @@
+/* blue */
+.blue{
+	background-color: #177BB0;
+}
+.blueAgoraUiToggle:hover{
+	background-color: #009DF8;
+	transition: background-color 0.6s;
+}
+.blueToggleColorSelected,
+.blueToggleLanguageSelected{
+	background-color: #61AFE8;
+	margin-top: 1em;
+	padding: 1em 0;
+}
+.blueCard{
+	background-color: #E1F1EF;
+}
+.blueCard .blueBtn{
+	background-color: #177BB0;
+}
+.blueCard .input-field > input[type="text"]:focus{
+	border-bottom: 1px solid #177BB0;
+	box-shadow: 0 1px 0 0 #177BB0;
+}
+.blueControlHiddenCard{
+	background-color: #177BB0;
+}
+.blueControlSettingBtn{
+	background-color: #177BB0;
+	box-shadow: 0 0 10px #177BB0;
+}
+.blueSettingDialog{
+	box-shadow: 0 0 5px #177BB0;
+	background-color: #E1F1EF;
+}
+.blueSettingDialog .input-field > input:focus,
+.blueSettingDialog .select-wrapper input.select-dropdown:focus{
+	border-bottom: 1px solid #177BB0!important;
+	box-shadow: 0 1px 0 0 #177BB0!important;
+}
+.blueSettingDialog .dropdown-content li > span{
+	color: #177BB0;
+}
+.blueDialogSettingBtns button{
+	background-color: #177BB0;
+	box-shadow: 0 0 5px #177BB0;
+}
+.blueSettingDialog [type="radio"]:checked + span:after,.blueSettingDialog [type="radio"].with-gap:checked + span:before,.blue [type="radio"].with-gap:checked + span:after {
+    border: 2px solid #177BB0;
+}
+
+.blueSettingDialog [type="radio"]:checked + span:after, .blueSettingDialog [type="radio"].with-gap:checked + span:after{
+	background-color: #177BB0;
+}
+
+/* red */
+.red{
+	background-color: #F57983;
+}
+.redAgoraUiToggle:hover{
+	background-color: #FF8EB2;
+	transition: background-color 0.6s;
+}
+.redToggleColorSelected,
+.redToggleLanguageSelected{
+	background-color: #FFC1C8;
+	margin-top: 1em;
+	padding: 1em 0;
+}
+.redCard{
+	background-color: #F7F5DD;
+}
+.redCard .redBtn{
+	background-color: #F57f8f;
+}
+.redCard .input-field > input[type="text"]:focus{
+	border-bottom: 1px solid #F57983;
+	box-shadow: 0 1px 0 0 #F57983;
+}
+.redControlHiddenCard{
+	background-color: #F57983;
+}
+.redControlSettingBtn{
+	background-color: #F57f8f;
+	box-shadow: 0 0 10px #F57983;
+}
+.redSettingDialog{
+	box-shadow: 0 0 5px #F57983;
+	background-color: #F7F5DD;
+}
+.redSettingDialog .input-field > input:focus,
+.redSettingDialog .select-wrapper input.select-dropdown:focus{
+	border-bottom: 1px solid #F57983!important;
+	box-shadow: 0 1px 0 0 #F57983!important;
+}
+.redSettingDialog .dropdown-content li > span{
+	color: #F57983;
+}
+.redDialogSettingBtns button{
+	background-color: #F57f8f;
+	box-shadow: 0 0 5px #F57983;
+}
+.redSettingDialog [type="radio"]:checked + span:after,.redSettingDialog [type="radio"].with-gap:checked + span:before,.redSettingDialog [type="radio"].with-gap:checked + span:after {
+    border: 2px solid #F57983;
+}
+.redSettingDialog [type="radio"]:checked + span:after, .redSettingDialog [type="radio"].with-gap:checked + span:after{
+	background-color: #F57983;
+}
+
+
+/* yellow */
+.yellow{
+	background-color: #F1C239;
+}
+.yellowAgoraUiToggle:hover{
+	background-color: #FFD850;
+	transition: background-color 0.6s;
+}
+.yellowToggleColorSelected,
+.yellowToggleLanguageSelected{
+	background-color: #FFCD6A;
+	margin-top: 1em;
+	padding: 1em 0;
+}
+.yellowCard{
+	background-color: #FFF8EC;
+}
+.yellowCard .yellowBtn{
+	background-color: #F1C239;
+}
+.yellowCard .input-field > input[type="text"]:focus{
+	border-bottom: 1px solid #F1C239;
+	box-shadow: 0 1px 0 0 #F1C239;
+}
+.yellowControlHiddenCard{
+	background-color: #F1C239;
+}
+.yellowControlSettingBtn{
+	background-color: #F1C239;
+	box-shadow: 0 0 10px #F1C239;
+}
+.yellowSettingDialog{
+	box-shadow: 0 0 5px #F1C239;
+	background-color: #FFF8EC;
+}
+.yellowSettingDialog .input-field > input:focus,
+.yellowSettingDialog .select-wrapper input.select-dropdown:focus{
+	border-bottom: 1px solid #F1C239!important;
+	box-shadow: 0 1px 0 0 #F1C239!important;
+}
+.yellowSettingDialog .dropdown-content li > span{
+	color: #F1C239;
+}
+.yellowDialogSettingBtns button{
+	background-color: #F1C239;
+	box-shadow: 0 0 5px #F1C239;
+}
+.yellowSettingDialog [type="radio"]:checked + span:after,.yellowSettingDialog [type="radio"].with-gap:checked + span:before,.yellowSettingDialog [type="radio"].with-gap:checked + span:after {
+    border: 2px solid #F1C239;
+}
+.yellowSettingDialog [type="radio"]:checked + span:after, .yellowSettingDialog [type="radio"].with-gap:checked + span:after{
+	background-color: #F1C239;
+}
+
+
+/* green */
+.green{
+	background-color: #00E078;
+}
+.greenAgoraUiToggle:hover{
+	background-color: #00B350;
+	transition: background-color 0.6s;
+}
+.greenToggleColorSelected,
+.greenToggleLanguageSelected{
+	background-color: #64FFA8;
+	margin-top: 1em;
+	padding: 1em 0;
+}
+.greenCard{
+	background-color: #D9EDDF;
+}
+.greenCard .greenBtn{
+	background-color: #00E078;
+}
+.greenCard .input-field > input[type="text"]:focus{
+	border-bottom: 1px solid #00E078;
+	box-shadow: 0 1px 0 0 #00E078;
+}
+.greenControlHiddenCard{
+	background-color: #00E078;
+}
+.greenControlSettingBtn{
+	background-color: #00E078;
+	box-shadow: 0 0 10px #00E078;
+}
+.greenSettingDialog{
+	box-shadow: 0 0 5px #00E078;
+	background-color: #D9EDDF;
+}
+.greenSettingDialog .input-field > input:focus,
+.greenSettingDialog .select-wrapper input.select-dropdown:focus{
+	border-bottom: 1px solid #00E078!important;
+	box-shadow: 0 1px 0 0 #00E078!important;
+}
+.greenSettingDialog .dropdown-content li > span{
+	color: #00E078;
+}
+.greenDialogSettingBtns button{
+	background-color: #00E078;
+	box-shadow: 0 0 5px #00E078;
+}
+.greenSettingDialog [type="radio"]:checked + span:after,.greenSettingDialog [type="radio"].with-gap:checked + span:before,.greenSettingDialog [type="radio"].with-gap:checked + span:after {
+    border: 2px solid #00E078;
+}
+
+.greenSettingDialog [type="radio"]:checked + span:after,.greenSettingDialog [type="radio"].with-gap:checked + span:after{
+	background-color: #00E078;
+}
+
