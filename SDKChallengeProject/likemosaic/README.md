@@ -40,7 +40,7 @@
 | 成员 | 分工 | 联系方式 |
 |---|---|--- |
 | 周神 | 负责Flutter项目的开发和Android项目开发 | 960460277@qq.com  |
-| 朝仪 | 负责产品的UI设计、产品交互设计等 | ghost_wzy@sina.com |
+| 三玖 | 负责产品的UI设计、产品交互设计等 | ghost_wzy@sina.com |
 | 罗明 | 负责Android项目和服务端开发，负责马赛克算法实现 | luomingbear@163.com |
 
 ## 编译说明
