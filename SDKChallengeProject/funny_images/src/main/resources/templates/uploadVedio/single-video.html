@@ -189,7 +189,7 @@
                                   uk-toggle="target: #video-box ; cls: video-resized-hedden uk-animation-slide-left"></span>
 
                         <div class="embed-video">
-                            <iframe src="../video/1.mp4" frameborder="0"
+                            <iframe th:src="@{../video/{filename}(filename=${fileName})}" frameborder="0"
                                     uk-video="automute: true" allowfullscreen uk-responsive></iframe>
                         </div>
                     </div>
@@ -198,8 +198,9 @@
 
                         <!-- video title -->
                         <div class="video-info-title">
-                            <h1>1</h1>
+                            <h1 th:text="${title}">  </h1>
                         </div>
+
 
                         <div class="uk-flex uk-flex-between">
 
@@ -231,7 +232,7 @@
                                         <img src="../img/my.jpg" alt="">
                                     </div>
                                     <div class="user-details-card-name">
-                                        欧阳小白 <span >上传 on </span><span>2020-03-16</span>
+                                        欧阳小白 <span >上传 on </span><span th:text="${nowStr}"> </span>
                                     </div>
                                 </a>
                             </div>
