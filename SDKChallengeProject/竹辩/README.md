@@ -35,6 +35,9 @@
 - 在src目录```npm install```
 - 在src目录```npm start```
 - 买一份vuexy的授权（测试不需要，如果要使用，则需要）https://themeforest.net/item/vuexy-vuejs-html-laravel-admin-dashboard-template/23328599
+  - 将components/@vuexy 放入相同位置
+  - 将assets文件 放入相同位置
+  - vuexy源码我无权开源，如确需测试，请联系我获取测试build后版本
 
 # 体验方式
 提供体验账户：
