@@ -85,3 +85,9 @@ buffer 对于用户侧的感受是一个 1 秒（可控）的延迟，这就意�
 <p align="center">
   <img src="https://user-images.githubusercontent.com/13651389/79991359-d2aa2f80-84e4-11ea-8611-40751b1c7800.png">
 </p>
+
+## 团队介绍
+
+[@Yuyz0112](https://github.com/Yuyz0112)
+
+邮箱：aryu0112@gmail.com
