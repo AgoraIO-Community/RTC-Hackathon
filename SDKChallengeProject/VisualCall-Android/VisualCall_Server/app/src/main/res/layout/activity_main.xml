@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/loginLayout">
+
+        <com.scwang.wave.MultiWaveHeader
+            android:id="@+id/waveHeader"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:mwhVelocity="1"
+            app:mwhProgress="1"
+            app:mwhGradientAngle="45"
+            app:mwhWaveHeight="50dp"
+            app:mwhColorAlpha="0.45"
+            app:mwhStartColor="@color/colorPrimary"
+            app:mwhCloseColor="@color/colorPrimaryDark"
+            app:mwhWaves="MultiWave"/>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/title_center"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/logo_title_center"/>
+
+        </LinearLayout>
+
+
+        <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+            android:theme="@style/TextFieldBoxes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp"
+            app:labelText="账号"
+            app:primaryColor="@color/colorPrimary"
+            app:secondaryColor="@color/colorTextContent"
+            app:panelBackgroundColor="@color/transparent"
+            app:hasClearButton="true"
+            >
+
+            <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+        </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+        <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+            android:theme="@style/TextFieldBoxes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="30dp"
+            app:labelText="密码"
+            app:primaryColor="@color/colorPrimary"
+            app:secondaryColor="@color/colorTextContent"
+            app:panelBackgroundColor="@color/transparent"
+            app:hasClearButton="true"
+            >
+
+            <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:text=""
+                />
+
+        </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_login"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/selector_button"
+            android:text="登录" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+            <TextView
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/colorTextAssistant"
+                android:text="音视频服务由"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/agora_logo"/>
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/colorTextAssistant"
+                android:text="提供"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

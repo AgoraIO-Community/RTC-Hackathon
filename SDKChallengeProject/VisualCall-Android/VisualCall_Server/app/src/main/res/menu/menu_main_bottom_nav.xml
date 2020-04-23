@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--首页-->
+    <item
+        android:id="@+id/menu_server"
+        android:icon="@drawable/selector_tab_yewu"
+        android:title="服务"/>
+
+
+    <!--我的-->
+    <item
+        android:id="@+id/menu_wode"
+        android:icon="@drawable/selector_tab_wode"
+        android:title="我的"/>
+
+</menu>
