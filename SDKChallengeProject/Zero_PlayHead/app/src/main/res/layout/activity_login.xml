@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/bg"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/btn_sound"
+        android:background="@mipmap/sound_btn"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+    <ImageView
+        android:background="@mipmap/bgm_btn"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_sound"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+    <ImageView
+        android:id="@+id/tv_title"
+        android:background="@mipmap/title"
+        android:layout_marginTop="90dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sound"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="320dp"
+        android:layout_height="125dp"/>
+
+    <ImageView
+        android:id="@+id/ed_nickname"
+        android:background="@mipmap/bg1"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        android:layout_width="320dp"
+        android:layout_height="230dp"/>
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:textSize="16sp"
+        android:textColor="#642200"
+        android:text="@string/input_nick_name"
+        app:layout_constraintStart_toStartOf="@id/ed_nickname"
+        app:layout_constraintTop_toTopOf="@id/ed_nickname"
+        app:layout_constraintBottom_toBottomOf="@id/ed_nickname"
+        android:layout_marginStart="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+    <EditText
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:textColor="#000"
+        android:id="@+id/ed_user_name"
+        android:singleLine="true"
+        android:background="@drawable/bg_ed"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintEnd_toEndOf="@id/ed_nickname"
+        app:layout_constraintStart_toEndOf="@+id/tv_nickname"
+        app:layout_constraintTop_toTopOf="@id/ed_nickname"
+        app:layout_constraintBottom_toBottomOf="@id/ed_nickname"
+        android:layout_width="0dp"
+        android:layout_height="40dp"/>
+
+    <ImageView
+        android:id="@+id/btn_login"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@mipmap/start_btn"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/ed_nickname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
