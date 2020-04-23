@@ -3,9 +3,17 @@
 然而，网络辩论目前的解决方式都不是特别优秀，故开发竹辩系统以供网络辩论使用。
 
 # 环境介绍
-- 后端：yesapi提供的serverless服务，人脸识别后端react, mongoDB
-- 前端：vuexy(UI), react, redux
-- 声网：rtc-ng, rtm
+- 后端：
+  - yesapi提供的serverless服务
+  - 人脸识别后端koajs
+  - mongoDB
+- 前端：
+  - vuexy(UI)
+  - react
+  - redux
+- 声网：
+  - rtc-ng
+  - rtm
 
 # 编译方式
 1. 后端：
