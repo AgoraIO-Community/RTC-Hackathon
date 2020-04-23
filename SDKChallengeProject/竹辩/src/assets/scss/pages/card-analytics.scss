@@ -1,0 +1,72 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+// list-group item - i position for customer card
+.customer-info {
+  &.list-group {
+    .list-group-item {
+      &:last-child {
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+    }
+  }
+}
+
+// avg - sessions
+.avg-sessions {
+  .progress {
+    margin-top: 0.5rem;
+  }
+}
+// analytics list
+.analytics-list {
+  &.list-group {
+    .list-group-item {
+      border: 0;
+      &:first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+      .btn {
+        display: none;
+      }
+      &:hover {
+        .btn {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+// Chart-dropdown Button
+.chart-dropdown {
+  .btn {
+    font-size: 0.8rem;
+    font-weight: $headings-font-weight;
+    &:after {
+      left: 0;
+      position: relative;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px) {
+  // buttons in analytics-list
+  .analytics-list {
+    .float-left,
+    .float-right {
+      display: block;
+    }
+  }
+}

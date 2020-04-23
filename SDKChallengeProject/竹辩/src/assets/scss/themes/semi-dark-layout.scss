@@ -1,0 +1,161 @@
+// ================================================================================================
+// 	File Name: semi-dark-layout.scss
+// 	Description: SCSS file for semi dark layout.
+// 	----------------------------------------------------------------------------------------------
+// 	Item Name: Vuexy React Admin Template
+// 	Version: 1.0
+// 	Author: PIXINVENT
+// 	Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+body {
+  &.semi-dark-layout {
+    /************ Main Menu **************/
+
+    // main menu
+    .main-menu {
+      background-color: $dark-card-color;
+      .shadow-bottom {
+        background: linear-gradient(
+          180deg,
+          #0f1642 44%,
+          rgba(15, 22, 66, 0.51) 73%,
+          rgba(44, 48, 60, 0)
+        );
+      }
+      &:not(.expanded) {
+        .navigation {
+          .sidebar-group-active {
+            a {
+              background-color: $content-dark-bg;
+            }
+          }
+        }
+      }
+      &.theme-dark {
+        .navbar-header {
+          .brand-text {
+            color: $gray-500 !important;
+          }
+          .modern-nav-toggle {
+            svg {
+              color: $gray-500 !important;
+            }
+          }
+        }
+        .navigation {
+          .nav-item {
+            &.active {
+              a {
+                background: linear-gradient(
+                  118deg,
+                  $gray-500,
+                  rgba($gray-500, 0.7)
+                );
+                box-shadow: 0 0 10px 1px rgba($gray-500, 0.7);
+              }
+            }
+            .menu-content {
+              li.active {
+                background: linear-gradient(
+                  118deg,
+                  $gray-500,
+                  rgba($gray-500, 0.7)
+                );
+                box-shadow: 0 0 10px 1px rgba($gray-500, 0.7);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // main menu content
+    .main-menu-content {
+      .navigation-main {
+        background-color: $dark-card-color;
+        .nav-item {
+          svg {
+            color: $theme-dark-text-color;
+          }
+          &.open {
+            a {
+              background-color: $content-dark-bg;
+            }
+          }
+          a:after,
+          a {
+            color: $theme-dark-text-color;
+          }
+          .menu-content {
+            background-color: $dark-card-color;
+            .active {
+              .menu-item {
+                color: $white;
+              }
+            }
+            li {
+              &:not(.active) {
+                a {
+                  background-color: $dark-card-color;
+                }
+              }
+              &.hover {
+                a,
+                svg {
+                  color: $theme-dark-text-color;
+                }
+              }
+            }
+          }
+        }
+        .active {
+          .menu-title,
+          svg {
+            color: $white;
+          }
+        }
+        .sidebar-group-active {
+          a {
+            background: $dark-card-color;
+            border-radius: 4px;
+          }
+          .menu-content {
+            background-color: $dark-card-color;
+            .active {
+              z-index: 1;
+              a {
+                background-color: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // menu collapsed active item color
+    &.menu-collapsed {
+      .main-menu:not(.expanded) {
+        .navigation-main {
+          li.active {
+            a {
+              background: $content-dark-bg !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

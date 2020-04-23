@@ -1,0 +1,446 @@
+// ================================================================================================
+//  File Name: custom-rtl.scss
+//  Description: RTL support SCSS file.
+//  ----------------------------------------------------------------------------------------------
+//  Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+//  Author: PIXINVENT
+//  Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+// Variables
+// ------------------------------
+
+// Core variables and mixins
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_mixins";
+@import "bootstrap-extended/mixins";
+
+// Core variables and mixins overrides
+@import "core/variables/variables";
+@import "~bootstrap/scss/_variables";
+
+// Overrides user variable
+@import "core/variables/components-variables";
+
+html[dir="rtl"] {
+  // dashboard sales card
+  .sales-card {
+    .img-left {
+      left: 0;
+      right: auto;
+    }
+    .img-right {
+      right: 0;
+    }
+  }
+
+  // breadcrumb
+  .breadcrum-right {
+    .dropdown-toggle {
+      svg {
+        right: 0;
+      }
+    }
+  }
+
+  //breadcrumb-header
+  .breadcrumb-wrapper {
+    .breadcrumb {
+      .breadcrumb-item {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  // Dropdown
+  .dropup-form {
+    .dropdown-menu {
+      min-width: 16rem;
+    }
+  }
+
+  // main menu icon
+  .main-menu {
+    ul.navigation-main {
+      .nav-item {
+        &:not(.open) {
+          svg.menu-toggle-icon {
+            transform: rotate(180deg);
+          }
+        }
+        &.open {
+          svg.menu-toggle-icon {
+            transform: rotate(90deg) !important;
+          }
+        }
+      }
+    }
+  }
+
+  // ag-grid
+  .ag-rtl {
+    direction: rtl;
+    .ag-header-select-all {
+      margin-right: 0 !important;
+      margin-left: 24px !important;
+    }
+    .ag-cell-value {
+      margin-left: 0 !important;
+      margin-right: 24px !important;
+    }
+  }
+
+  // Code
+  .component-code {
+    pre {
+      text-align: left;
+    }
+  }
+
+  // Recharts
+  .recharts-layer {
+    direction: ltr;
+  }
+
+  // context menu
+  .react-contexify {
+    z-index: 1031;
+  }
+
+  // Email
+  .email-application {
+    .content-right {
+      .app-fixed-search {
+        .sidebar-toggle {
+          margin-left: 0;
+        }
+      }
+      .email-detail-header,.app-action{
+        .dropdown{
+          .dropdown-menu{
+            transform: translate3d(0px, 22px, 0px) !important;
+          }
+        }
+      }
+    }
+  }
+
+  // carousel
+  .carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // pagination
+  .pagination,
+  .vx-pagination {
+    .prev-item,
+    .previous,
+    .next-item,
+    .next {
+      a svg {
+        transform: rotate(180deg);
+      }
+    }
+    li:first-child,
+    li:last-child {
+      a span {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  // swiper
+  .swiper-container {
+    .swiper-button-next,
+    .swiper-button-prev {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .swiper-container-cube {
+    &.swiper-container-rtl {
+      .swiper-slide {
+        transform-origin: 100% 0 !important;
+      }
+    }
+  }
+
+  //slider
+  .rc-slider-tooltip {
+    right: 50%;
+    width: 30px;
+  }
+  .rc-slider-vertical {
+    .rc-slider-dot {
+      right: -1px;
+    }
+  }
+  // Horizontal
+  .horizontal-layout {
+    .horizontal-menu-wrapper {
+      #main-menu-navigation {
+        .nav-item {
+          .has-sub {
+            svg.has-sub-arrow {
+              transform: rotate(180deg);
+            }
+          }
+        }
+        .dropdown-menu {
+          right: 0 !important;
+          left: auto !important;
+          top: 100% !important;
+          .dropdown-menu {
+            left: auto !important;
+            right: 100% !important;
+            top: 0 !important;
+           
+          }
+        }
+      }
+    }
+  }
+
+  //  menu items alignment
+  .main-menu {
+    .navigation > li ul li > a {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // Dropdown RTL Changes
+  .header-navbar .navbar-container ul.nav li.dropdown {
+    .dropdown-menu {
+      margin-top: 0;
+      &::before {
+        top: 1px;
+      }
+    }
+  }
+
+  .header-navbar {
+    .dropdown,
+    .dropup {
+      .dropdown-menu.dropdown-menu-right::before {
+        right: auto;
+        left: 0.5rem;
+      }
+    }
+  }
+
+  .dropdown,
+  .dropup {
+    .dropdown-menu {
+      right: auto !important;
+      top: 0 !important;
+      left: auto !important;
+
+      &.dropdown-menu-right {
+        left: auto !important;
+        right: 0 !important;
+
+        &::before {
+          right: 0.6rem;
+          left: auto;
+        }
+      }
+    }
+  }
+
+  // Input Group dropdown
+  .input-group {
+    .dropdown-menu.show {
+      top: 0 !important;
+      right: auto !important;
+      left: 0px !important;
+    }
+  }
+
+  // Context menu list css
+  .context-menu-list {
+    z-index: 1031 !important;
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    direction: ltr;
+  }
+
+  @media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+      text-shadow: none;
+    }
+  }
+
+  // Calendar
+  .app-calendar {
+    .calendar-navigation {
+      .btn {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  // Tooltip
+  .bs-tooltip-left .arrow::before,
+  .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+    border-width: 0.4rem 0 0.4rem 0.4rem;
+    border-left-color: $tooltip-bg;
+  }
+
+  .bs-tooltip-left .arrow,
+  .bs-tooltip-auto[x-placement^="left"] .arrow {
+    right: 0;
+    left: auto;
+  }
+
+  .bs-tooltip-right .arrow::before,
+  .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+    border-width: 0.4rem 0.4rem 0.4rem 0;
+    border-right-color: $tooltip-bg;
+  }
+
+  .bs-tooltip-right .arrow,
+  .bs-tooltip-auto[x-placement^="right"] .arrow {
+    left: 0;
+    right: auto;
+  }
+
+  // Popover Style
+  .popover {
+    right: auto !important;
+  }
+
+  // Perfect scrollbar RTL fix
+  body .ps__rail-y {
+    right: auto !important;
+    left: 1px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  html[dir="rtl"] {
+    .vertical-layout {
+      &.menu-collapsed {
+        .app-content {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  html[dir="rtl"] {
+    .vertical-layout {
+      .navbar-container {
+        .header-navbar {
+          ul.nav {
+            .nav-item {
+              &.dropdown {
+                .dropdown-menu {
+                  left: 12px !important;
+                  &.dropdown-menu-media {
+                    left: 15px !important;
+                    right: -15px !important;
+                  }
+                }
+
+                &.dropdown-notification {
+                  .dropdown-menu {
+                    transform: translate3d(-12px, 62px, 0px) !important;
+                    &.dropdown-cart {
+                      transform: translate3d(-12px, 59px, 0px) !important;
+                    }
+                  }
+                }
+                &.dropdown-user {
+                  .dropdown-menu {
+                    transform: translate3d(20px, 60px, 0px) !important;
+                  }
+                }
+                &.dropdown-language {
+                  .dropdown-menu {
+                    right: 28px !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+ html[dir="rtl"]{
+   .header-navbar {
+     .dropdown {
+       &.dropdown-notification {
+         .dropdown-menu {
+           transform: translate3d(324px, 62px, 0px) !important;
+           &.dropdowncart {
+             transform: translate3d(335px, 62px, 0px) !important;
+           }
+         }
+       }
+       &.dropdown-user {
+         .dropdown-menu {
+           transform: translate3d(20px, 60px, 0px) !important;
+         }
+       }
+       &.dropdown-language {
+         .dropdown-menu {
+           transform: translate3d(114px, 64px, 0px) !important;
+         }
+       }
+     }
+   }
+ }
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"]{
+    .app-content {
+      .header-navbar {
+        .dropdown {
+          &.dropdown-notification {
+            .dropdown-menu {
+              transform: translate3d(26px, 59px, 0px) !important;
+              &.dropdown-cart {
+                transform: translate3d(26px, 59px, 0px) !important;
+              }
+            }
+          }
+          &.dropdown-user {
+            .dropdown-menu {
+              left: 0 !important;
+              right: 28px !important;
+            }
+          }
+          &.dropdown-language {
+            .dropdown-menu {
+              transform: translate3d(26px, 64px, 0px) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

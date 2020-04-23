@@ -1,0 +1,208 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+
+// Core variables and mixins overrides
+@import "../../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../../core/variables/components-variables";
+
+.app-calendar {
+  z-index: 1;
+  .add-event-sidebar {
+    min-height: calc(100% - 15.5rem);
+    height: 100%;
+    width: 400px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    background: $white;
+    overflow: hidden;
+    transform: translateX(113%);
+    transition: all 0.25s ease-in-out;
+    &.show {
+      transform: translateX(0);
+    }
+    .header {
+      background-color: $body-bg;
+      padding: 1rem;
+    }
+    .add-event-body {
+      padding: 1rem;
+    }
+  }
+
+  .rbc-time-view {
+    .rbc-time-header {
+      .rbc-time-header-cell {
+        .rbc-header {
+          font-size: 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem;
+          a {
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+    .rbc-time-gutter {
+      .rbc-timeslot-group {
+        .rbc-time-slot {
+          &:first-child {
+            display: flex;
+            align-items: center;
+          }
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .app-content-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    z-index: 5;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    &.show {
+      visibility: visible;
+      transition: all 0.3s ease;
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 0.25rem;
+    }
+  }
+  .react-datepicker-wrapper {
+    display: block;
+    .react-datepicker__input-container {
+      width: 100%;
+    }
+  }
+}
+
+// Calendar Styles
+.rbc-calendar {
+  min-height: calc(100vh - 18rem);
+
+  // Header / Toolbar
+
+  .calendar-header {
+    .calendar-navigation {
+      .btn-icon {
+        padding: 0.3rem;
+      }
+    }
+  }
+
+  // Month View Styling
+  .rbc-month-view {
+    // Disabled or past month dates
+    .rbc-off-range-bg {
+      background: hsla(0, 0%, 94.5%, 0.4);
+    }
+
+    // day column height
+    .rbc-month-row {
+      max-height: 118px;
+
+      .rbc-day-bg {
+        cursor: pointer;
+      }
+
+      .rbc-row-content {
+        .rbc-row {
+          // day alignment
+          .rbc-date-cell {
+            text-align: left;
+            padding: 0.8rem;
+            min-width: auto;
+            &.rbc-now {
+              &.rbc-current {
+                a {
+                  background-color: rgba($primary, 1);
+                  border-radius: 50%;
+                  padding: 0.4rem;
+                  color: $white;
+                  text-align: center;
+                  font-weight: 600;
+                  max-width: 32px;
+                }
+              }
+            }
+          }
+          .rbc-event {
+            padding: 0 1rem;
+            border-radius: 1rem;
+            z-index: 2;
+            &:focus {
+              outline: 0;
+            }
+          }
+        }
+        .rbc-addons-dnd-row-body {
+          .rbc-row {
+            .rbc-row-segment {
+              .rbc-event {
+                .rbc-event-content {
+                  padding-left: 0.8rem;
+                }
+              }
+            }
+          }
+        }
+      }
+      .rbc-row-bg {
+        .rbc-day-bg {
+          &.rbc-today {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .app-calendar {
+    .add-event-sidebar {
+      width: 260px;
+    }
+  }
+}
+
+@media (max-width: 815px) {
+  .app-calendar {
+    .month-label {
+      width: 100%;
+      text-align: center !important;
+      margin-top: 1rem !important;
+    }
+    .event-tags {
+      justify-content: center !important;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .app-calendar {
+    .view-options {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+// Alerts
+
+.alert {
+  font-weight: 500;
+  border: none;
+  // close
+
+  .close:focus {
+    outline: 0;
+  }
+
+  // For Alert Content
+  p {
+    font-weight: 500;
+    padding: 2px 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  span {
+    vertical-align: middle;
+  }
+
+  // For alert svg icons
+
+  svg {
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  // For alert heading
+  .alert-heading {
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0;
+    padding-bottom: 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  // For dismissible alert
+  &.alert-dismissible {
+    .close {
+      opacity: 1;
+      top: -2px;
+    }
+  }
+
+  // For dark alert
+  &.alert-dark {
+    .alert-heading {
+      @include alert-heading-bs($dark);
+    }
+  }
+
+  // For light alert
+  &.alert-light {
+    .alert-heading {
+      @include alert-heading-bs($light);
+    }
+  }
+}

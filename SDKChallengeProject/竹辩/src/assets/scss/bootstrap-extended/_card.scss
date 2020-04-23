@@ -1,0 +1,225 @@
+.card-group,
+.card-deck {
+  margin-bottom: 0.75rem;
+}
+.card {
+  // box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05);
+  margin-bottom: $spacer * 2.2;
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  .card {
+    box-shadow: none !important;
+  }
+  .card-subtitle {
+    margin-top: 0.5rem;
+  }
+  .card-title {
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    font-size: 1.32rem;
+    margin-bottom: $card-spacer-y / 3;
+    color: $headings-color;
+  }
+  .card-bordered {
+    border: $card-border-width solid $card-border-color;
+  }
+
+  .card-img-overlay {
+    border-radius: $card-border-radius;
+  }
+
+  //fullscreen card
+  &.card-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+  }
+  .card-body[class*="border-bottom-"] {
+    border-bottom-width: 2px !important;
+  }
+  .card-img-overlay {
+    &.bg-overlay {
+      background: rgba(0, 0, 0, 0.45);
+    }
+    .text-muted {
+      color: $gray-800 !important;
+    }
+  }
+  &.card-minimal {
+    border: none;
+    box-shadow: none;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: none;
+    padding: 1.5rem 1.5rem 0;
+    background-color: transparent;
+    .card-title {
+      margin-bottom: 0;
+    }
+
+    .nav-tabs {
+      margin-bottom: 0;
+    }
+  }
+  .card-body {
+    // padding-top: 1rem;
+  }
+  .card-footer {
+    border-top: 1px solid $gray-300;
+  }
+  &.card-action {
+    .card-header {
+      padding-bottom: 1.5rem;
+      svg {
+        cursor: pointer;
+      }
+    }
+    &.card-collapsed {
+      .card-header {
+        .collapse-icon {
+          transform: rotate(180deg);
+          transition: all 0.5s ease;
+        }
+      }
+    }
+    &.closing {
+      .collapse-icon {
+        transform: rotate(180deg);
+        transition: all 0.5s ease;
+      }
+    }
+    &.opening {
+      .collapse-icon {
+        transform: rotate(0deg);
+        transition: all 0.5s ease;
+      }
+    }
+    &.card-shown {
+      .card-header {
+        .collapse-icon {
+          transform: rotate(0deg);
+          transition: all 0.5s ease;
+        }
+      }
+    }
+    &.card-reload {
+      .reload-spinner {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+      }
+      &.refreshing {
+        .card-body {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+// Card Column
+.card-columns {
+  .card {
+    margin-bottom: $spacer * 2.2;
+  }
+}
+
+.text-white {
+  .card-text {
+    color: rgba($white, 1);
+  }
+
+  .card-img-overlay {
+    .text-muted {
+      color: $white !important;
+    }
+  }
+  code {
+    background-color: rgba($white, 1);
+  }
+}
+
+.card-head-inverse {
+  color: $white;
+}
+.card-transparent {
+  background-color: transparent;
+}
+
+// overlay-img-card
+.overlay-img-card {
+  .card-img-overlay,
+  img {
+    max-height: 34.64rem;
+  }
+}
+
+// activity timeline for cards page
+.activity-timeline {
+  // for left time line
+  .timeline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.timeline-left {
+    border-left: 2px solid $gray-300;
+    padding-left: 40px;
+    margin-left: 1.5rem;
+    li {
+      position: relative;
+      margin-bottom: 20px;
+      p {
+        margin-bottom: 0;
+      }
+
+      //icon styles
+      .timeline-icon {
+        position: absolute;
+        top: 0;
+        left: -4.3rem;
+        padding: 0.7rem;
+        border-radius: 50%;
+        color: $white;
+      }
+    }
+  }
+
+  // for right timeline
+  &.timeline-right {
+    border-right: 2px solid $gray-300;
+    padding-right: 40px;
+    margin-right: 1.5rem;
+    li {
+      position: relative;
+      margin-bottom: 20px;
+      text-align: right;
+      p {
+        margin-bottom: 0;
+      }
+      // icon styles
+      .timeline-icon {
+        position: absolute;
+        top: 0;
+        right: -4.3rem;
+        padding: 0.6rem 0.7rem;
+        border-radius: 50%;
+        color: $white;
+      }
+    }
+  }
+}

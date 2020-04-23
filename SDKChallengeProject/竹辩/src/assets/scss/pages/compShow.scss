@@ -1,0 +1,304 @@
+// Core variables and mixin
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+@import "../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+@import "../bootstrap.scss";
+@import "../components.scss";
+@import "../bootstrap-extended.scss";
+@import "../colors.scss";
+@import "../iconfont.scss";
+@import "../custom-rtl.scss";
+@import "../core/variables/components-variables";
+
+.faq-bg {
+  background: url("/images/authBanner.jpeg") no-repeat;
+  background-size: cover;
+  .form-control {
+    &:focus {
+      // after focus search icon color
+      ~ .form-control-position {
+        svg {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+// make jumbotron card body padding
+@media only screen and (min-width: 992px) {
+  .faq-bg {
+    .card-body {
+      padding: 8rem !important;
+    }
+  }
+}
+// make jumbotron card body padding
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .faq-bg {
+    .card-body {
+      padding: 6rem !important;
+    }
+  }
+}
+
+
+.faq {
+  //faq sidebar scss
+  .faq-content {
+    .faq-table-content {
+      cursor: pointer;
+      padding: 0.5rem;
+      font-weight: $headings-font-weight;
+      .bullet {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  //supporter details
+  .supporter-details {
+    .supporter-img {
+      img {
+        width: 35px;
+        height: 35px;
+        margin-right: 0.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+  //supporter info
+  .supporter-info {
+    vertical-align: middle;
+  }
+  // faq Accordion font-weight
+  .accordion {
+    .collapse-title {
+      font-weight: $headings-font-weight;
+      color: $headings-color;
+    }
+    &.collapse-margin {
+      margin-top: 0;
+    }
+  }
+}
+
+
+.faceMainTab {
+  z-index: 4000;
+}
+
+.faceModel {
+  position: absolute;
+  top: 100px;
+  left: 40%;
+  z-index: 1000; 
+}
+
+.faceModelInput {
+  position: absolute;
+  top: 100px;
+  left: 39%;
+  z-index: 1000; 
+}
+.detectFace {
+  position: absolute;
+  top: 560px;
+  left: 45%;
+  //height: 200px;
+  z-index: 1500; 
+}
+.detectVoice {
+  position: absolute;
+  top: 600px;
+  left: 45%;
+  //height: 200px;
+  z-index: 1500; 
+}
+.detectVoiceInput {
+  position: absolute;
+  top: 600px;
+  left: 44%;
+  //height: 200px;
+  z-index: 1500; 
+}
+.faceShadow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000; 
+}
+
+.wavesAuth {
+  margin-left: 18%;
+  margin-top: 0px;
+}
+.wavesAuthInput {
+  margin-left: 17%;
+  margin-top: 0px;
+}
+.debatorIntroTxtC {
+    margin-left: 10px;
+  }
+.webCamera {
+  -webkit-clip-path: inset(10% 0 12% 0);
+  clip-path: inset(10% 0 12% 0);
+  margin-top: -87px;
+}
+.webCameraSmall {
+  -webkit-clip-path: inset(10% 0 12% 0);
+  clip-path: inset(10% 0 12% 0);
+  margin-top: -26px;
+  border-radius: 30px;
+}
+.faceModelSmall {
+  position: absolute;
+  top: 35px;
+  left: 35%;
+  z-index: 1000; 
+}
+.faceBadge {
+  position: absolute;
+  top: 190px;
+  left: 75%;
+  z-index: 1000; 
+}
+.faceShadowSmall {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1000; 
+}
+.webCameraSidebarCard {
+  height:220px
+}
+  @font-face {
+    src: url("../../fonts/digiface.ttf");
+    font-family: "digiface";
+  }
+  
+  $main-timer-size: 150px;
+  $free-timer-size: 120px;
+  .timer-hide {
+    display: none;
+  }
+  .timer-main {
+    font-family: "digiface";
+    font-size: $main-timer-size;
+    line-height: $main-timer-size;
+    height: $main-timer-size;
+    margin-top: $main-timer-size/2;
+  }
+  
+  .timer-free {
+    font-family: "digiface";
+    font-size: $free-timer-size;
+    line-height: $free-timer-size;
+    height: $free-timer-size+23px;
+    margin-top: $main-timer-size/2;
+  }
+  .roundTxt {
+    font-size: 50px;
+    margin-top: 40px;
+    height: 50px;
+    line-height: 50px;
+  }
+  
+  .roundTxt-next {
+    font-size: 30px;
+    margin-top: 15px;
+    height: 50px;
+    line-height: 50px;
+    color: rgba(44, 44, 44, 0.6);
+  }
+  
+  .debator-name {
+    margin-top: 5px;
+    color: #424143;
+  }
+  .debator-imgs {
+    margin-top: 70px;
+  }
+  
+  .avatar {
+    display: block;
+    background-color: white;
+  }
+  
+.data-list {
+    header {
+        display: block;
+        background: transparent;
+        padding: 0 1rem;
+        .add-new-btn {
+          padding: 0.9rem 0.938rem;
+        }
+        .sort-dropdown {
+          border: 1px solid $gray-300;
+          background-color: $white;
+          padding: 1.02rem 0.65rem !important;
+          border-radius: 5rem;
+        }
+        .filter-section {
+          position: relative;
+          input {
+            padding: 1.45rem 0rem;
+            padding-left: 2.8rem;
+            border-radius: 1.428rem;
+            border: 1px solid $gray-300;
+            max-width: 200px;
+          }
+          &:after {
+            content: "\e8bd";
+            font-family: feather;
+            position: absolute;
+            left: 1rem;
+            top: 0.85rem;
+          }
+        }
+      }
+    .data-list-sidebar {
+      width: 29.5rem;
+      max-width: 90vw;
+      height: 100vh;
+      background-color: $white;
+      position: fixed;
+      left: auto;
+      right: 0;
+      top: 0;
+      z-index: 1033;
+      box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.1);
+      transition: all 0.25s ease;
+      transform: translateX(100%);
+      &.show {
+        transform: translateX(0%);
+      }
+      .data-list-sidebar-header {
+        padding-bottom: 0.714rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .data-list-fields {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        height: calc(100% - 12rem);
+        position: relative;
+      }
+    }
+  
+    .data-list-overlay {
+      background: rgba(0, 0, 0, 0);
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      display: none;
+      z-index: 1032;
+      transition: all 0.3s ease;
+      &.show {
+        opacity: 1;
+        display: block;
+      }
+    }
+  }

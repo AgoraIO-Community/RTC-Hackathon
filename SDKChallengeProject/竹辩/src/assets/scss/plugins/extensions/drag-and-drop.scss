@@ -1,0 +1,39 @@
+// For Drag And Drop
+
+#list-group-dnd {
+  .drag-wrapper {
+    &:first-child {
+      .list-group-item {
+        border-top-left-radius: 0.5rem !important;
+        border-top-right-radius: 0.5rem !important;
+        border-bottom-left-radius: 0rem !important;
+        border-bottom-right-radius: 0rem !important;
+      }
+    }
+
+    .list-group-item {
+      border-radius: 0 !important;
+    }
+  }
+
+  div:first-child {
+    .drag-wrapper:last-child .list-group-item {
+      border-bottom-left-radius: 0.5rem !important;
+      border-bottom-right-radius: 0.5rem !important;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .draggable-cards {
+    [data-react-beautiful-dnd-draggable]:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .draggable-cards {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,333 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+// Todo Application css starts
+.todo-application {
+  // Content area wrapper border
+  border: 1px solid $gray-300;
+  border-radius: $border-radius-sm;
+  height: calc(100vh - 12rem);
+  // Sidebar area starts
+  .todo-sidebar {
+    width: $menu-expanded-width;
+    height: calc(100vh - 12rem);
+    background-color: $white;
+    border-top-left-radius: $border-radius-sm;
+    border-bottom-left-radius: $border-radius-sm;
+    border-right: 1px solid $gray-300;
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+    // Close Icon
+    .sidebar-close-icon {
+      position: absolute;
+      right: 0.25rem;
+      top: 0.25rem;
+      cursor: pointer;
+      font-size: 1.25rem;
+      z-index: 5;
+      visibility: hidden;
+    }
+    .todo-app-menu {
+      width: 100%;
+      box-shadow: 0 0 15px 0 rgba($pure_black, 0.05);
+      padding: 0.5rem 0;
+      z-index: 3;
+      .add-task {
+        padding: 1px 1.5rem;
+        margin-bottom: 0.25rem;
+      }
+      .sidebar-menu-list {
+        padding: 0 1.5rem;
+        position: relative;
+        overflow: scroll;
+        height: calc(100% - 5.4rem);
+      }
+      .list-group .list-group-item {
+        padding-left: 0;
+        padding-right: 0;
+        cursor: pointer;
+        &:focus {
+          background-color: transparent;
+        }
+        &:hover {
+          background-color: transparent;
+          color: $body_color;
+        }
+        &.active {
+          background-color: transparent;
+          color: $primary;
+        }
+      }
+      hr {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+      }
+    }
+    & + div {
+      visibility: hidden !important;
+    }
+  }
+  // Sidebar area ends
+
+  // Task Sidebar
+  .task-sidebar {
+    height: calc(100vh - 12.16rem);
+    width: 400px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    background: $white;
+    overflow: hidden;
+    transform: translateX(113%);
+    transition: all 0.25s ease-in-out;
+    &.show {
+      transform: translateX(0);
+    }
+    .task-header {
+      background-color: $body-bg;
+      padding: 1rem;
+    }
+    .task-body {
+      padding: 1rem;
+      .task-actions {
+        cursor: pointer;
+      }
+    }
+  }
+  // Task Sidebar Ends
+
+  // Overlay Styles
+  // Content area overlay
+  .app-content-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    &.show {
+      visibility: visible;
+      transition: all 0.3s ease;
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 0.25rem;
+    }
+  }
+  // Overlay Styles Ends
+
+  // Todo list wrapper
+  .app-content {
+    .content-area-wrapper {
+      position: relative;
+    }
+  }
+  .completed {
+    .todo-title,
+    .todo-desc {
+      text-decoration: line-through;
+    }
+  }
+
+  // Right content area common css starts
+  .content-right {
+    position: relative;
+    // Todo Fixed search
+    .app-fixed-search {
+      padding: 0.35rem 0.1rem;
+      border-bottom: 1px solid $gray-300;
+      background-color: $white;
+      border-top-right-radius: $border-radius;
+      input {
+        border: 0;
+        background-color: transparent;
+        &:focus {
+          border-color: transparent;
+          box-shadow: none;
+        }
+      }
+      .form-control-position {
+        z-index: 1;
+      }
+    }
+    // Sidebar toggle icon
+    .sidebar-toggle {
+      cursor: pointer;
+      margin: 0.5rem 0.99rem;
+      float: left;
+      line-height: 1;
+    }
+    // ToDo task list area
+    .todo-task-list {
+      position: relative;
+      height: calc(100vh - 16.35rem);
+      .todo-task-list-wrapper {
+        padding: 0;
+        margin: 0;
+        li {
+          cursor: pointer;
+          transition: all 0.2s;
+          animation: fadeIn 0.25s linear;
+          animation-fill-mode: both;
+          position: relative;
+          padding: 1.1rem 3rem 1.2rem 2rem;
+          border-top: 1px solid $gray-300;
+          user-select: none;
+          &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 3px 10px 0 #ccc;
+            transition: all 0.2s;
+          }
+          .chip-wrapper {
+            display: flex;
+            .chip {
+              margin-right: 0.25rem;
+            }
+          }
+        }
+        // Set delay per List Item
+        @for $i from 1 through 5000 {
+          li:nth-child(#{$i}) {
+            animation-delay: 0.1s * $i;
+          }
+        }
+        // Todo Item Action
+        .todo-item-action {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 5.75rem;
+          a {
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1.5;
+          }
+        }
+      }
+      // When we search, no-results
+      .no-results {
+        display: none;
+        padding: 1.5rem;
+        text-align: center;
+        &.show {
+          display: block;
+        }
+      }
+    }
+  }
+  // Right content area common css End
+}
+
+// Keyframe animation
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  75% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@include media-breakpoint-down(xs) {
+  .todo-application .app-content .sidebar-left .todo-sidebar {
+    left: -1.12rem !important;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .todo-application {
+    .sidebar-content {
+      .sidebar-close-icon {
+        visibility: visible !important;
+      }
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  .todo-application {
+    .app-content-overlay {
+      z-index: 2;
+    }
+    .app-content {
+      .sidebar-left {
+        // position: relative;
+        .todo-sidebar {
+          transform: translateX(-110%);
+          transition: all 0.3s ease-in-out;
+          // transition: transform .25s;
+          left: 0;
+          position: fixed;
+          z-index: 5;
+          left: -2px;
+        }
+        &.show {
+          .todo-sidebar {
+            transform: translateX(13%);
+            transition: all 0.3s ease;
+            // transition: transform .25s;
+            display: block;
+          }
+        }
+      }
+      .content-right {
+        width: 100%;
+        .todo-app-list-wrapper {
+          border-left: 0;
+        }
+        .app-fixed-search {
+          border-top-left-radius: $border-radius;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .task-sidebar {
+    width: 260px !important;
+    .task-body {
+      .chip-wrapper {
+        .chip {
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .content-right .todo-task-list .todo-title-wrapper,
+  .todo-title-area {
+    display: block !important;
+  }
+  .content-right .todo-task-list .todo-title-wrapper .todo-item-action {
+    float: none !important;
+    width: 100% !important;
+    display: block !important;
+    margin-top: 0.5rem;
+    a {
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media (max-width: 349.98px) {
+  .todo-application .content-area-wrapper .sidebar .todo-sidebar {
+    width: 230px;
+  }
+}

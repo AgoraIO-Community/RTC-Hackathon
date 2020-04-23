@@ -1,0 +1,80 @@
+/*** Flatpickr ***/
+
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+
+// Core variables and mixins overrides
+@import "../../../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../../../core/variables/components-variables";
+
+.form-control.flatpickr-input{
+  background-color: $white;
+  & ~ input{
+    background-color: $white;
+  }
+}
+
+.flatpickr-calendar{
+  &.arrowTop{
+    &:before,
+    &:after{
+      border-bottom-color: $primary;
+    }
+  }
+  .flatpickr-months {
+    .flatpickr-prev-month,
+    .flatpickr-next-month,
+    .flatpickr-prev-month:hover svg,
+    .flatpickr-next-month:hover svg{
+      fill : $white;
+      color : $white;
+    }
+    .flatpickr-month{
+      background: $primary;
+      select:hover{
+        background: $white;
+      }
+    }
+    .numInputWrapper{
+      .numInput{
+        color: $white;
+      }
+    }
+  }
+  .flatpickr-weekdays{
+    width: calc(100% + 1px);
+  }
+  .flatpickr-weekdays,
+  .flatpickr-weekday{        
+    background: $primary;
+    color : $white;
+  }
+  .flatpickr-days{
+    .dayContainer{
+      .flatpickr-day{
+        &.selected,
+        &.selected:hover{
+          background : $primary;
+          border-color : $primary;
+        }
+        &:hover,
+        &.inRange{
+          background : $gray-200;
+          border-color : $gray-200;
+        }
+
+        &.inRange{
+          box-shadow: -5px 0 0 $gray-200, 5px 0 0 $gray-200;
+        }
+
+        &.flatpickr-disabled{
+          color: $secondary;
+        }
+      }
+    }
+  }
+}

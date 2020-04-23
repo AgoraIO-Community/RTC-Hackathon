@@ -1,0 +1,13 @@
+@import "./bootstrap.scss";
+@import "./components.scss";
+@import "./bootstrap-extended.scss";
+@import "./colors.scss";
+@import "./iconfont.scss";
+@import "./custom-rtl.scss";
+
+.carousel-caption {
+  background-color: rgba(255,255,255,0.9);
+  p {
+    color: black;
+  }
+}

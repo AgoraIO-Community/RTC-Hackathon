@@ -1,0 +1,47 @@
+{
+    "model_name": "grade",
+    "model_desc": "裁判评分",
+    "img_url": "http:\/\/cd7.yesapi.net\/38D67BB9C95D0D5BB07A5AFFBC3BC686_20190906152539_f6865e7549bde6bbc84e1dd75f765587.png",
+    "fields": [
+        {
+            "id": "805af7356344024dcf5592a727210383",
+            "field_name": "userid",
+            "field_type": "varchar",
+            "field_length": "256",
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "裁判UUID"
+        },
+        {
+            "id": "35d790626ad91b2959896606dd8202fe",
+            "field_name": "comp_id",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "比赛id"
+        },
+        {
+            "id": "8957f89ad8776bad31bf197dc9c48996",
+            "field_name": "grade",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": " 成绩"
+        },
+        {
+            "id": "092beb10c84e4a24ad4cc56ec519afee",
+            "field_name": "grade_origin",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "原始成绩"
+        }
+    ]
+}

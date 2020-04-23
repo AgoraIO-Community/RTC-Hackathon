@@ -1,0 +1,67 @@
+{
+    "model_name": "competition",
+    "model_desc": "比赛表",
+    "img_url": "http:\/\/cd7.yesapi.net\/38D67BB9C95D0D5BB07A5AFFBC3BC686_20190906152539_f6865e7549bde6bbc84e1dd75f765587.png",
+    "fields": [
+        {
+            "id": "289716f8cdd820b779b56e8dc34c8c5a",
+            "field_name": "com_name",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "赛事名称"
+        },
+        {
+            "id": "6527e223b63633a89ed4ce7c3acb1eeb",
+            "field_name": "orga_name",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "主办方名称"
+        },
+        {
+            "id": "9f127b1a41d07269307127818202cc54",
+            "field_name": "orga_uid",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "比赛主办方UID"
+        },
+        {
+            "id": "aee1eb5616a04add0494943233fbd6b6",
+            "field_name": "com_desc",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "描述"
+        },
+        {
+            "id": "14ee147f3e2f3cadd5e94dc62627271d",
+            "field_name": "com_rule",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "赛制"
+        },
+        {
+            "id": "11720bcce7b39c1c6947d9b81a42eb76",
+            "field_name": "logo",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "logo链接"
+        }
+    ]
+}

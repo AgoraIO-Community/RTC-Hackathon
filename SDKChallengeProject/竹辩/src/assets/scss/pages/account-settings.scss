@@ -1,0 +1,43 @@
+/*** Account Settings ***/
+
+.account-settings-tab {
+  box-shadow: none;
+  .nav-item {
+    .nav-link.active {
+      background-color: transparent !important;
+      transform: translateY(0) !important;
+      &:after {
+        left: auto !important;
+        top: 1.2rem !important;
+        right: -1.5rem !important;
+      }
+    }
+  }
+}
+
+.account-setting-wrapper{
+  .account-settings-tab{
+    .nav-item{
+      .nav-link{
+        &.active{
+          &:after{
+            top: 100% !important;
+            left: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .account-settings-tab {
+    .nav-item {
+      .nav-link.active {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

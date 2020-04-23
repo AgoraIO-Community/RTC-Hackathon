@@ -1,0 +1,215 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+
+// Core variables and mixins overrides
+@import "../../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../../core/variables/components-variables";
+
+$icons-path: "~ag-grid-community/src/styles/ag-theme-material/icons/" !default;
+
+$font-family: inherit;
+$font-size: inherit;
+$font-weight: inherit;
+$secondary-font-family: inherit;
+$secondary-font-size: inherit;
+$secondary-font-weight: 600;
+
+@import "~ag-grid-community/src/styles/ag-grid.scss";
+@import "~ag-grid-community/src/styles/ag-theme-material/sass/ag-theme-material.scss";
+
+.ag-grid-table {
+  height: calc(100vh - 30rem);
+  @media screen and (max-height: 800px) {
+    height: 620px;
+  }
+
+  .ag-header-cell {
+    .ag-cell-label-container {
+      .ag-header-icon.ag-filter-icon {
+        display: none;
+      }
+    }
+  }
+
+  // style select of column header filter
+  .ag-dropdown {
+    padding: 0.3rem;
+    background: transparent;
+    border-radius: 50px;
+    border: 1px solid $gray-300;
+    cursor: pointer;
+    .dropdown-menu {
+      min-width: 3.5rem;
+    }
+  }
+
+  // style select of column header filter
+  .ag-filter-select {
+    padding: 0.3rem;
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  // style input of column header filter input
+  .ag-filter-filter {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    height: 25px !important;
+    margin-top: 10px;
+    margin-bottom: 14px !important;
+  }
+
+  // remove extra padding of input in inline edit
+  .ag-input-text-wrapper {
+    input {
+      padding-bottom: 0 !important;
+    }
+  }
+
+  .ag-cell-inline-editing {
+    height: 62px !important;
+  }
+
+  .ag-cell-inline-editting,
+  .ag-popup-editor {
+    padding-bottom: 12px;
+  }
+
+  .ag-grid-table-actions-right {
+    @media screen and (max-width: 614px) {
+      flex-grow: 1;
+    }
+  }
+
+  .ag-grid-table-actions-left {
+    @media screen and (max-width: 614px) and (min-width: 443px) {
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+  }
+
+  // remove horizontal scroolbar from pinned columns
+  .ag-horizontal-left-spacer,
+  .ag-horizontal-right-spacer {
+    overflow-x: auto;
+  }
+
+  // Change material theme icon to vuesax theme color
+  .ag-icon-checkbox-checked {
+    color: $primary;
+  }
+
+  .ag-icon-checkbox-checked-readonly {
+    color: $secondary;
+  }
+
+  .ag-icon-checkbox-indeterminate {
+    color: $primary;
+  }
+
+  .ag-icon-checkbox-indeterminate-readonly {
+    color: $secondary;
+  }
+
+  // Pagination Styling
+  .ag-paging-panel {
+    display: block !important;
+    align-items: center;
+    height: 105px;
+    padding: 0;
+    .ag-paging-row-summary-panel {
+      display: none;
+    }
+    .ag-paging-page-summary-panel {
+      justify-content: center;
+      margin-left: 0;
+      margin-top: 12px;
+
+      [ref="lbCurrent"],
+      [ref="lbTotal"] {
+        color: $white;
+        padding: 0.7rem 0.95rem;
+        border-radius: 0.5rem;
+      }
+    }
+    .ag-paging-button {
+      background-color: $gray-300;
+      border-radius: 50%;
+      padding: 0.5rem 0rem;
+      margin: 0 0.5rem;
+      color: $body-color !important;
+      .ag-icon {
+        color: $body-color !important;
+        opacity: 1 !important;
+      }
+      &.ag-disabled {
+        opacity: 0.5 !important;
+      }
+    }
+    span[ref="lbCurrent"] {
+      background-color: $primary;
+    }
+    span[ref="lbTotal"] {
+      background-color: $gray-300;
+      color: $body-color !important;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $gray-300;
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $body-bg;
+    border-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .agGrid-card {
+    .card-body {
+      padding-bottom: 4rem !important;
+    }
+  }
+  .ag-grid-table {
+    .ag-paging-panel {
+      [ref="btFirst"],
+      [ref="btLast"] {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 430px) {
+  .agGrid-card {
+    .card-body {
+      padding-bottom: 6.5rem !important;
+    }
+  }
+  .ag-paging-panel {
+    [ref="lbCurrent"],
+    [ref="lbTotal"] {
+      margin: 0 5px !important;
+    }
+    .ag-paging-button {
+      margin: 0 0.3rem !important;
+    }
+  }
+  .export-btn {
+    margin-top: 0.5rem;
+  }
+}

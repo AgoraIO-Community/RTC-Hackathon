@@ -1,0 +1,27 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+
+// Core variables and mixins overrides
+@import "../../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../../core/variables/components-variables";
+
+/********* CONTEXT MENU *********/
+
+.react-contexify {
+  width: 248px;
+  .react-contexify__item {
+    .react-contexify__item__content {
+      padding: 0.6rem 2rem;
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid $gray-300;
+    }
+  }
+  &.react-contexify__theme--dark {
+    background-color: $dark;
+  }
+}

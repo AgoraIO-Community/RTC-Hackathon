@@ -1,0 +1,52 @@
+// ================================================================================================
+// 	File Name: authentication.scss
+// 	Description: Page content different authentication pages layouts SCSS.
+// 	----------------------------------------------------------------------------------------------
+// 	Item Name: Vuexy React Admin Template
+// 	Version: 1.0
+// 	Author: PIXINVENT
+// 	Author URL: http://www.themeforest.net/user/pixinvent
+// ================================================================================================
+
+// Core mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Core variables and mixins overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+// authentication pages background
+.bg-authentication {
+  background-color: $blank-bg-color;
+  .auth-title,
+  .vx-checkbox-con span,
+  .divider .divider-text {
+    color: $body-color;
+  }
+  .auth-footer {
+    padding: 0rem 1.5rem 0.5rem;
+    .footer-btn {
+      .btn {
+        padding: 0.87rem 1.2rem !important;
+        margin: 1rem 1rem 1rem 0rem;
+      }
+    }
+  }
+}
+
+.login-tabs-container {
+  min-height: 505px;
+}
+
+// Unlock btn spacing in sm
+
+@media (max-width: 400px) {
+  .unlock-btn {
+    margin-top: 1rem;
+  }
+}

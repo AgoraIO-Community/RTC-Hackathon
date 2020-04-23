@@ -1,0 +1,57 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+
+// Core variables and mixins overrides
+@import "../../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../../core/variables/components-variables";
+
+  .__floater{
+    visibility: visible !important;
+    z-index: 9999 !important;
+    opacity: 1 !important;
+  }
+
+  .react-joyride__overlay{
+    z-index: 9999 !important;
+  }
+  .react-joyride__tooltip{
+    background-color: $primary !important;
+    max-width: 320px !important;
+    border-radius: .5rem !important;
+    div{
+      color: $white;
+      font-size: 14px
+    }
+    & ~ .__floater__arrow{
+      polygon{
+        fill: $primary !important;
+      }
+    }
+    [data-action="skip"], 
+    [data-action="back"],
+    [title="Last"],
+    [title="Next"]{
+      color: $white !important;
+      background-color: transparent !important;
+      border: 1px solid $white !important;
+      border-radius: 6px !important;
+      font-size: 14px !important;
+      &:focus{
+        outline: 0;
+      }
+    }
+    [data-action="close"]{
+      padding : 10px !important;
+      svg{
+        height: 10px;
+        width: 10px;
+      }
+      path{
+        fill: $white;
+      }
+    }
+  }

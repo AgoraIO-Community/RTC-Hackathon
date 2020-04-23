@@ -1,0 +1,125 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+
+// Core variables and mixins overrides
+@import "../../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../../core/variables/components-variables";
+
+ol.progtrckr {
+  list-style-type: none;
+  padding: 0;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+ol.progtrckr li {
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+
+ol.progtrckr li span {
+  padding: 0 1.5rem;
+  display: block;
+  padding-top: 55px;
+  color: $gray-400;
+}
+
+@media (max-width: 650px) {
+  .progtrckr li span {
+    display: none;
+  }
+}
+.progtrckr em {
+  font-style: normal;
+  background-color: $white;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -24px;
+  z-index: 10;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 3rem;
+  border: 3px solid $gray-600;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  font-weight: 500;
+}
+
+@media (max-width: 650px) {
+  .progtrckr em {
+    display: inline;
+  }
+}
+
+ol.progtrckr li.progtrckr-todo {
+  color: $gray-600;
+  &:after,
+  &:before {
+    display: none;
+  }
+}
+
+ol.progtrckr li.progtrckr-doing {
+  color: $pure-black;
+  em {
+    border-color: $primary;
+    background-color: $primary;
+    color: $white;
+    border-width: 3px;
+  }
+  &:before {
+    background-color: $primary;
+  }
+  &:after {
+    display: none;
+  }
+  span {
+    color: $primary;
+  }
+}
+
+ol.progtrckr li.progtrckr-done {
+  color: $pure-black;
+  em {
+    border-color: $primary;
+    background-color: $white;
+    color: $primary;
+  }
+  &:before,
+  &:after {
+    background-color: $primary;
+  }
+}
+
+ol.progtrckr li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 9;
+  right: 0;
+}
+
+ol.progtrckr li:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 9;
+  left: 0;
+}
+ol.progtrckr li:after,
+ol.progtrckr li:before {
+  top: 24px;
+  width: 50%;
+  height: 3px;
+}
