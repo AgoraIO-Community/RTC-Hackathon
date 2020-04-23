@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta charset="utf8">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon2">Channel Name</span>
+                    <input type="text" value="channel123" id="cname" class="form-control" placeholder="" aria-describedby="basic-addon2">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="button" id="go">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="videoGrid" style="border: 1px solid lightgray;position: relative;">
+        </div>
+        <div>
+            <button class="btn btn-danger" id="sound" state="off">
+                <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-success" id="addSelf">
+                (调试用)增加一个自己
+            </button>
+
+        </div>
+
+
+        <div class="well">
+            <ol>
+                <li>按Go！进入频道；</li>
+                <li>可在不同主机上打开本页面，实现互通。</li>
+                <li>已有通话可拖动，可拉伸。可<b>自行排版</b>。</li>
+                <li>新加入的同学如放不下，将<b>自动调节排版</b></li>
+                <li>画面比较大的参会者，声音也会比较大。</li>
+                <li>对端数量不够的时候，可以通过【调试】按键增加。</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery-3.5.0.min.js"></script>
+    <script src="vendor/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="vendor/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/bootstrap-3.4.1-dist/css/bootstrap-theme.min.css">
+    <script src="vendor/underscore/underscore-min.js"></script>
+    <script src="vendor/agora/AgoraRTCSDK-3.0.1.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/volume-onoff.js"></script>
+
+</body>
+</html>
