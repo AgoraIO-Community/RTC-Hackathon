@@ -97,10 +97,10 @@ PS: When submitting works, my work folder must contain source code, Readme file 
 The jury will consider the dimensions of "code quality", "visual design", "user experience", "completion of works", "creativeness" and "potential commercial value".
 
 ## Track one:
-* user experience:
-* visual design:
-* Code quality:
-* Completion of works:
+* User experience (30%): The user-friendliness of the works provided by the participating teams is reflected in whether it is simple and easy to understand, friendly interaction, etc.
+* Visual design (30%): The visual experience of the work provided by the participating team, including creativity, visual balance, color, graphics, overall style, etc.
+* Code quality (10%): The standardization of the code provided by the participating teams, such as code comments.
+* Completion of works (30%): The degree of realization of works provided by the participating teams.
 
 ## Track two:
 * Degree of completion (40%): the degree of realization of the works provided by the participating teams.
