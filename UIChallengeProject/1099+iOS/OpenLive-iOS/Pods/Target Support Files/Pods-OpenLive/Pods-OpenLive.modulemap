@@ -1,0 +1,6 @@
+framework module Pods_OpenLive {
+  umbrella header "Pods-OpenLive-umbrella.h"
+
+  export *
+  module * { export * }
+}

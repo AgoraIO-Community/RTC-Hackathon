@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07130E8A1D22928200CC85D8 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07130E891D22928200CC85D8 /* KeyCenter.swift */; };
+		078012ED1D1E57730093DE24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078012EC1D1E57730093DE24 /* AppDelegate.swift */; };
+		078012EF1D1E57730093DE24 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078012EE1D1E57730093DE24 /* MainViewController.swift */; };
+		078012F21D1E57730093DE24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078012F01D1E57730093DE24 /* Main.storyboard */; };
+		078012F41D1E57730093DE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078012F31D1E57730093DE24 /* Assets.xcassets */; };
+		078012F71D1E57730093DE24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078012F51D1E57730093DE24 /* LaunchScreen.storyboard */; };
+		0790F1261D1E6450003F8C18 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0790F1251D1E6450003F8C18 /* SettingsViewController.swift */; };
+		0790F1281D1E645B003F8C18 /* LiveRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0790F1271D1E645B003F8C18 /* LiveRoomViewController.swift */; };
+		0790F1511D1E9631003F8C18 /* VideoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0790F1501D1E9631003F8C18 /* VideoSession.swift */; };
+		2FEE3FB9244EF67E003383BC /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE3FB8244EF67E003383BC /* Helpers.swift */; };
+		2FEE3FBB244EF816003383BC /* HeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE3FBA244EF816003383BC /* HeartView.swift */; };
+		A758116624078C45007EDAD3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0745273C1E9E050C0054D2D4 /* libresolv.tbd */; };
+		A758116824078C59007EDAD3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A758116724078C4D007EDAD3 /* libc++.tbd */; };
+		A758116924078C64007EDAD3 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382885B22249DBB10023BCFA /* CoreML.framework */; };
+		A758116B24078C6E007EDAD3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758116A24078C6E007EDAD3 /* SystemConfiguration.framework */; };
+		A758116D24078C78007EDAD3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758116C24078C78007EDAD3 /* CoreTelephony.framework */; };
+		A758116F24078C7F007EDAD3 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758116E24078C7F007EDAD3 /* VideoToolbox.framework */; };
+		A758117124078C85007EDAD3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758117024078C85007EDAD3 /* AudioToolbox.framework */; };
+		A758117324078C8F007EDAD3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758117224078C8F007EDAD3 /* CoreMotion.framework */; };
+		A758117524078C97007EDAD3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758117424078C97007EDAD3 /* CoreMedia.framework */; };
+		A758117724078C9F007EDAD3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758117624078C9F007EDAD3 /* AVFoundation.framework */; };
+		A758117924078CAA007EDAD3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758117824078CAA007EDAD3 /* Accelerate.framework */; };
+		A75BF8C822B38B5F0072AF13 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75BF8C722B38B5F0072AF13 /* VideoView.swift */; };
+		A76C267C238657850047E150 /* AGEVideoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C2677238657850047E150 /* AGEVideoLayout.swift */; };
+		A76C267D238657850047E150 /* AGEVideoConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C2678238657850047E150 /* AGEVideoConstraints.swift */; };
+		A76C267E238657850047E150 /* AGEEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C2679238657850047E150 /* AGEEventsObserver.swift */; };
+		A76C267F238657850047E150 /* AGEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C267A238657850047E150 /* AGEView.swift */; };
+		A76C2680238657850047E150 /* AGEVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C267B238657850047E150 /* AGEVideoContainer.swift */; };
+		A76C268C23865ABC0047E150 /* AgoraRtcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A76C26882386594F0047E150 /* AgoraRtcKit.framework */; };
+		A7C54A92230BD9C9003D65E3 /* FileCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C54A91230BD9C9003D65E3 /* FileCenter.swift */; };
+		A7C54A98230BE275003D65E3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C54A97230BE275003D65E3 /* Settings.swift */; };
+		A7C54A9A230BE487003D65E3 /* DimensionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C54A99230BE487003D65E3 /* DimensionCell.swift */; };
+		A7DEDEB1231652B200E34432 /* RoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEDEB0231652B200E34432 /* RoleViewController.swift */; };
+		A7DEE04A232F65BC00E34432 /* AgoraExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEE049232F65BC00E34432 /* AgoraExtension.swift */; };
+		A7DEE04C232F69DC00E34432 /* StatisticsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEE04B232F69DC00E34432 /* StatisticsInfo.swift */; };
+		A7DEE04F232F735C00E34432 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A7DEE04E232F735C00E34432 /* README.md */; };
+		BEED70A2B29FE609243F32AC /* Pods_OpenLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC384ECCD604A2EAE1C563 /* Pods_OpenLive.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07130E891D22928200CC85D8 /* KeyCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
+		0745273C1E9E050C0054D2D4 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		078012E91D1E57730093DE24 /* OpenLive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenLive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		078012EC1D1E57730093DE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		078012EE1D1E57730093DE24 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		078012F11D1E57730093DE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		078012F31D1E57730093DE24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		078012F61D1E57730093DE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		078012F81D1E57730093DE24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0790F1251D1E6450003F8C18 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0790F1271D1E645B003F8C18 /* LiveRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveRoomViewController.swift; sourceTree = "<group>"; };
+		0790F1501D1E9631003F8C18 /* VideoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSession.swift; sourceTree = "<group>"; };
+		2FEE3FB8244EF67E003383BC /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		2FEE3FBA244EF816003383BC /* HeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartView.swift; sourceTree = "<group>"; };
+		382885B22249DBB10023BCFA /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		443B92468FF2E34A224E3D1E /* Pods-OpenLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenLive.debug.xcconfig"; path = "Target Support Files/Pods-OpenLive/Pods-OpenLive.debug.xcconfig"; sourceTree = "<group>"; };
+		66B5A5E08AE7021AD3F3E4E2 /* Pods-OpenLive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenLive.release.xcconfig"; path = "Target Support Files/Pods-OpenLive/Pods-OpenLive.release.xcconfig"; sourceTree = "<group>"; };
+		A70E3D7323A0E63400B7F68C /* AgoraRtcKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AgoraRtcKit.framework; sourceTree = "<group>"; };
+		A758116724078C4D007EDAD3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A758116A24078C6E007EDAD3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A758116C24078C78007EDAD3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A758116E24078C7F007EDAD3 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		A758117024078C85007EDAD3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A758117224078C8F007EDAD3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A758117424078C97007EDAD3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A758117624078C9F007EDAD3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A758117824078CAA007EDAD3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		A75BF8C722B38B5F0072AF13 /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		A76C2677238657850047E150 /* AGEVideoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGEVideoLayout.swift; sourceTree = "<group>"; };
+		A76C2678238657850047E150 /* AGEVideoConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGEVideoConstraints.swift; sourceTree = "<group>"; };
+		A76C2679238657850047E150 /* AGEEventsObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGEEventsObserver.swift; sourceTree = "<group>"; };
+		A76C267A238657850047E150 /* AGEView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGEView.swift; sourceTree = "<group>"; };
+		A76C267B238657850047E150 /* AGEVideoContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGEVideoContainer.swift; sourceTree = "<group>"; };
+		A76C26882386594F0047E150 /* AgoraRtcKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcKit.framework; path = OpenLive/AgoraRtcKit.framework; sourceTree = "<group>"; };
+		A76C268F23865F4B0047E150 /* libswiftCoreML.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftCoreML.tbd; path = usr/lib/swift/libswiftCoreML.tbd; sourceTree = SDKROOT; };
+		A7C54A91230BD9C9003D65E3 /* FileCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCenter.swift; sourceTree = "<group>"; };
+		A7C54A97230BE275003D65E3 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		A7C54A99230BE487003D65E3 /* DimensionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionCell.swift; sourceTree = "<group>"; };
+		A7DEDEB0231652B200E34432 /* RoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleViewController.swift; sourceTree = "<group>"; };
+		A7DEE049232F65BC00E34432 /* AgoraExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgoraExtension.swift; sourceTree = "<group>"; };
+		A7DEE04B232F69DC00E34432 /* StatisticsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsInfo.swift; sourceTree = "<group>"; };
+		A7DEE04E232F735C00E34432 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F54B70FC0F83493878247735 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
+		FAFC384ECCD604A2EAE1C563 /* Pods_OpenLive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenLive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		078012E61D1E57730093DE24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A758116824078C59007EDAD3 /* libc++.tbd in Frameworks */,
+				A758117324078C8F007EDAD3 /* CoreMotion.framework in Frameworks */,
+				A758117724078C9F007EDAD3 /* AVFoundation.framework in Frameworks */,
+				A758116F24078C7F007EDAD3 /* VideoToolbox.framework in Frameworks */,
+				A758116B24078C6E007EDAD3 /* SystemConfiguration.framework in Frameworks */,
+				A758117524078C97007EDAD3 /* CoreMedia.framework in Frameworks */,
+				A758117124078C85007EDAD3 /* AudioToolbox.framework in Frameworks */,
+				A76C268C23865ABC0047E150 /* AgoraRtcKit.framework in Frameworks */,
+				A758116924078C64007EDAD3 /* CoreML.framework in Frameworks */,
+				A758117924078CAA007EDAD3 /* Accelerate.framework in Frameworks */,
+				A758116D24078C78007EDAD3 /* CoreTelephony.framework in Frameworks */,
+				A758116624078C45007EDAD3 /* libresolv.tbd in Frameworks */,
+				BEED70A2B29FE609243F32AC /* Pods_OpenLive.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0745273B1E9E050C0054D2D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A758117824078CAA007EDAD3 /* Accelerate.framework */,
+				A758117624078C9F007EDAD3 /* AVFoundation.framework */,
+				A758117424078C97007EDAD3 /* CoreMedia.framework */,
+				A758117224078C8F007EDAD3 /* CoreMotion.framework */,
+				A758117024078C85007EDAD3 /* AudioToolbox.framework */,
+				A758116E24078C7F007EDAD3 /* VideoToolbox.framework */,
+				A758116C24078C78007EDAD3 /* CoreTelephony.framework */,
+				A758116A24078C6E007EDAD3 /* SystemConfiguration.framework */,
+				A758116724078C4D007EDAD3 /* libc++.tbd */,
+				A76C268F23865F4B0047E150 /* libswiftCoreML.tbd */,
+				A76C26882386594F0047E150 /* AgoraRtcKit.framework */,
+				382885B22249DBB10023BCFA /* CoreML.framework */,
+				0745273C1E9E050C0054D2D4 /* libresolv.tbd */,
+				F54B70FC0F83493878247735 /* Accelerate.framework */,
+				FAFC384ECCD604A2EAE1C563 /* Pods_OpenLive.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		078012E01D1E57730093DE24 = {
+			isa = PBXGroup;
+			children = (
+				A7DEE04E232F735C00E34432 /* README.md */,
+				078012EB1D1E57730093DE24 /* OpenLive */,
+				078012EA1D1E57730093DE24 /* Products */,
+				0745273B1E9E050C0054D2D4 /* Frameworks */,
+				D21264554D8FA0B41A438237 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		078012EA1D1E57730093DE24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				078012E91D1E57730093DE24 /* OpenLive.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		078012EB1D1E57730093DE24 /* OpenLive */ = {
+			isa = PBXGroup;
+			children = (
+				A7C54A96230BD9EC003D65E3 /* Controllers */,
+				A7C54A95230BD9E4003D65E3 /* Views */,
+				A7C54A93230BD9D6003D65E3 /* Models */,
+				A76C2676238657850047E150 /* AGEVideoLayout */,
+				A76C2675238657670047E150 /* Supporting Files */,
+				A70E3D7323A0E63400B7F68C /* AgoraRtcKit.framework */,
+			);
+			path = OpenLive;
+			sourceTree = "<group>";
+		};
+		A76C2675238657670047E150 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				078012EC1D1E57730093DE24 /* AppDelegate.swift */,
+				078012F31D1E57730093DE24 /* Assets.xcassets */,
+				078012F51D1E57730093DE24 /* LaunchScreen.storyboard */,
+				078012F81D1E57730093DE24 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A76C2676238657850047E150 /* AGEVideoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				A76C2677238657850047E150 /* AGEVideoLayout.swift */,
+				A76C2678238657850047E150 /* AGEVideoConstraints.swift */,
+				A76C2679238657850047E150 /* AGEEventsObserver.swift */,
+				A76C267A238657850047E150 /* AGEView.swift */,
+				A76C267B238657850047E150 /* AGEVideoContainer.swift */,
+			);
+			path = AGEVideoLayout;
+			sourceTree = "<group>";
+		};
+		A7C54A93230BD9D6003D65E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEE049232F65BC00E34432 /* AgoraExtension.swift */,
+				A7DEE04B232F69DC00E34432 /* StatisticsInfo.swift */,
+				A7C54A97230BE275003D65E3 /* Settings.swift */,
+				07130E891D22928200CC85D8 /* KeyCenter.swift */,
+				A7C54A91230BD9C9003D65E3 /* FileCenter.swift */,
+				2FEE3FB8244EF67E003383BC /* Helpers.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A7C54A95230BD9E4003D65E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7C54A99230BE487003D65E3 /* DimensionCell.swift */,
+				0790F1501D1E9631003F8C18 /* VideoSession.swift */,
+				A75BF8C722B38B5F0072AF13 /* VideoView.swift */,
+				078012F01D1E57730093DE24 /* Main.storyboard */,
+				2FEE3FBA244EF816003383BC /* HeartView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A7C54A96230BD9EC003D65E3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				078012EE1D1E57730093DE24 /* MainViewController.swift */,
+				0790F1251D1E6450003F8C18 /* SettingsViewController.swift */,
+				A7DEDEB0231652B200E34432 /* RoleViewController.swift */,
+				0790F1271D1E645B003F8C18 /* LiveRoomViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D21264554D8FA0B41A438237 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				443B92468FF2E34A224E3D1E /* Pods-OpenLive.debug.xcconfig */,
+				66B5A5E08AE7021AD3F3E4E2 /* Pods-OpenLive.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		078012E81D1E57730093DE24 /* OpenLive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 078012FB1D1E57730093DE24 /* Build configuration list for PBXNativeTarget "OpenLive" */;
+			buildPhases = (
+				03DC123CFD3AB68D35FE1604 /* [CP] Check Pods Manifest.lock */,
+				078012E51D1E57730093DE24 /* Sources */,
+				078012E61D1E57730093DE24 /* Frameworks */,
+				078012E71D1E57730093DE24 /* Resources */,
+				A72AE10824067CD900542EA5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenLive;
+			productName = OpenLive;
+			productReference = 078012E91D1E57730093DE24 /* OpenLive.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		078012E11D1E57730093DE24 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Agora;
+				TargetAttributes = {
+					078012E81D1E57730093DE24 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 4LELJ538KT;
+						LastSwiftMigration = 1020;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 078012E41D1E57730093DE24 /* Build configuration list for PBXProject "OpenLive" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 078012E01D1E57730093DE24;
+			productRefGroup = 078012EA1D1E57730093DE24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				078012E81D1E57730093DE24 /* OpenLive */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		078012E71D1E57730093DE24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7DEE04F232F735C00E34432 /* README.md in Resources */,
+				078012F71D1E57730093DE24 /* LaunchScreen.storyboard in Resources */,
+				078012F41D1E57730093DE24 /* Assets.xcassets in Resources */,
+				078012F21D1E57730093DE24 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03DC123CFD3AB68D35FE1604 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OpenLive-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A72AE10824067CD900542EA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "for f in $(find $CODESIGNING_FOLDER_PATH -name 'AgoraRtcKit.framework')\ndo\necho \"$f\"\ncodesign --force --sign \"${CODE_SIGN_IDENTITY}\" \"$f\"\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		078012E51D1E57730093DE24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7C54A9A230BE487003D65E3 /* DimensionCell.swift in Sources */,
+				A7DEDEB1231652B200E34432 /* RoleViewController.swift in Sources */,
+				A7DEE04C232F69DC00E34432 /* StatisticsInfo.swift in Sources */,
+				A7C54A98230BE275003D65E3 /* Settings.swift in Sources */,
+				A76C267D238657850047E150 /* AGEVideoConstraints.swift in Sources */,
+				0790F1511D1E9631003F8C18 /* VideoSession.swift in Sources */,
+				078012EF1D1E57730093DE24 /* MainViewController.swift in Sources */,
+				A76C2680238657850047E150 /* AGEVideoContainer.swift in Sources */,
+				2FEE3FB9244EF67E003383BC /* Helpers.swift in Sources */,
+				078012ED1D1E57730093DE24 /* AppDelegate.swift in Sources */,
+				A7DEE04A232F65BC00E34432 /* AgoraExtension.swift in Sources */,
+				07130E8A1D22928200CC85D8 /* KeyCenter.swift in Sources */,
+				A75BF8C822B38B5F0072AF13 /* VideoView.swift in Sources */,
+				2FEE3FBB244EF816003383BC /* HeartView.swift in Sources */,
+				A76C267F238657850047E150 /* AGEView.swift in Sources */,
+				A7C54A92230BD9C9003D65E3 /* FileCenter.swift in Sources */,
+				A76C267E238657850047E150 /* AGEEventsObserver.swift in Sources */,
+				A76C267C238657850047E150 /* AGEVideoLayout.swift in Sources */,
+				0790F1281D1E645B003F8C18 /* LiveRoomViewController.swift in Sources */,
+				0790F1261D1E6450003F8C18 /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		078012F01D1E57730093DE24 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				078012F11D1E57730093DE24 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		078012F51D1E57730093DE24 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				078012F61D1E57730093DE24 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		078012F91D1E57730093DE24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		078012FA1D1E57730093DE24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		078012FC1D1E57730093DE24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 443B92468FF2E34A224E3D1E /* Pods-OpenLive.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4LELJ538KT;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenLive",
+				);
+				INFOPLIST_FILE = OpenLive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.ecuplshsj.openlive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		078012FD1D1E57730093DE24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66B5A5E08AE7021AD3F3E4E2 /* Pods-OpenLive.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4LELJ538KT;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenLive",
+				);
+				INFOPLIST_FILE = OpenLive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.ecuplshsj.openlive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		078012E41D1E57730093DE24 /* Build configuration list for PBXProject "OpenLive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				078012F91D1E57730093DE24 /* Debug */,
+				078012FA1D1E57730093DE24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		078012FB1D1E57730093DE24 /* Build configuration list for PBXNativeTarget "OpenLive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				078012FC1D1E57730093DE24 /* Debug */,
+				078012FD1D1E57730093DE24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 078012E11D1E57730093DE24 /* Project object */;
+}
