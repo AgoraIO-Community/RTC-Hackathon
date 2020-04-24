@@ -546,6 +546,13 @@ export default {
     transform: translate(-20px, 10px) rotate(-8deg);
   }
 }
+@media screen and (min-width: 751px) and (max-width: 1280px) {
+  .facing_room{
+    .ing_box{
+      max-width: 620px;
+    }
+  }
+}
 @media screen and (min-width: 580px) and (max-width: 750px) {
   .hover_btn{
     display: block;
