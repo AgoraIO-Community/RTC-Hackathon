@@ -146,10 +146,8 @@ const onPlayMark = async () => {
   const result = await faceapi.detectSingleFace(webCameraRef.current, options);
 
   if (result) {
-          //console.log("aaa")
-          if (alreadyDetected === false){
-          console.log("successful")
 
+          if (alreadyDetected === false){
           const box = result.box;
           const imageScreenShot = clipImage(webCameraRef.current, box);
           const faceImageData = await scaleImage(imageScreenShot);
@@ -203,6 +201,10 @@ class DataListSidebar extends React.Component {
       activeTab: tab
     })
   }
+  playRecSound() {
+      console.log(this.props);
+      this.props.playRecSound();
+    }
   toggleCollapse = collapseID => {
     this.setState(prevState => ({
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
@@ -299,6 +301,7 @@ class DataListSidebar extends React.Component {
 
   componentWillUnmount() {
     clearInterval(mountTimerId)
+    stopStream()
   }
 
   render() {
@@ -495,7 +498,7 @@ class DataListSidebar extends React.Component {
       </NavItem>
     </Nav>
     <TabContent activeTab={this.state.activeTab}>
-      {console.log(document.body.clientHeight)}
+
       <TabPane tabId="1" style={{height:"93vh"}}>
         <PerfectScrollbar
             className="data-list-fields px-2 mt-3"
@@ -547,7 +550,7 @@ class DataListSidebar extends React.Component {
                     id="ddEmail"
                   />
                 </FormGroup>
-                <Button color="primary" type="submit" onClick={() => this.startFaceAuth()}>
+                <Button color="primary" onClick={() => notifySuccess("发送成功，将由管理员审核后显示。")}>
                   {" "}
                   发送{" "}
                 </Button>
@@ -575,17 +578,15 @@ class DataListSidebar extends React.Component {
                   <Input
                     type="text"
                     placeholder=""
-                    name="ddemail"
-                    id="ddEmail"
                   />
                 </FormGroup>
-                <Button color="primary" type="submit" onClick={() => notifySuccess("提交成功。")}>
+                <Button color="primary" onClick={() => notifySuccess("提交成功，感谢您的反馈。")}>
                   {" "}
                   提交{" "}
                 </Button>
               </Form>
               <DropdownItem tag="a" divider />
-              <DropdownItem tag="a" href="#">
+              <DropdownItem tag="a" href="#" onClick={() => notifySuccess("已收到您的请求，等待处理中。")}>
                 {" "}
                 遇到技术问题？
               </DropdownItem>
@@ -739,31 +740,30 @@ class DataListSidebar extends React.Component {
 
         <FormGroup className="text-center">
               <div className="d-flex flex-wrap justify-content-between px-2 mt-2">
-               <ButtonGroup>
-                <Button.Ripple outline
-                  color="success"
-                  onClick={() => {notifySuccess("操作成功，倒计时已开始。");timerStatusChangeTo(1);sendRtmMsg("nihao|roundChange|Start");}}
-                  >
-                  开始计时
-                </Button.Ripple>
-                <Button.Ripple outline
-                  color="success"
-                  onClick={() => {notifySuccess("操作成功，倒计时已暂停。");timerStatusChangeTo(0);sendRtmMsg("nihao|roundChange|Stop");}}
-                  >
-                  暂停计时
-                </Button.Ripple>
-               </ButtonGroup>
-              
+              <ButtonGroup>
+              <Button.Ripple outline
+              color="success"
+              onClick={() => {notifySuccess("操作成功，倒计时已开始。");timerStatusChangeTo(1);sendRtmMsg("nihao|roundChange|Start");}}
+              >
+              开始
+              </Button.Ripple>
+              <Button.Ripple outline
+              color="success"
+              onClick={() => {notifySuccess("操作成功，倒计时已暂停。");timerStatusChangeTo(0);sendRtmMsg("nihao|roundChange|Stop");}}
+              >
+              暂停
+              </Button.Ripple>
+               </ButtonGroup>
                 <UncontrolledButtonDropdown direction="up">
                   
                   <DropdownToggle color="primary" caret>
-                    环节切换
+                    环节管理
                     <ChevronUp size={15} />
                     </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem tag="a" header>流程控制</DropdownItem>
-                    <DropdownItem tag="a" onClick={() => {notifySuccess("操作成功，已切换至下一环节。");sendRtmMsg("nihao|roundChange|Pause")}}>暂停赛事</DropdownItem>
-                    <DropdownItem tag="a" onClick={() => {notifySuccess("操作成功，已切换至下一环节。");sendRtmMsg("nihao|roundChange|Calculate")}}>成绩结算</DropdownItem>
+                    <DropdownItem tag="a" onClick={() => this.playRecSound()}>播放主席音频</DropdownItem>
+                    <DropdownItem tag="a" onClick={() => {notifySuccess("操作成功，结算请求已发送。");sendRtmMsg("nihao|roundChange|Calculate")}}>成绩结算</DropdownItem>
                     <DropdownItem tag="a" divider />
                     <DropdownItem tag="a" header>环节控制</DropdownItem>
                     <DropdownItem tag="a" onClick={() => {notifySuccess("操作成功，已切换至上一环节。");lastStage();sendRtmMsg("nihao|roundChange|ChangeTo|" + (this.state.realCurrentRound - 1))}}>上一环节</DropdownItem>

@@ -20,6 +20,7 @@ import { Mic, MicOff, Volume2, VolumeX, DownloadCloud, List, Share2 } from "reac
 import Tooltip from "rc-tooltip";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import APP_SECRET from "../../../config";
 import {
   timerClear,
   timerStatusChangeTo,
@@ -29,7 +30,7 @@ import {
   setTime
 } from "./compShowTimer";
 import appGlobal from "./config.js";
-import yesapi from "../../../webServices/yes3";
+import yesapi,{recordWeb} from "../../../webServices/yes3";
 import SweetAlert from "react-bootstrap-sweetalert";
 import Sidebar,{mountTimerId} from "./compShowSidebar";
 import classnames from "classnames";
@@ -37,24 +38,17 @@ import "../../../assets/scss/pages/compShow.scss"
 import {history} from "../../../history";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import Webcamera, {stopStream} from '../../../components/WebCamera/index';
+import Webcamera, {stopStream} from '../../../components/WebCamera/small';
 import { clipImage } from '../../../utils/faceUtils/getImageData';
 import faceapi, { getDetectorOptions, isModelLoaded, loadModel } from '../../../utils/faceUtils/faceDetectionControl';
 import {grayPocess} from '../../../utils/faceUtils/grayProcess';
 import histogramEqualize from '../../../utils/faceUtils/histogramEqualize';
 import request from '../../../utils/request';
 
-const options = {
-  appId: "",
-  channel: "demo_channel_name",
-  token: null,
-  uid: localStorage.getItem("uuid"),
-  channelID: null,
-};
 let updateInfoId
-let isUsingCamera=false
+let isUsingCamera = false
 let alreadyDetected = false;
+let speakerVolume = [],debatorIntros=[],startRecording=false,recordingId=0,timeRecTotal=0
 
 toast.configure({
   autoClose: 5000,
@@ -84,19 +78,27 @@ let rules = [],
   roundSyncId = -1,
   veriCode = "";
 
-const TIMER = {
+let TIMER = {
   MAIN: 1,
   FREE: 2,
 };
-const rtcPublic = {
+let rtcPublic = {
   client: null,
   localAudioTrack: null,
   remoteAudioTracks: [],
 };
-const rtcPrivate = {
+let rtcPrivate = {
   client: null,
   localAudioTrack: null,
 };
+let options = {
+  appId: APP_SECRET.agora.appId,
+  channel: "demo_channel_name",
+  token: null,
+  uid: localStorage.getItem("uuid"),
+  channelID: null,
+};
+let recTracks = [null];
 function leaveCall(rtc) {
   rtc.localAudioTrack.close();
   rtc.client.leave();
@@ -234,7 +236,23 @@ async function initRtc(cata, gid, gidData) {
   rtcPublic.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
   await rtcPublic.client.publish([rtcPublic.localAudioTrack]);
   console.log("publish success!");
+
+
+  rtcPublic.client.enableAudioVolumeIndicator();
+  rtcPublic.client.on("volume-indicator", volumes => {
+  volumes.forEach((volume, index) => {
+    speakerVolume[index] = volume.uid + "|" + volume.level
+    //console.log(`${index} UID ${volume.uid} Level ${volume.level}`);
+  });
+})
+for(let i=1;i<=11;i++) {
+  const audioFileTrack = await AgoraRTC.createBufferSourceAudioTrack({
+    source: "http://cdn.puluter.cn/"+i+".m4a",
+  });
+  recTracks.push(audioFileTrack)
 }
+}
+
 // startRtm();
 function getTimerStr(iTime) {
   let min = Math.floor(iTime / 60);
@@ -325,8 +343,6 @@ const onPlayMark = async () => {
   setTimeout(() => onPlayMark());
 };
 
-
-
 class CompShow extends React.Component {
   state = {
     com_logo: "https://jdc.jd.com/img/200",
@@ -407,19 +423,40 @@ class CompShow extends React.Component {
     addNew: "",
     micro: 100,
     sound: 50,
+    game_status: 0,//0未开始1进行中
+    gidData: null,
+    sid: null,
+    rid: null,
+    ifSpeaking: [100,100,100,100,100,100,100,100]
   };
 
 
-
-
-
-
-  cameraInit() {
-    
+  interfaceCheck() {
+    //console.log(appGlobal.ifMute)
+    try{
+    if(appGlobal.ifMute === true) {
+      rtcPublic.localAudioTrack.setMute(true);
+    } else {
+      rtcPublic.localAudioTrack.setMute(false);
+    }} catch(err) {}
+  
+    let speakingVolume = [0,0,0,0,0,0,0,0]
+    let teamInfo = debatorIntros
+    for(let numOfSpeaking=0;numOfSpeaking<speakerVolume.length;numOfSpeaking++) {
+      let clipVolume = speakerVolume[0].split("|")
+      if(clipVolume[1]>0.01){
+        for(let i=0;i<8;i++) {
+          if(clipVolume[0] === teamInfo[i].UUID) {
+            speakingVolume[i] = 100
+          }
+        }
+      }
+    }
+    this.setState({
+      ifSpeaking: speakingVolume
+    })
+    //} catch {}
   }
-
-
-
 
   roomInit(game_rules, debatorInfo, current_round) {
     debatorInfo = JSON.parse(debatorInfo);
@@ -437,6 +474,7 @@ class CompShow extends React.Component {
     setTime(current_round[0].bigTime,current_round[0].freeTimeLeft,current_round[0].freeTimeRight)
     timerStatusChangeTo(current_round[0].currentStatus);
     checkTimeId = setInterval(checkTimer, 1000);
+    setInterval(this.interfaceCheck.bind(this), 2000);
     //roundSyncId = setInterval(roundSync, 5000);
     notifySuccess("房间初始化成功。")
   }
@@ -480,6 +518,53 @@ class CompShow extends React.Component {
     });
     veriCode = vcode;
     appGlobal.catagory = catagory;
+    //TODO: fOR测试用！
+    this.roomInit2.bind(this)()
+    hasInited = true;
+  }
+  recordingStarted() {
+    timeRecTotal = timeRecTotal + 1
+    appGlobal.recordingTime = timeRecTotal
+    //console.log(appGlobal.recordingTime)
+  }
+  async onStartClicked() {
+    
+    startRecording = true;
+    let {appId} = options;
+    let {rtcChannelPublic} = this.state.gidData;
+    let {rid,sid} = this.state;
+    let gid = this.props.match.params.id;
+    if(this.state.game_status === 0) {
+      notifySuccess("赛事录制已开始。")
+      recordingId = setInterval(this.recordingStarted.bind(this),1000)
+      this.setState({game_status:1,});
+      if (rid === null||rid === "") {
+        let ret1 = await recordWeb.acquire(appId,rtcChannelPublic);
+        console.log(ret1);
+        let {resourceId} = ret1;
+        await yesapi.table.updateViaID("game",{resourceId:resourceId},gid);
+        rid = resourceId;
+      }
+      let {sid} = await recordWeb.start(appId,rid,rtcChannelPublic);
+      await yesapi.table.updateViaID("game",{sid:sid,game_status:1},gid);
+      this.setState({sid:sid,rid:rid});
+    } else {
+      notifySuccess("本次赛事录制已结束。")
+      clearInterval(recordingId)
+      let ret = await recordWeb.stop(appId,rid,rtcChannelPublic,sid);
+      await yesapi.table.updateViaID("game",{sid:"",resourceId:"",game_status:0},gid);
+      this.setState({game_status:0,sid:"",rid:""})
+      console.log(ret);
+      await yesapi.table.update("game",
+      {recording_point: JSON.stringify(appGlobal.recordingPoint)},
+      [
+        ["id", "=", gid],
+      ],
+      "and",
+      )
+      notifySuccess("录制时间戳已上传至服务器。")
+      
+    }
   }
 
   onMuteClick() {
@@ -499,14 +584,36 @@ class CompShow extends React.Component {
       }
     }
   }
-  handleSecret(res) {
 
-    if (res === veriCode) {
-      this.setState({ inputAlert: false });
-      this.roomInit2.bind(this)()
-      hasInited = true;
+
+  async handleSecret(res) {
+    let { data } = await yesapi.table.read(
+      "game",
+      [["id", "=", this.props.match.params.id]],
+      "and",
+    );
+    if(data.err_code===3) {
+      notifyError("房间尚未初始化。")
+      history.push("/compList");
+      return;
+    }
+    let {
+      game_status
+    } = data.data;
+    if (game_status === 3) {
+      console.log()
+      history.push("/analyze")
+      localStorage.setItem("gid",this.props.match.params.id)
+      return;
     } else {
-      //this.setState({wrongSecret:"请输入正确密钥。"})
+      if (res === veriCode) {
+        this.setState({ inputAlert: false });
+        this.roomInit2.bind(this)()
+        hasInited = true;
+      } else {
+        //this.setState({wrongSecret:"请输入正确密钥。"})
+      }
+
     }
   }
   async roomInit2() {
@@ -531,9 +638,19 @@ class CompShow extends React.Component {
       judge_info,
       rules,
       current_round,
+      game_status,
+      sid,
+      resourceId,
     } = data.data;
+    if (game_status === 3) {
+      console.log()
+      history.push("/analyze")
+      localStorage.setItem("gid",this.props.match.params.id)
+      return;
+    }
     current_round = JSON.parse(current_round);
     team_info = JSON.parse(team_info);
+    debatorIntros = team_info;
     appGlobal.teamInfo = team_info;
     judge_info = JSON.parse(judge_info);
 
@@ -543,6 +660,7 @@ class CompShow extends React.Component {
       // let {data} = await yesapi.user.getSelfInfo(uuid,token)
       initRtm(2, gid, gidData);
       initRtc(2, gid, gidData);
+      this.setState({gidData:gidData});
     }
     rules = JSON.parse(rules);
     let ret = await yesapi.table.read(
@@ -559,11 +677,16 @@ class CompShow extends React.Component {
       workerIntros: judge_info,
       debatorIntros: team_info,
       debateTitles: game_title.split("|"),
+      game_status:game_status,
+      sid:sid,
+      rid:resourceId
     });
     _this.roomInit(rules[0], this.state.debatorInfo, current_round);
   }
 
   componentWillUnmount () {
+    
+    try{
     if(hasInited) {
       leaveCall(rtcPublic)
       leaveRtm(rtm.client)
@@ -572,13 +695,18 @@ class CompShow extends React.Component {
       clearInterval(checkTimeId)
       // clearInterval(mountTimerId)
     }
-  }
+  }catch(err){}}
 
   handleSidebar = (boolean, addNew = false) => {
     this.setState({ sidebar: boolean });
     if (addNew === true) this.setState({ currentData: null, addNew: true });
   };
-
+  async playRecSound() {
+    let i = appGlobal.statusNow;
+    recTracks[i].startProcessAudioBuffer();
+    await rtcPublic.client.publish([recTracks[i]]);
+    recTracks[i].play();
+  }
   render() {
     let {
       gameTitle,
@@ -595,7 +723,7 @@ class CompShow extends React.Component {
     return (
 
       <div id="" style={{overFlowY:"hidden"}}>
-        <SweetAlert
+        {/* <SweetAlert
           title="提示"
           input
           show={this.state.inputAlert}
@@ -605,7 +733,7 @@ class CompShow extends React.Component {
           onConfirm={(res) => this.handleSecret(res)}
         >
           <p className="sweet-alert-text">请输入房间密钥。</p>
-        </SweetAlert>
+        </SweetAlert> */}
         <div
         className={'data-list'}>
         <Sidebar 
@@ -618,7 +746,7 @@ class CompShow extends React.Component {
           getData={this.props.getData}
           dataParams={this.props.parsedFilter}
           addNew={this.state.addNew}
-
+          playRecSound = {this.playRecSound.bind(this)}
         />
         <div
           className={classnames("data-list-overlay", {
@@ -703,13 +831,14 @@ class CompShow extends React.Component {
                         if (index > 3) return "";
                         return (
                           <Col key={index}>
+                            <Badge pill className="badge-glow" style={{opacity:this.state.ifSpeaking[index]}}color="success"><Mic size={12} /></Badge>
                             <Avatar
                               img={item.headImg}
                               size="lg"
                               style={{ display: "block" }}
                             />
                             <h4 className="debator-name text-center">
-                              {item.name}
+                            {item.name}
                             </h4>
                           </Col>
                         );
@@ -723,6 +852,7 @@ class CompShow extends React.Component {
                         if (index <= 3) return "";
                         return (
                           <Col key={index}>
+                            <Badge pill className="badge-glow" style={{opacity:this.state.ifSpeaking[index]}}color="success"><Mic size={12} /></Badge>
                             <Avatar
                               img={item.headImg}
                               size="lg"
@@ -883,11 +1013,11 @@ class CompShow extends React.Component {
                       onClick={() => this.handleSidebar(true, true)}
                     >
                       <List size={14} />
-                      管理面板
+                      管理
                     </Button.Ripple>
                   </ButtonGroup>
-                  <Button.Ripple style={{marginLeft: "16%"}} className="mr-1 mb-1" outline color="primary" onClick={() => notifySuccess("未完成的功能。")}>
-                    <Share2 size={14} />
+                  <Button.Ripple style={{marginLeft: "5px"}} className="mr-1 mb-1" outline color="primary" onClick={this.onStartClicked.bind(this)}>
+                    {this.state.game_status===0?"开始":"结束"}
                   </Button.Ripple>
                   </Col>
                 </Row>

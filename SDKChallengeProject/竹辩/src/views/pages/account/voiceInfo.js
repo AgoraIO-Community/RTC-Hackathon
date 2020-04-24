@@ -6,6 +6,17 @@ import "../../../assets/scss/plugins/forms/flatpickr/flatpickr.scss"
 import 'react-toastify/dist/ReactToastify.css';
 import "../../../assets/scss/pages/compShow.scss"
 import "../../../assets/scss/pages/dashboard-analytics.scss"
+import { toast } from 'react-toastify';
+toast.configure({
+  autoClose: 5000,
+  draggable: false,
+});
+
+const notifyWarning = (e) => {
+  toast.warning(e, {
+    position: toast.POSITION.TOP_LEFT
+  });
+}
 
 class voiceAuthInference extends React.Component {
 
@@ -36,6 +47,7 @@ class voiceAuthInference extends React.Component {
                         size="lg"
                         className="mr-1 mb-1 btn-block round"
                         outline
+                        onClick={() => notifyWarning("声纹识别在当前编译版本中不可用。")}
                         >
                         开始录音
                     </Button.Ripple>

@@ -19,6 +19,7 @@ import Chart from "react-apexcharts"
 import { ChevronsRight, ChevronDown } from "react-feather"
 import appGlobal from "./config.js";
 import getData from "./getData.js";
+import yesapi from "../../../webServices/yes3";
 
 class AvgSessions extends React.Component {
   state = {
@@ -70,16 +71,38 @@ class AvgSessions extends React.Component {
       },
     },
     refAvg: [],
-    modal: false
+    modal: false,
+    modal2: false,
+    roundTime: ""
   }
   async componentWillMount() {
     await getData()
+    let gid = localStorage.getItem("gid")
+    let uuid = localStorage.getItem("uuid");
+    let ret2 = await yesapi.table.read(
+      "game",
+      [
+        ["id", "=", gid],
+      ],
+      "and",
+    );
+    console.log(ret2)
+    let { recording_point,grade } = ret2.data.data
+    recording_point = JSON.parse(recording_point)
+    grade = JSON.parse(grade)
+    let tempMsg = ""
+    for(let i=0;i<13;i++) {
+      tempMsg = tempMsg + grade[i] + " 切换时间点位于 " + recording_point[i] + " 秒。"
+    }
+    //recording_point = JSON.parse(recording_point)
+
     this.setState({
       participation: appGlobal.participation[0],
       fluency: appGlobal.fluency[0],
       stage_performance: appGlobal.stage_performance[0],
       self_confidence: appGlobal.self_confidence[0],
       profession: appGlobal.RefGrade[0],
+      roundTime: tempMsg,
       refAvg: [
         {
           name: "裁判评分",
@@ -97,15 +120,23 @@ class AvgSessions extends React.Component {
   }
 
   toggleModal() {
-    console.log("aa")
     this.setState({
       modal: true
     })
   }
   closeModal() {
-    console.log("aa")
     this.setState({
       modal: false
+    })
+  }
+  toggleModal2() {
+    this.setState({
+      modal2: true
+    })
+  }
+  closeModal2() {
+    this.setState({
+      modal2: false
     })
   }
 
@@ -138,6 +169,29 @@ class AvgSessions extends React.Component {
       </ModalFooter>
     </Modal>
 
+    <Modal
+      isOpen={this.state.modal2}
+      toggle={() => this.closeModal2()}
+      className={this.props.className}
+    >
+      <ModalHeader toggle={() => this.closeModal2()}>
+        赛事复盘
+      </ModalHeader>
+      <ModalBody>
+        若该场赛事选择被录音，你可以在这里看到不同环节的时间点并重复聆听。<br></br><br></br>
+        <h5>环节时间戳</h5>
+        
+        
+        {this.state.roundTime}
+      </ModalBody>
+      <ModalFooter>
+        <Button color="primary" onClick={() => this.closeModal2()}>
+          确定
+        </Button>{" "}
+      </ModalFooter>
+    </Modal>
+
+
       <Card>
         <CardBody>
           <Row className="pb-50">
@@ -155,8 +209,8 @@ class AvgSessions extends React.Component {
                   <span>相对于本场比赛平均分</span>
                 </h5>
               </div>
-              <Button.Ripple className="btn-block shadow" color="primary" onClick={() => this.toggleModal()}>
-                 查看计算方式<ChevronsRight size={15} />
+              <Button.Ripple className="btn-block shadow" color="primary" onClick={() => this.toggleModal2()}>
+                 查看该场赛事回顾<ChevronsRight size={15} />
               </Button.Ripple>
             </Col>
             <Col

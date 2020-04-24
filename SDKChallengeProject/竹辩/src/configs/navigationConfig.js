@@ -50,6 +50,14 @@ const navigationConfig = [
     navLink: "/gameList"
   },
   {
+    id: "anaylize",
+    title: "成绩分析",
+    type: "item",
+    icon: <Icon.Target size={20} />,
+    permissions: ["admin", "debator"],
+    navLink: "/analyze/2"
+  },
+  {
     id: "compS",
     title: "比赛页面",
     type: "item",
@@ -57,6 +65,7 @@ const navigationConfig = [
     permissions: ["admin"],
     navLink: "/comp"
   },
+  
 ];
 
 export default navigationConfig;

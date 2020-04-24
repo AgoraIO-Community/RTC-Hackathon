@@ -2,12 +2,25 @@ import React from "react"
 import { Button, FormGroup, Row, Col } from "reactstrap"
 import { Formik, Field, Form } from "formik"
 import * as Yup from "yup"
+import { toast } from 'react-toastify';
+toast.configure({
+  autoClose: 5000,
+  draggable: false,
+});
+
+const notifySuccess = (e) => {
+  toast.success(e, {
+    position: toast.POSITION.TOP_LEFT
+  });
+}
+
+
 const formSchema = Yup.object().shape({
-  oldpass: Yup.string().required("Required"),
-  newpass: Yup.string().required("Required"),
+  oldpass: Yup.string().required("请正确填写"),
+  newpass: Yup.string().required("请正确填写"),
   confirmpass: Yup.string()
-    .oneOf([Yup.ref("newpass"), null], "Passwords must match")
-    .required("Required")
+    .oneOf([Yup.ref("新密码"), null], "密码必须相同")
+    .required("请正确填写")
 })
 class ChangePassword extends React.Component {
   render() {
@@ -69,6 +82,7 @@ class ChangePassword extends React.Component {
                       className="mr-1 mb-1"
                       color="primary"
                       type="submit"
+                      onClick={() => notifySuccess("保存成功，请退出后重新登录。")}
                     >
                       保存更改
                     </Button.Ripple>

@@ -26,7 +26,7 @@ function gradeAvg(participation,fluency,stage_performance,self_confidence) {
   }
 
   export default async function getData() {
-    let gid = 1
+    let gid = localStorage.getItem("gid")
     let uuid = localStorage.getItem("uuid");
     if (gid === undefined) gid = 1;
     

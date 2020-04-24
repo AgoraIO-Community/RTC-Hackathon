@@ -1,8 +1,10 @@
 import axios from "axios";
 import debug from "./debug";
 import md5 from "js-md5";
+import APP_SECRET from "../config";
 
 import { toast } from "react-toastify";
+import qs from 'qs';
 
 toast.configure({
   autoClose: 5000,
@@ -16,7 +18,7 @@ const notifyError = (e) => {
 };
 
 const CONFIG = {
-  INTERFACE_URL: "/server.php",
+  INTERFACE_URL: "/yesapi",
 };
 
 const API_OBJ = {
@@ -58,23 +60,6 @@ async function HGet(url) {
     console.log(err);
   }
 }
-// async function Hpost (url, data) {
-//   try {
-//     let res = await axios.post(url, qs.stringify(data))
-//     res = res.data
-//     return new Promise((resolve, reject) => {
-//       if (res.code === 0) {
-//         resolve(res)
-//       } else {
-//         reject(res)
-//       }
-//     })
-//   } catch (err) {
-//     // return (e.message)
-//     alert('服务器出错')
-//     console.log(err)
-//   }
-// }
 
 let { PREFIX } = API_OBJ;
 const yesapi = {
@@ -524,3 +509,112 @@ const yesapi = {
 };
 
 export default yesapi;
+
+async function getAgora(url){
+  const app = APP_SECRET.agora.restfulAppKey+":"+APP_SECRET.agora.restfulCerti;
+  let res = await axios.get(url,{headers:{"Authorization":"Basic "+window.btoa(app)}});
+  res = res.data;
+  return new Promise((resolve) => {
+    if (res.ret === 200) {
+      resolve(res);
+    } else {
+      resolve(res);
+    }
+  });
+}
+async function postAgora (url, data) {
+  const app = APP_SECRET.agora.restfulAppKey+":"+APP_SECRET.agora.restfulCerti;
+  let rea = await axios.post(url, JSON.stringify(data),{
+    headers: {
+      "Authorization":"Basic "+window.btoa(app),
+      "Content-type":"application/json",
+      "charset":"utf-8"
+    }
+  })
+  let res = rea.data;
+  return new Promise((resolve) => {
+    console.log(res,rea)
+    if (rea.status === 200) {
+      resolve(res)
+    } else {
+      resolve(res)
+    }
+  }).catch((e) => {});
+}
+const PREFIX1 = "/agora";
+export const recordWeb = {
+  /**
+   * 获取rid
+   * @param {string} appid 
+   * @param {string} channelName 
+   */
+  acquire: async function(appid,channelName) {
+    //app_key,password,s,username,secret
+    let obj = {
+      "cname":channelName,
+      "uid":"114514",
+      clientRequest: {
+        resourceExpiredHour: 1
+      }
+    };
+    let url =
+      PREFIX1 + `/v1/apps/${appid}/cloud_recording/acquire`;
+    return await postAgora(url,obj);
+  },
+  /**
+   * 使用rid开始进行录制
+   * @param {string} appid 
+   * @param {string} rid 
+   * @param {string} channelName 
+   */
+  start: async function(appid,rid,channelName) {
+    //app_key,password,s,username,secret
+    let obj = {
+      "cname": channelName,
+      "uid": "114514",
+      "clientRequest": {
+        "recordingConfig": {
+          "maxIdleTime": 30,
+          "streamTypes": 0,
+          "channelType": 0,
+          "videoStreamType": 0,
+          "subscribeUidGroup": 3
+        },
+        "storageConfig": {
+          "accessKey": "nA3K7p6NTZOXf9LOWjW2JJstLxVEdNkwGfXKvEAW",
+          "region": 0,
+          "bucket": "self-study-bgm",
+          "secretKey": "rOCG70BanjhJ4wVxGAKYcmowh9xxZU90UXj1ABzs",
+          "vendor": 0,
+          "fileNamePrefix": [
+            "cloudDebate"
+          ]
+        }
+      }
+    };
+    let mode = "mix"
+    let url =
+      PREFIX1 + `/v1/apps/${appid}/cloud_recording/resourceid/${rid}/mode/${mode}/start`;
+    return await postAgora(url,obj);
+  },
+  /**
+   * 结束录制
+   * @param {string} appid 
+   * @param {string} rid 
+   * @param {string} channelName 
+   * @param {string} sid start方法里获取到的sid
+   */
+  stop: async function(appid,rid,channelName,sid) {
+    //app_key,password,s,username,secret
+    let obj = {
+      "cname": channelName,
+      "uid": "114514",
+      "clientRequest": {}
+    };
+    let mode = "mix"
+    let url =
+      PREFIX1 + `/v1/apps/${appid}/cloud_recording/resourceid/${rid}/sid/${sid}/mode/${mode}/stop`;
+      // `​/v1/apps/${appid}/cloud_recording/resourceid/${rid}/sid/${sid}/mode/${mode}/stop`;
+    return await postAgora(url,obj);
+  },
+}

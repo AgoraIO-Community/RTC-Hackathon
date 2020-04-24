@@ -3,7 +3,7 @@ import { Form, FormGroup, Input, Label, Button } from "reactstrap"
 import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy"
 import { User, UserCheck,Mail, Lock, Codepen, Check } from "react-feather"
 import { history } from "../../../../history"
-import yesapi from "../../../../webServices/yesAPI_v2";
+import yesapi from "../../../../webServices/yes3";
 
 class RegisterJWT extends React.Component {
   state = {
@@ -15,7 +15,7 @@ class RegisterJWT extends React.Component {
     inviteCode: ""
   }
 
-  handleRegister = e => {
+  handleRegister = async function(e){
     e.preventDefault()
     let {email,password,name,realname,inviteCode} = this.state;
     let ext = {
@@ -23,18 +23,11 @@ class RegisterJWT extends React.Component {
       "yesapi_real_name":realname,
       "inviteCode":inviteCode
     };
-    yesapi.user.register(name,password,ext,{
-      success: ret => {
-        console.log(ret)
-        if(ret.data.data.err_code === 0) {
-          alert("注册成功！")
-          history.push("/login")
-        }
-      },
-      fail: err => {
-        console.log(err);
-      }
-    })
+    let ret=await yesapi.user.register(name,password,ext);
+    if(ret.data.data.err_code === 0) {
+      alert("注册成功！")
+      history.push("/login")
+    }
   }
 
   checkIfAvailable(username) {

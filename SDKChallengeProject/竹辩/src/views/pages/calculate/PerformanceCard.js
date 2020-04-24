@@ -20,7 +20,7 @@ class SalesCard extends React.Component {
           <div className="award-info text-center">
             <h1 className="mb-2 text-white">欢迎回来，{localStorage.getItem("realname")}。</h1>
             <p className="m-auto mb-0 w-75">
-              恭喜你！经过对专业表现以及仪表的加权综合评分，你在上场比赛中的综合评分超过了<strong>100.0%</strong>的辩手，继续努力吧。
+              恭喜你！经过对专业表现以及仪表的加权综合评分，你在上场比赛中的综合评分超过了<strong>80.0%</strong>的辩手，继续努力吧。
             </p>
           </div>
         </CardBody>

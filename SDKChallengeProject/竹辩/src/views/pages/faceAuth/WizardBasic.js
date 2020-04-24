@@ -19,6 +19,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Eye, Mic, LogIn, LogOut } from "react-feather";
 import FaceAuthIndex from "./faceAuthIndex";
+import {Badge} from "reactstrap"
+import {history} from "../../../history";
+
+let face =  "面部识别未通过", voice = "声纹识别未通过"
 
 let updateInfoId
 let isUsingCamera=false
@@ -190,6 +194,7 @@ class faceAuthInference extends React.Component {
                         size="lg"
                         className="mr-1 mb-1 btn-block round"
                         outline
+                        onClick={() => notifyWarning("请先进行面部识别。")}
                         >
                         开始录音
                     </Button.Ripple>
@@ -224,14 +229,15 @@ class faceAuthInference extends React.Component {
           <Col sm="12">
             <Card className="faq-bg" >
               <CardBody className="p-sm-4 p-2">
-                <h1 className="white">身份验证通过</h1>
+                <h1 className="white">身份验证结束</h1>
                 <p className="mb-2 white">
-                  恭喜您，通过身份验证，即将跳转到比赛页面。
-                  <br></br>若页面未更新，请点击下方按钮进入比赛。
-                  <br></br><br></br><br></br><br></br>
+                  根据识别，你的认证结果如下，不同比赛认证要求不同，请自行选择。
+                  <br></br>若页面未更新，请点击下方按钮进入比赛列表。
+                  <br></br><br></br>
+                  <Badge pill className="badge-glow" color="danger">{face}</Badge> &nbsp;&nbsp; <Badge pill className="badge-glow" color="danger">{voice}</Badge><br></br><br></br>
                 </p>
-                  <Button.Ripple className="mr-1 mb-1 btn-block" color="primary" size="lg">
-                    进入比赛
+                  <Button.Ripple className="mr-1 mb-1 btn-block" color="primary" size="lg" onClick={() => this.joinMatch()}>
+                    进入比赛列表
                   </Button.Ripple>
               </CardBody>
             </Card>
@@ -260,7 +266,9 @@ class faceAuthInference extends React.Component {
         webCameraRef.current && webCameraRef.current.pause();    
     };
   }
-  
+  joinMatch () {
+    history.push("/compList")
+  }
   componentDidMount() {
     updateInfoId = setInterval(this.updateInfo, 5000);
     console.log(updateInfoId)

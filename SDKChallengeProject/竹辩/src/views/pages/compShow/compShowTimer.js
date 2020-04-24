@@ -8,9 +8,11 @@ let CTimerId=-1,CCTimerId=-1,timerStatus=[0,-1];
 let nowTeam=-1;
 let titleArr = ["","","",""];
 
-let rules=[];
+let rules=[],lastRecId=0;
 
 let lastId = 0, timerIsRunning = 0;
+
+let recordingPoint =[] 
 
 
 function changeStatusHTML(currentStatus,nextStatus) {
@@ -187,7 +189,7 @@ export function checkTimer() {
     let debateSess = [], speakerPosi = [], statusInfo=[]
     let [type,session,time,,speakerPermission]=rules[id];
     if(isInArray(speakerPermission,appGlobal.debatorPosi)) 
-    { statusInfo[0] = "允许发言" } else { statusInfo[0] = "禁止发言" }
+    { statusInfo[0] = "允许发言"; } else { statusInfo[0] = "禁止发言";}
     debateSess = session.split("|")
     speakerPosi = speakerPermission.split("|")
     if(type === "1") { statusInfo[1] = "双计时器" } else { statusInfo[1] = "单计时器" }
@@ -246,9 +248,15 @@ export function checkTimer() {
   }
 
   export function changeStatusTo(id) {
+    if(id>lastId){ 
+      recordingPoint[id] = appGlobal.recordingTime
+      appGlobal.recordingPoint = recordingPoint
+      console.log(recordingPoint)
+    }
+    lastId = id;
     statusNowLocal = id;
     appGlobal.statusNow = id;
-    if(id !== lastId) {
+    if(id !== lastRecId) {
       let currentStatusInfo = []
       currentStatusInfo = getStatusInfo(id)
       if(appGlobal.catagory === 1) {
@@ -256,9 +264,11 @@ export function checkTimer() {
         yesapi.table.updateViaID("game", {current_round:roundInfo}, appGlobal.gid);
       }
       if(currentStatusInfo[0] === "允许发言") {
+        appGlobal.ifMute = false
         $("#speakPermission").html("允许发言");
         $("#speakPermission").attr("class","badge-glow badge-lg badge badge-success");
       } else {
+        appGlobal.ifMute = true
         $("#speakPermission").html("禁止发言");
         $("#speakPermission").attr("class","badge-glow badge-lg badge badge-danger");
       }

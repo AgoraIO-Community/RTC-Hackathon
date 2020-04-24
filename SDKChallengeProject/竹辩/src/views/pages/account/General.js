@@ -12,6 +12,20 @@ import {
 } from "reactstrap"
 import chroma from "chroma-js"
 import Select from "react-select"
+import { toast } from 'react-toastify';
+toast.configure({
+  autoClose: 5000,
+  draggable: false,
+});
+
+const notifySuccess = (e) => {
+  toast.success(e, {
+    position: toast.POSITION.TOP_LEFT
+  });
+}
+
+
+
 const position = [
   { value: "1", label: "一辩", color: "#7367f0" },
   { value: "2", label: "二辩", color: "#7367f0" },
@@ -169,7 +183,7 @@ class General extends React.Component {
             </Col>
 
             <Col className="d-flex justify-content-start flex-wrap" sm="12">
-              <Button.Ripple className="mr-50" type="submit" color="primary">
+              <Button.Ripple className="mr-50" type="submit" color="primary" onClick={() => notifySuccess("保存成功，请退出后重新登录。")}>
                 保存更改
               </Button.Ripple>
               <Button.Ripple type="submit" color="danger">

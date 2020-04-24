@@ -30,8 +30,8 @@
 - ``` npm start ```
 
 2. 前端：
-- 修改/src/views/pages/compShow/compShow.js:49行，将appId填为agora的appId。
-- 将src/package.json 最后的   ```"testNeeded": "/"proxy/": /"https://puluter.cn/""``` 改为```"proxy":"你搭建yesapi中转后端的服务器地址"```
+- 修改/src/config.js 将所需的参数填入
+- 修改/src/setupProxy.js 将第6行换为所需的服务器地址
 - 在src目录```npm install```
 - 在src目录```npm start```
 - 买一份vuexy的授权（测试不需要，如果要使用，则需要）https://themeforest.net/item/vuexy-vuejs-html-laravel-admin-dashboard-template/23328599

@@ -126,7 +126,7 @@ class AppRouter extends React.Component {
             component={accountSettings}
           />
           <AppRoute
-            path="/analyze/:id"
+            path="/analyze"
             component={calculate}
           />
         </Switch>
