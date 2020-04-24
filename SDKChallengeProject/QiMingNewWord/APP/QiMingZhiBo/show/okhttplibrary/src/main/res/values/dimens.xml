@@ -1,0 +1,38 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="mg_70">70dp</dimen>
+    <dimen name="mg_80">80dp</dimen>
+    <dimen name="mg_100">100dp</dimen>
+    <dimen name="mg_145">145dp</dimen>
+    <dimen name="mg_150">150dp</dimen>
+    <dimen name="mg_180">180dp</dimen>
+    <dimen name="mg_200">200dp</dimen>
+    <dimen name="mg_250">250dp</dimen>
+    <dimen name="mg_300">300dp</dimen>
+    <dimen name="mg_75">75dp</dimen>
+    <dimen name="mg_60">60dp</dimen>
+    <dimen name="mg_50">50dp</dimen>
+    <dimen name="mg_47">47dp</dimen>
+    <dimen name="mg_45">45dp</dimen>
+    <dimen name="mg_40">40dp</dimen>
+    <dimen name="mg_35">35dp</dimen>
+    <dimen name="mg_30">30dp</dimen>
+    <dimen name="mg_20">20dp</dimen>
+    <dimen name="mg_15">15dp</dimen>
+    <dimen name="mg_10">10dp</dimen>
+    <dimen name="mg_3">3dp</dimen>
+    <dimen name="mg_5">5dp</dimen>
+    <dimen name="mg_6">6dp</dimen>
+    <dimen name="mg_7">7dp</dimen>
+    <dimen name="mg_9">9dp</dimen>
+    <dimen name="tx_size_11">11sp</dimen>
+    <dimen name="tx_size_12">12sp</dimen>
+    <dimen name="tx_size_13">13sp</dimen>
+    <dimen name="tx_size_14">14sp</dimen>
+    <dimen name="tx_size_15">15sp</dimen>
+    <dimen name="tx_size_16">16sp</dimen>
+    <dimen name="tx_size_20">20sp</dimen>
+    <dimen name="tx_size_30">30sp</dimen>
+</resources>

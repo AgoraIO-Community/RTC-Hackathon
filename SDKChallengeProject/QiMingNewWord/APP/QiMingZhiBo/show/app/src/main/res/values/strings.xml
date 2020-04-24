@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">QmChatRoom</string>
+    <string name="title_activity_chat_room">QMChatRoom</string>
+    <string name="title_activity_channel_list">ChannelList</string>
+    <string name="to_broadcast">toBroadcast</string>
+    <string name="to_audience">toAudience</string>
+    <string name="audio_mixing">Mixing</string>
+    <string name="member_num">0</string>
+    <string name="channel_member_list">Channel member list（%1$d people）</string>
+    <string name="turn_off_mic">Turn off mic</string>
+    <string name="turn_game_over">gameover</string>
+    <string name="turn_on_mic">Turn on mic</string>
+    <string name="open_seat">Open</string>
+    <string name="giving_gift">Give gift to anchor</string>
+    <string name="placeholder">Say something…</string>
+    <string name="voice_effect">Voice Effect</string>
+    <string name="anchor">（Anchor）</string>
+    <string name="audio_accents">Changer</string>
+    <string name="beautify_voice">Voice Beautify</string>
+    <string name="close_seat">Close</string>
+    <string name="set_nikName">setNikName</string>
+
+    <string-array name="random_surnames">
+        <item>Zhao</item>
+        <item>Qian</item>
+        <item>Sun</item>
+        <item>Li</item>
+        <item>Zhou</item>
+        <item>Wu</item>
+        <item>Zheng</item>
+        <item>Wang</item>
+        <item>Feng</item>
+        <item>Chen</item>
+        <item>Chu</item>
+        <item>Wei</item>
+    </string-array>
+
+    <string-array name="random_names">
+        <item>Fuqiang</item>
+        <item>Minzhu</item>
+        <item>Wenming</item>
+        <item>Hexie</item>
+        <item>Ziyou</item>
+        <item>Pingdeng</item>
+        <item>Gongzheng</item>
+        <item>Fazhi</item>
+        <item>Aiguo</item>
+        <item>Jingye</item>
+        <item>Chengxin</item>
+        <item>Youshan</item>
+    </string-array>
+
+    <string-array name="voice_effect_keys">
+        <item>Default</item>
+        <item>KTV</item>
+        <item>Live</item>
+        <item>Uncle</item>
+        <item>Girl</item>
+        <item>Studio</item>
+        <item>Pop</item>
+        <item>R&amp;B</item>
+        <item>Phonograph</item>
+    </string-array>
+
+    <string-array name="voice_beautify_keys">
+        <item>Default</item>
+        <item>Thick</item>
+        <item>Low</item>
+        <item>Round</item>
+        <item>Falsetto</item>
+        <item>Full</item>
+        <item>Clear</item>
+        <item>Resounding</item>
+        <item>Loud</item>
+        <item>OpenAir</item>
+    </string-array>
+</resources>

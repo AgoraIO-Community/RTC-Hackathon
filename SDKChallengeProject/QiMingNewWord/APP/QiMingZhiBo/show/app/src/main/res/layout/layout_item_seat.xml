@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/item_seat_size"
+    android:layout_height="@dimen/item_seat_size"
+    android:clipChildren="false">
+
+    <mobi.accessible.show.widget.SpreadView
+        android:id="@+id/view_anim"
+        android:layout_width="@dimen/item_seat_btn_size"
+        android:layout_height="@dimen/item_seat_btn_size"
+        android:layout_centerInParent="true" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_seat"
+        android:layout_width="@dimen/item_seat_btn_size"
+        android:layout_height="@dimen/item_seat_btn_size"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_seat_item"
+        android:src="@mipmap/ic_join" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_mute"
+        android:layout_width="@dimen/item_mute_size"
+        android:layout_height="@dimen/item_mute_size"
+        android:layout_alignEnd="@id/iv_seat"
+        android:layout_alignBottom="@id/iv_seat"
+        android:src="@mipmap/ic_mic_off_little" />
+
+</RelativeLayout>

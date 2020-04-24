@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+<com.qmt.okhttplibrary.view.MyImageView
+    android:id="@+id/logo"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:background="@color/colorBlue"
+    android:contentDescription="游戏图标"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="游戏名称"
+        android:textColor="@color/black_3"
+        android:gravity="center_horizontal" />
+</LinearLayout>

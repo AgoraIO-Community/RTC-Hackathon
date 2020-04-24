@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffff</color><!-- 白色 -->
+    <color name="transparent">#00000000</color>  <!--透明  -->
+    <color name="transparent_half_b">#66ffffff</color>  <!-- 半透明 -->
+    <color name="colorYellow">#FBBC05</color>
+    <color name="colorBlue">#4285F4</color>
+    <color name="colorGreen">#34A853</color>
+    <color name="colorRed">#EA4335</color>
+    <color name="black_3">#333333</color>
+</resources>

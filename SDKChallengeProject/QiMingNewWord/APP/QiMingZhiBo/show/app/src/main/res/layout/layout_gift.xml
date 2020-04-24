@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="@dimen/gift_pop_width"
+        android:layout_height="@dimen/gift_pop_height"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_gift_container"
+        android:paddingStart="@dimen/gift_padding_horizontal"
+        android:paddingEnd="@dimen/gift_padding_horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/gift_img_size"
+            android:layout_height="@dimen/gift_img_size"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/gift_margin_horizontal"
+            android:layout_toStartOf="@id/iv_gift"
+            android:layout_toEndOf="@id/iv_avatar"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/item_text_color"
+                android:textSize="@dimen/gift_name_text_size" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/giving_gift"
+                android:textColor="@color/tips_text_color"
+                android:textSize="@dimen/gift_tips_text_size" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_gift"
+            android:layout_width="@dimen/gift_img_size"
+            android:layout_height="@dimen/gift_img_size"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_gift" />
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="to_audience" type="id" />
+    <item name="to_broadcast" type="id" />
+    <item name="turn_on_mic" type="id" />
+    <item name="turn_off_mic" type="id" />
+    <item name="close_seat" type="id" />
+    <item name="open_seat" type="id" />
+</resources>

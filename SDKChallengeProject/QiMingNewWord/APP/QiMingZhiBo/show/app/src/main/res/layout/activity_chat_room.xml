@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.ChatRoomActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="@dimen/activity_title_padding_horizontal"
+        android:paddingEnd="@dimen/activity_title_padding_horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_exit"
+            android:layout_width="@dimen/exit_btn_size"
+            android:layout_height="@dimen/exit_btn_size"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_radius_container"
+            android:src="@mipmap/ic_exit"
+            android:contentDescription="退出" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/title_activity_chat_room"
+            android:textColor="@color/title_text_color"
+            android:textSize="@dimen/activity_title_text_size" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_num"
+            android:layout_width="@dimen/num_btn_width"
+            android:layout_height="@dimen/num_btn_height"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_radius_container"
+            android:drawableStart="@mipmap/ic_audience"
+            android:drawablePadding="0dp"
+            android:padding="0dp"
+            android:text="@string/member_num"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/num_btn_text_size" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_seat_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/seat_grid_margin_vertical"
+        android:layout_marginBottom="@dimen/seat_grid_margin_vertical"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@id/rv_message_list"
+        app:layout_constraintTop_toBottomOf="@+id/rl_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_message_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/rv_seat_grid" />
+
+    <include
+        android:id="@+id/layout_bottom"
+        layout="@layout/layout_chat_room_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <mobi.accessible.show.widget.GiftPopView
+        android:id="@+id/gift"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

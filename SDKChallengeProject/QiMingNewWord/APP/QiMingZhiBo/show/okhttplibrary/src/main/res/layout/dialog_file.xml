@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/transparent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/dialog_view"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/layout_dialog_login"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.tstchain.frame.view.custom.layout.CircleProgressView
+            android:id="@+id/circleProgressbar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"/>
+
+    </LinearLayout>
+
+</LinearLayout>

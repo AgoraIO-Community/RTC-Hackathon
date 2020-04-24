@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <inset
+            android:insetLeft="@dimen/dialog_changer_title_inset"
+            android:insetRight="@dimen/dialog_changer_title_inset">
+            <shape>
+                <solid android:color="@color/white_alpha30" />
+            </shape>
+        </inset>
+    </item>
+    <item android:bottom="@dimen/line_height">
+        <shape>
+            <solid android:color="@color/black" />
+        </shape>
+    </item>
+</layer-list>

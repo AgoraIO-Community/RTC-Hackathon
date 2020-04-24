@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/bottom_padding">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_radius_container"
+        android:hint="@string/placeholder"
+        android:maxLines="1"
+        android:paddingStart="@dimen/bottom_spacing"
+        android:paddingTop="@dimen/bottom_input_padding_vertical"
+        android:paddingEnd="@dimen/bottom_spacing"
+        android:paddingBottom="@dimen/bottom_input_padding_vertical"
+        android:textColor="@color/edit_text_color"
+        android:textColorHint="@color/white_alpha40"
+        android:textSize="@dimen/bottom_input_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/cb_mixing"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/bottom_btn_size"
+        android:layout_marginTop="@dimen/bottom_spacing"
+        android:background="@drawable/bg_radius_container"
+        android:button="@drawable/selector_mixing"
+        android:drawablePadding="0dp"
+        android:gravity="center"
+        android:paddingEnd="@dimen/bottom_spacing"
+        android:text="@string/audio_mixing"
+        android:textColor="@color/btn_text_color"
+        android:textSize="@dimen/bottom_btn_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_input" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_changer"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/bottom_btn_size"
+        android:layout_marginStart="@dimen/bottom_spacing"
+        android:background="@drawable/bg_radius_container"
+        android:drawableStart="@mipmap/ic_effect"
+        android:gravity="center"
+        android:paddingEnd="@dimen/bottom_spacing"
+        android:text="@string/audio_accents"
+        android:textColor="@color/btn_text_color"
+        android:textSize="@dimen/bottom_btn_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cb_mixing" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_mic"
+        android:layout_width="@dimen/bottom_btn_size"
+        android:layout_height="@dimen/bottom_btn_size"
+        android:layout_marginStart="@dimen/bottom_spacing"
+        android:background="@drawable/bg_radius_container"
+        android:src="@mipmap/ic_mic_on"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_changer" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_speaker"
+        android:layout_width="@dimen/bottom_btn_size"
+        android:layout_height="@dimen/bottom_btn_size"
+        android:layout_marginStart="@dimen/bottom_spacing"
+        android:background="@drawable/bg_radius_container"
+        android:src="@mipmap/ic_speaker_on"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_mic"
+        android:contentDescription="关闭声音"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="@dimen/bottom_btn_size"
+        android:layout_height="@dimen/bottom_btn_size"
+        android:background="@mipmap/ic_gift"
+        android:onClick="givingGift"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
