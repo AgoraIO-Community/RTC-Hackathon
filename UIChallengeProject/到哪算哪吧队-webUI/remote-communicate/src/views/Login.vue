@@ -197,7 +197,7 @@ export default {
     }
   }
   .login_form{
-    padding-top: 300px;
+    padding-top: 30vh;
     position: relative;
     form{
       box-sizing: border-box;
