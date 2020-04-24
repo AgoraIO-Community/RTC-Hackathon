@@ -1,4 +1,4 @@
-# Open Live Voice Only for Android  and  Miniprogram
+# QiMing  Open Live Voice Only for Android  and  Miniprogram
 
 该项目实现为盲人提供全面无障碍语音周边服务，包括APP和小程序，后期也会集成启明智能眼镜
 这个开源示例项目演示了如何快速集成 Agora 音频 SDK，实现多人音频连麦直播。
@@ -63,8 +63,8 @@
 也可以使用 `Gradle` 直接编译运行。
 
 ## 联系我们
-— 团队：启明新世界
-— 邮箱：jnzhou90@163.com
+- 团队：启明新世界
+- 邮箱：jnzhou90@163.com
 - 如果你遇到了困难，可以先参阅[常见问题](https://docs.agora.io/cn/faq)
 - 如果你想了解更多官方示例，可以参考[官方SDK示例](https://github.com/AgoraIO)
 - 如果你想了解声网SDK在复杂场景下的应用，可以参考[官方场景案例](https://github.com/AgoraIO-usecase)
