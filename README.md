@@ -20,14 +20,14 @@ This online hackathon will be conducted in the form of "online programming + onl
 * Team size: This competition requires teams to participate, each team has 1-5 people, the maximum team limit is 5 people, 1 person can only participate in 1 team
 
 # Registration form
-* [Registration Form Entry] (https://segmentfault.com/page/rtc-hackathon-2020)
+* [Registration Form Entry](https://segmentfault.com/page/rtc-hackathon-2020)
 
-# Contest introduction & work requirements
+# Challenge Introduction & Works Requirements
 ## Track 1: Designing UI for "Multi-person Call"
 Recently, many people have fully experienced online office and video conferencing. Did you find out how to operate it? Can't find many functions? The interface layout is not pleasing? This time gives you a chance to create, based on a video call Demo we provide, to design the best UI and code for multi-person video calls.
 
 ## Work requirements:
-* Must choose the official designated Demo, and do customized UI development on this basis ([download link] (https://rtcdeveloper.com/t/topic/17072))
+* Must choose the official designated Demo, and do customized UI development on this basis ([Download Link](https://rtcdeveloper.com/t/topic/17072))
 * UI design creative content is not limited, you can refer to any related works that you think UX experience is good
 * The ownership of the UI design prototype submitted by the default participant belongs to the participant, and there is no legal dispute
 * The works submitted by the final participants will be open sourced under the MIT agreement
@@ -40,7 +40,7 @@ Because of this epidemic, in addition to online teaching and video conferences, 
 * Entries must integrate one of the SDKs of Agora Agora, which can be audio / video call / live broadcast SDK, real-time messaging SDK, recording SDK, interactive game SDK, real-time stream acceleration SDK
 * Participants develop new applications or enter based on original project modifications. The review will eventually review the source code to ensure fairness.
 * The application can be to realize an application scenario, such as video conferencing, online classroom, live streaming, audio and video chat, social games, home security, etc., or to solve a real problem.
-* For other related ideas, please refer to previous hackathon works ([link] (https://github.com/AgoraIO-Community/AI-in-RTC_ProgrammingChallenge))
+* For other related ideas, please refer to previous hackathon works ([Link](https://github.com/AgoraIO-Community/AI-in-RTC_ProgrammingChallenge))
 * There is no legal dispute in the works submitted by default participants
 * The source code of the works submitted by the contestants are all open source under the MIT open source agreement
 
@@ -52,6 +52,7 @@ Because of this epidemic, in addition to online teaching and video conferences, 
 * Work display: April 25
 
 Tips:
+
 (1) After registering on the official website, you can enter the team formation and development stage
 
 (2) After the work is submitted, it cannot be modified. For special needs, please contact the organizing committee 
@@ -59,11 +60,11 @@ Tips:
 # How to participate
 
 ## Track One:
-* [Fill in the registration form] (https://segmentfault.com/page/rtc-hackathon-2020)
+* [Fill in the registration form](https://segmentfault.com/page/rtc-hackathon-2020)
 
-* Register Agora developer account https://www.agora.io/cn/
+* Register Agora developer account https://www.agora.io/en/
 
-* Download the demo of the corresponding platform in the RTC forum ([link] (https://rtcdeveloper.com/t/topic/17072)) (just download the demo of the corresponding platform for your participation), and then develop on the local side
+* Download the demo of the corresponding platform in the RTC forum ([link](https://rtcdeveloper.com/t/topic/17072)) (just download the demo of the corresponding platform for your participation), and then develop on the local side
 
 * Fork official warehouse (https://github.com/AgoraIO-Community/RTC-Hackathon) to personal github warehouse
 
@@ -75,9 +76,9 @@ Tips:
 
 
 ## Track Two:
-* [Fill in the registration form] (https://segmentfault.com/page/rtc-hackathon-2020)
+* [Fill in the registration form](https://segmentfault.com/page/rtc-hackathon-2020)
 
-* Register Agora developer account https://www.agora.io/cn/
+* Register Agora developer account https://www.agora.io/en/
 
 * Fork official warehouse (https://github.com/AgoraIO-Community/RTC-Hackathon) to personal github warehouse
 
@@ -137,15 +138,15 @@ Recruitment Green Channel: Submit work, you can directly enter the interview pro
 * Qi Ning: SegmentFault CTO, full-stack engineer, graduated from the Department of Telecommunications, Huazhong University of Science and Technology, No. 98 member of Huake Electric Team He has worked for Alibaba, the initiator and core organizer of the open source content system Typecho, and has more than 10 years of experience in Internet product development.
 
 # Team Guide
-* [Team Link] (https://github.com/AgoraIO-Community/RTC-Hackathon/wiki)
+* [Team Link](https://github.com/AgoraIO-Community/RTC-Hackathon/wiki)
 
 # related resources:
-* [Agora official website] (https://www.agora.io/cn/)
-* [Hackathon official website] (https://segmentfault.com/page/rtc-hackathon-2020)
-* [Agora Demo & Readme Complete Works] (https://rtcdeveloper.com/t/topic/12820)
-* [Past Works & Community Works] (https://github.com/AgoraIO-Community)
-* [RTC Technology Forum] (https://rtcdeveloper.com/)
-* [SDK related data download] (https://docs.agora.io/cn/Agora%20Platform/downloads)
+* [Agora official website](https://www.agora.io/cn/)
+* [Hackathon official website](https://segmentfault.com/page/rtc-hackathon-2020)
+* [Agora Demo & Readme Complete Works](https://rtcdeveloper.com/t/topic/12820)
+* [Past Works & Community Works](https://github.com/AgoraIO-Community)
+* [RTC Technology Forum](https://rtcdeveloper.com/)
+* [SDK related information download](https://docs.agora.io/cn/Agora%20Platform/downloads)
 
 
 # License
