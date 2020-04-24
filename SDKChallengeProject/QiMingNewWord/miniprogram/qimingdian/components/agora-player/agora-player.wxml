@@ -1,0 +1,11 @@
+<!--components/agora-player/agora-player.wxml-->
+<view class="play-container" style="left:{{x}}px; top:{{y}}px; width: {{width}}px; height: {{height}}px; ">
+  <live-player wx:if="{{url!==''}}" id="player-{{uid}}" src="{{url}}" mode="RTC" class="player" orientation="{{orientation}}" bindstatechange="playerStateChange" object-fit="fillCrop" style="height:{{height}}px; position: absolute; width: 100%; top: 0; left: 0;"
+    debug="{{debug}}" />
+  <cover-view wx-if="{{status !== 'ok'}}" class="sud flex-center-column" style="position: absolute; width: 100%; height:{{height}}px;justify-content:center">
+    <cover-image style="width: 128px;height:103px" src="../../images/{{status}}.png"></cover-image>
+  </cover-view>
+  <cover-view class="" style="position: absolute;top:10px;left:10px;font-size: 28rpx; right: 10px">
+    {{name}}({{uid}})
+  </cover-view>
+</view>

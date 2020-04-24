@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class=" agora-bg">
+	<view class="content flex-center-column">
+		<view class="logo-section flex-center-column">
+			<image class="logo" style="width: 300rpx; height: 200rpx;" mode="aspectFit" src="../../images/logo.png" aria-label="启明直播的logo"></image>
+			<text class="h1">启明直播小程序实时连麦</text>
+		</view>
+		<view class="user-section flex-center-column">
+			<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover" aria-label="你的选择的微信头像"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</view>
+		<view class="form-section flex-center-column">
+			<view class="inputWrapper">
+				<input placeholder-style='color:#A3D1E0' class="channelInput" placeholder='输入房间名' bindinput="onInputChannel" bindconfirm="onInputChannel" bindblur="onInputChannel"></input>
+			</view>
+			<button plain="true" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" disabled="{{disableJoin}}" class="joinBtn">加入房间</button>
+
+			<button plain="true" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"  bindtap="goQiMingZhiBo"
+      class="joinBtn">直接加入启明直播间</button>
+
+		</view>
+		<view class="footer flex-center-column">
+			<text>Powered by QiMing Accessible. Build v1.0.0</text>
+		</view>
+	</view>
+</view>
