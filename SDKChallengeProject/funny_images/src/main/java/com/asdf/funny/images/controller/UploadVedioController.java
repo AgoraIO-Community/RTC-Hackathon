@@ -11,6 +11,7 @@ import com.tinify.Tinify;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,7 +32,7 @@ import java.util.Map;
  * @Time: 14:42
  */
 
-@RestController
+@Controller
 @RequestMapping("/uploadVedio")
 public class UploadVedioController {
     @Value("${uploadVideoFilePar}")
@@ -41,7 +42,7 @@ public class UploadVedioController {
     @Autowired
     private SnowflakeIdWorker snowflakeIdWorker;
     @GetMapping("/generatePage")
-    public void generatePage(@RequestParam("title")String title,@RequestParam("fileName")String fileName) throws IOException {
+    public String generatePage(@RequestParam("title")String title, @RequestParam("fileName")String fileName, ModelMap map) throws IOException {
         //创建日期
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String nowStr=dateFormat.format(new Date());
@@ -74,5 +75,7 @@ public class UploadVedioController {
         context.setVariable("nowStr",nowStr);
         //创建静态文件,"text"是模板html名字
         templateEngine.process("single-video",context,writer);
+        map.addAttribute("url",numberFile);
+        return "generateRoom";
     }
 }
