@@ -1,0 +1,1 @@
+<view><hx-navbar vue-id="097dc241-1" title="个人信息" transparent="hidden" bind:__l="__l"></hx-navbar><text>热更新</text></view>

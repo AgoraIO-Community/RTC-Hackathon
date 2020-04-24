@@ -1,0 +1,8 @@
+
+page{
+	background: #fff;
+}
+.content{
+	margin: 24rpx;
+}
+

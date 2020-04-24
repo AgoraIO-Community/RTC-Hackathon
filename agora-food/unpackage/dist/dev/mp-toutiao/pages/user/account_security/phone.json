@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "hx-navbar": "/components/hx-navbar/hx-navbar"
+  }
+}

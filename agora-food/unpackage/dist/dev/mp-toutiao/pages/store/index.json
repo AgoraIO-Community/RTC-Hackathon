@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "hx-navbar": "/components/hx-navbar/hx-navbar",
+    "hx-comment": "/components/hx-comment/hx-comment",
+    "hx-preview-img": "/components/hx-preview-img/hx-preview-img",
+    "jump-ball": "/components/hx-jump-ball/hx-jump-ball",
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "hx-number-box": "/components/uni-number-box/uni-number-box"
+  }
+}

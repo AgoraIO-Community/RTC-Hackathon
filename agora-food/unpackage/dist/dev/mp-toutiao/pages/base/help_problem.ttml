@@ -1,0 +1,1 @@
+<view><hx-navbar vue-id="c675cfa2-1" left-text="帮助" defaultBackUrl="help_feedback" background-color="{{[245,245,245]}}" bind:__l="__l"></hx-navbar></view>

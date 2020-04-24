@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "hx-navbar": "/components/hx-navbar/hx-navbar",
+    "share": "/components/hx-share/hx-share",
+    "hx-number-box": "/components/uni-number-box/uni-number-box",
+    "jump-ball": "/components/hx-jump-ball/hx-jump-ball"
+  }
+}

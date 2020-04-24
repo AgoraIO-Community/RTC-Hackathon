@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "hx-navbar": "/components/hx-navbar/hx-navbar",
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "w-input": "/components/watch-login/watch-input",
+    "w-button": "/components/watch-login/watch-button"
+  }
+}

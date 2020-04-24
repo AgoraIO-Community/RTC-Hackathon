@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/store/index",
+    "pages/product/product",
+    "pages/user/login/login",
+    "pages/user/register/register",
+    "pages/user/forget/forget",
+    "pages/user/center/center",
+    "pages/user/setting/setting",
+    "pages/user/bash/bash",
+    "pages/user/account_security/security",
+    "pages/user/account_security/phone",
+    "pages/user/account_security/update_password",
+    "pages/user/account_security/address_book",
+    "pages/user/account_security/update_phone",
+    "pages/user/account_security/bind_phone",
+    "pages/base/protocol/protocol",
+    "pages/base/about",
+    "pages/base/features",
+    "pages/base/release_notes",
+    "pages/base/help_feedback",
+    "pages/base/help_problem",
+    "pages/user/account_security/forget_password",
+    "pages/user/account_security/verification_phone",
+    "pages/user/address/address",
+    "pages/user/address/addressManage",
+    "pages/order/order",
+    "pages/order/preview",
+    "pages/order/pay",
+    "pages/search/search",
+    "pages/user/coupon/coupon",
+    "pages/map/location"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationStyle": "custom",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#C0C4CC",
+    "selectedColor": "#ffc107",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "fontSize": "11px",
+    "spacing": "5px",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabbar/tab-home.png",
+        "selectedIconPath": "static/tabbar/tab-home-current.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "static/tabbar/order.png",
+        "selectedIconPath": "static/tabbar/order-current.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/user/center/center",
+        "iconPath": "static/tabbar/tab-my.png",
+        "selectedIconPath": "static/tabbar/tab-my-current.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
