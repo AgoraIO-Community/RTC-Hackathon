@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="icon" href="./assets/images/favicon.png">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/night-mode.css">
+    <link rel="stylesheet" href="./assets/css/framework.css">
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="./assets/css/icons.css">
+
+	  <link rel="stylesheet" href="./assets/common.css" />
+
+	<!-- 版本号根据最新版本更改即可 -->
+        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/2.7.1.css">
+        <script src="https://sdk.herewhite.com/white-web-sdk/2.7.1.js"></script>
+        <script>
+            //后续实现代码
+        </script>
+<style>
+	html,body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-size: cover;
+}
+.netless-whiteboard{
+	min-height: 100vh;
+}
+#local_stream{
+	height:200px;
+}
+.video-placeholder{
+	height:200px;
+}
+.talk_con {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #666;
+      background: #f9f9f9;
+    }
+
+    .talk_show {
+      width: 100%;
+      height: 420px;
+      border: 1px solid #666;
+      background: #fff;
+      margin: 10px auto 0;
+      overflow: auto;
+    }
+
+    .talk_input {
+      width: 100%;
+      margin: 10px auto 0;
+    }
+
+    .whotalk {
+      width: 80px;
+      height: 30px;
+      float: left;
+      outline: none;
+    }
+
+    .talk_word {
+      width: 100%;
+      height: 26px;
+      padding: 0px;
+      float: left;
+      margin-left: 10px;
+      outline: none;
+      text-indent: 10px;
+    }
+
+    .talk_sub {
+      width: 56px;
+      height: 30px;
+      float: left;
+      margin-left: 10px;
+    }
+
+    .atalk {
+      margin: 10px;
+    }
+
+    .atalk span {
+      display: inline-block;
+      background: #0181cc;
+      border-radius: 10px;
+      color: #fff;
+      padding: 5px 10px;
+    }
+
+    .btalk {
+      margin: 10px;
+      text-align: right;
+    }
+
+    .btalk span {
+      display: inline-block;
+      background: #ef8201;
+      border-radius: 10px;
+      color: #fff;
+      padding: 5px 10px;
+    }
+</style>
+
+</head>
+
+
+<body>
+<button class="btn btn-raised btn-primary waves-effect waves-light" style="display:none" id="join">JOIN</button>
+<!--<button class="btn btn-raised btn-primary waves-effect waves-light" id="login">LOGIN</button>-->
+<!--<button class="btn btn-raised btn-primary waves-effect waves-light" id="joinChannel">JOIN</button>-->
+<!--<button class="btn btn-raised btn-primary waves-effect waves-light custom-btn-pin" id="send_channel_message">SEND</button>-->
+<!-- Wrapper -->
+<div id="wrapper" class="sidebar-out">
+
+    <!-- sidebar -->
+    <div class="main_sidebar">
+        <div class="side-overlay" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></div>
+
+        <!-- sidebar header -->
+        <div class="sidebar-header">
+            <h4> Navigation</h4>
+            <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
+        </div>
+
+        <!-- sidebar Menu -->
+        <div class="sidebar">
+            <div class="sidebar_innr" data-simplebar>
+
+                <div class="sections">
+                    <h3> Browse </h3>
+                    <ul>
+                        <li class="active"> <a href="home.html"> <i class="uil-home-alt"></i> Home </a></li>
+                        <li> <a href="browse-channals.html"> <i class="uil-users-alt"></i> Subscriptions </a></li>
+                        <li> <a href="browse-catagroies.html"> <i class="uil-layers"></i> Catagories </a></li>
+                    </ul>
+                </div>
+
+
+                <div class="sections">
+                    <h3> Subscriptions </h3>
+                    <ul>
+                        <li> <a href="single-channal.html"> <img src="./assets/images/avatars/avatar-3.jpg" alt="">
+                            Stella Johnson <span class="dot-notiv"></span></a></li>
+                        <li>  <a href="single-channal.html">  <img src="./assets/images/avatars/avatar-2.jpg" alt="">
+                            Alex Dolgove <span class="dot-notiv"></span></a></li>
+                        <li>  <a href="single-channal.html">  <img src="./assets/images/avatars/avatar-4.jpg" alt="">
+                            Adrian Mohani </a> </li>
+                        <li>  <a href="single-channal.html">  <img src="./assets/images/avatars/avatar-2.jpg" alt="">
+                            Stella Johnson </a> </li>
+                    </ul>
+
+                    <!-- view more subcription-->
+                    <div class="uk-flex uk-flex-center mb-3">
+                        <a href="browse-channals.html" class="button default circle px-5">
+                            <i class="uil-plus mr-2"></i> More Channals</a>
+                    </div>
+
+                </div>
+
+                <div class="sections">
+                    <h3> PAGES </h3>
+                    <ul>
+                        <li> <a href="#"><i class="uil-code"></i> Development </a>
+                            <ul>
+                                <li>
+                                    <a href="development-elements.html"> Elements </a>
+                                    <a href="development-components.html"> Components</a>
+                                    <a href="development-icons.html"> Icons Pack </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li> <a href="#"><i class="uil-user-circle"></i> Accounts </a>
+                            <ul>
+                                <li>
+                                    <a href="form-login.html"> Login </a>
+                                    <a href="form-register.html"> Register </a>
+                                    <a href="form-modern-login.html"> Simple Register</a>
+                                    <a href="form-modern-singup.html"> Simple Register</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="foot">
+
+                    <ul>
+                        <li> <a href="#"> About Us </a></li>
+                        <li> <a href="#"> Setting </a></li>
+                        <li> <a href="#"> Privacy Policy </a></li>
+                        <li> <a href="#">  Terms - Conditions </a></li>
+                    </ul>
+
+
+                    <div class="foot-content">
+                        <p>© 2019 <strong>GoTube</strong>. All Rights Reserved. </p>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- header -->
+    <div id="main_header" style="position: relative;" class="uk-light bg-dark">
+        <header>
+
+            <!-- Logo
+            <i class="header-traiger uil-bars"
+                uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></i>
+-->
+            <!-- Logo-->
+            <div style="margin-top: 16px;" id="logo">
+                <a href="#"> <img src="./img/Logo.png" alt=""></a>
+                <a href="#"> <img src="./img/Logo.png" class="logo-inverse" alt=""></a>
+            </div>
+
+            <!-- form search-->
+
+            <div class="head_search">
+
+            </div>
+
+            <!-- user icons -->
+            <div class="head_user" style="float:right">
+
+
+
+                <!-- profile -image -->
+                <a class="opts_account"> <img style="    margin-top: 13px;" src="./assets/images/avatars/avatar-1.jpg" alt=""></a>
+            </div>
+
+        </header>
+
+    </div>
+
+    <!-- contents -->
+    <div class="main_content content-expand" style="    min-height: 100vh;
+    background-size: cover;padding:0px">
+        <div class="main_content_inner" style="padding:0px;min-height: 100vh;
+    background-size: cover;margin:0px;min-width: 100%;">
+            <div id="whiteboard" style="width:80%;height:100%;float:left;min-height: 100vh;">
+
+			</div>
+			<div style="width:20%;height:100%;float:left;background-color:gray;min-height: 100vh;border-left:1px">
+				<div style="width:100%;height:100%;background-color:white;min-height: 100vh;margin-left:1px">
+					<div class="col s7">
+        <div class="video-grid" id="video">
+          <div class="video-view">
+            <div id="local_stream" class="video-placeholder"></div>
+            <div id="local_video_info" class="video-profile hide"></div>
+            <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
+          </div>
+        </div>
+<!--		<div class="talk_con">-->
+<!--    <div class="talk_show" id="words">-->
+<!--      <div class="atalk"><span>A：你还好吗？</span></div>-->
+<!--      <div class="btalk"><span>B：嗯，你呢？</span></div>-->
+<!--	   <div class="atalk"><span>A：你还好吗？</span></div>-->
+<!--      <div class="btalk"><span>B：嗯，你呢？</span></div>-->
+
+<!--    </div>-->
+<!--    <div class="talk_input">-->
+<!--      <input type="text" class="talk_word" id="talkwords">-->
+<!--    </div>-->
+<!--  </div>-->
+      </div>
+				<div>
+			</div>
+        </div>
+
+
+
+    </div>
+	<div style="clear:both"></div>
+</div>
+
+    <!-- For Night mode -->
+    <script>
+	var randNum=Math.floor(Math.random()*1000000);
+        (function (window, document, undefined) {
+            'use strict';
+            if (!('localStorage' in window)) return;
+            var nightMode = localStorage.getItem('gmtNightMode');
+            if (nightMode) {
+                document.documentElement.className += ' night-mode';
+            }
+        })(window, document);
+
+
+        (function (window, document, undefined) {
+
+            'use strict';
+
+            // Feature test
+            if (!('localStorage' in window)) return;
+
+            // Get our newly insert toggle
+            var nightMode = document.querySelector('#night-mode');
+            if (!nightMode) return;
+
+            // When clicked, toggle night mode on or off
+            nightMode.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.documentElement.classList.toggle('night-mode');
+                if (document.documentElement.classList.contains('night-mode')) {
+                    localStorage.setItem('gmtNightMode', true);
+                    return;
+                }
+                localStorage.removeItem('gmtNightMode');
+            }, false);
+
+        })(window, document);
+    </script>
+
+
+    <!-- javaScripts
+                ================================================== -->
+    <script src="./assets/js/framework.js"></script>
+    <script src="./assets/js/jquery-3.3.1.min.js"></script>
+    <script src="./assets/js/simplebar.js"></script>
+<script>
+$(document).keyup(function(event){
+　　if(event.keyCode==13){
+　　//发送单击，获取用户输入的数据value属性值
+      var vals=$('#talkwords').val()
+      //如果输入的数据为空，则弹窗提示
+      if (vals=='')
+      {
+        alert('请输入数据！')
+        return
+      }
+      //条件下拉列表中的value值是0还是1
+      var whovals=0
+      var str=""
+      //选择A发送还是B发送
+      if (whovals==0){
+        str='<div class="atalk"><span>A：'+ vals+'</span></div>'
+      }
+      else{
+        str='<div class="btalk"><span>B：'+ vals+'</span></div>'
+      }
+      //原有的内容+str,否则会覆盖掉原有内容
+      $('#words').html($('#words').html()+str)
+      //发送完数据后清空输入框
+      $('#talkwords').val('')
+　　}
+});
+
+  </script>
+
+	<script>
+
+var url = location.search; //获取url中"?"符后的字串 ('?modFlag=business&role=1')
+var theRequest = new Object();
+if ( url.indexOf( "?" ) != -1 ) {
+  var str = url.substr( 1 ); //substr()方法返回从参数值开始到结束的字符串；
+  var strs = str.split( "&" );
+  for ( var i = 0; i < strs.length; i++ ) {
+    theRequest[ strs[ i ].split( "=" )[ 0 ] ] = ( strs[ i ].split( "=" )[ 1 ] );
+  }
+  console.log( theRequest ); //此时的theRequest就是我们需要的参数；
+}
+
+// 更多初始化 sdk 参数，请查看[初始化参数]文档
+var whiteWebSdk = new WhiteWebSdk();
+// 更多初始化 房间 参数，请查看[初始化参数]文档
+whiteWebSdk.joinRoom({
+    uuid: theRequest.uuid,
+    roomToken: theRequest.roomToken
+}).then(function(room) {
+    //将 room 实例绑定在全局变量中。后续所有 API 实例，都会直接调用 room
+    window.room = room;
+    room.bindHtmlElement(document.getElementById("whiteboard"));
+})
+	</script>
+
+	<script src="./vendor/jquery.min.js"></script>
+  <script src="./vendor/materialize.min.js"></script>
+
+
+  <script src="./agora-rtm-sdk-1.2.2.js"></script>
+        <script>
+            //实时消息
+            const client = AgoraRTM.createInstance('cb056ec72e9b4ad692b83d745f1b864e');
+
+            $("#login").on("click", function (e) {
+                client.login({  uid: '123456' }).then(() => {
+                    console.log('AgoraRTM client login success');
+                }).catch(err => {
+                    console.log('AgoraRTM client login failure', err);
+                });
+            })
+            const channel = client.createChannel('channelid'); // 此处传入频道 ID
+
+            $("#joinChannel").on("click", function (e) {
+                channel.join().then(() => {
+                    /* 加入频道成功的处理逻辑 */
+                }).catch(error => {
+                    /* 加入频道失败的处理逻辑 */
+                });
+            })
+
+            $("#send_channel_message").on("click", function (e) {
+                channel.sendMessage({ text: 'test channel message' }).then(() => {
+                    /* 频道消息发送成功的处理逻辑 */
+                    console.log("s")
+                }).catch(error => {
+                    /* 频道消息发送失败的处理逻辑 */
+                });
+
+            })
+
+            channel.on('ChannelMessage', ({ text }, senderId) => { // text 为收到的频道消息文本，senderId 为发送方的 User ID
+                /* 收到频道消息的处理逻辑 */
+            });
+
+
+        </script>
+        <script src="./AgoraRTCSDK-3.0.2.js"></script>
+  <script>
+
+
+
+
+    console.log("agora sdk version: " + AgoraRTC.VERSION + " compatible: " + AgoraRTC.checkSystemRequirements());
+    var resolutions = [
+      {
+        name: 'default',
+        value: 'default',
+      },
+      {
+        name: '480p',
+        value: '480p',
+      },
+      {
+        name: '720p',
+        value: '720p',
+      },
+      {
+        name: '1080p',
+        value: '1080p'
+      }
+    ];
+
+    function Toastify (options) {
+      M.toast({html: options.text, classes: options.classes});
+    }
+
+    var Toast = {
+      info: (msg) => {
+        Toastify({
+          text: msg,
+          classes: "info-toast"
+        })
+      },
+      notice: (msg) => {
+        Toastify({
+          text: msg,
+          classes: "notice-toast"
+        })
+      },
+      error: (msg) => {
+        Toastify({
+          text: msg,
+          classes: "error-toast"
+        })
+      }
+    };
+    function validator(formData, fields) {
+      var keys = Object.keys(formData);
+      for (let key of keys) {
+        if (fields.indexOf(key) != -1) {
+          if (!formData[key]) {
+            Toast.error("Please Enter " + key);
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    function serializeformData() {
+      var formData = $("#form").serializeArray();
+      var obj = {}
+      for (var item of formData) {
+        var key = item.name;
+        var val = item.value;
+        obj[key] = val;
+      }
+      return obj;
+    }
+
+    function addView (id, show) {
+      if (!$("#" + id)[0]) {
+        $("<div/>", {
+          id: "remote_video_panel_" + id,
+          class: "video-view",
+        }).appendTo("#video");
+
+        $("<div/>", {
+          id: "remote_video_" + id,
+          class: "video-placeholder",
+        }).appendTo("#remote_video_panel_" + id);
+
+        $("<div/>", {
+          id: "remote_video_info_" + id,
+          class: "video-profile " + (show ? "" :  "hide"),
+        }).appendTo("#remote_video_panel_" + id);
+
+        $("<div/>", {
+          id: "video_autoplay_"+ id,
+          class: "autoplay-fallback hide",
+        }).appendTo("#remote_video_panel_" + id);
+      }
+    }
+    function removeView (id) {
+      if ($("#remote_video_panel_" + id)[0]) {
+        $("#remote_video_panel_"+id).remove();
+      }
+    }
+
+    function getDevices (next) {
+      AgoraRTC.getDevices(function (items) {
+        items.filter(function (item) {
+          return ['audioinput', 'videoinput'].indexOf(item.kind) !== -1
+        })
+        .map(function (item) {
+          return {
+          name: item.label,
+          value: item.deviceId,
+          kind: item.kind,
+          }
+        });
+        var videos = [];
+        var audios = [];
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+          if ('videoinput' == item.kind) {
+            var name = item.label;
+            var value = item.deviceId;
+            if (!name) {
+              name = "camera-" + videos.length;
+            }
+            videos.push({
+              name: name,
+              value: value,
+              kind: item.kind
+            });
+          }
+          if ('audioinput' == item.kind) {
+            var name = item.label;
+            var value = item.deviceId;
+            if (!name) {
+              name = "microphone-" + audios.length;
+            }
+            audios.push({
+              name: name,
+              value: value,
+              kind: item.kind
+            });
+          }
+        }
+        next({videos: videos, audios: audios});
+      });
+    }
+
+    var rtc = {
+      client: null,
+      joined: false,
+      published: false,
+      localStream: null,
+      remoteStreams: [],
+      params: {}
+    };
+
+    function handleEvents (rtc) {
+      // Occurs when an error message is reported and requires error handling.
+      rtc.client.on("error", (err) => {
+        console.log(err)
+      })
+      // Occurs when the peer user leaves the channel; for example, the peer user calls Client.leave.
+      rtc.client.on("peer-leave", function (evt) {
+        var id = evt.uid;
+        console.log("id", evt);
+        if (id != rtc.params.uid) {
+          removeView(id);
+        }
+        Toast.notice("peer leave")
+        console.log('peer-leave', id);
+      })
+      // Occurs when the local stream is published.
+      rtc.client.on("stream-published", function (evt) {
+        Toast.notice("stream published success")
+        console.log("stream-published");
+      })
+      // Occurs when the remote stream is added.
+      rtc.client.on("stream-added", function (evt) {
+        var remoteStream = evt.stream;
+        var id = remoteStream.getId();
+        Toast.info("stream-added uid: " + id)
+        if (id !== rtc.params.uid) {
+          rtc.client.subscribe(remoteStream, function (err) {
+            console.log("stream subscribe failed", err);
+          })
+        }
+        console.log('stream-added remote-uid: ', id);
+      });
+      // Occurs when a user subscribes to a remote stream.
+      rtc.client.on("stream-subscribed", function (evt) {
+        var remoteStream = evt.stream;
+        var id = remoteStream.getId();
+        rtc.remoteStreams.push(remoteStream);
+        addView(id);
+        remoteStream.play("remote_video_" + id);
+        Toast.info('stream-subscribed remote-uid: ' + id);
+        console.log('stream-subscribed remote-uid: ', id);
+      })
+      // Occurs when the remote stream is removed; for example, a peer user calls Client.unpublish.
+      rtc.client.on("stream-removed", function (evt) {
+        var remoteStream = evt.stream;
+        var id = remoteStream.getId();
+        Toast.info("stream-removed uid: " + id)
+        remoteStream.stop("remote_video_" + id);
+        rtc.remoteStreams = rtc.remoteStreams.filter(function (stream) {
+          return stream.getId() !== id
+        })
+        removeView(id);
+        console.log('stream-removed remote-uid: ', id);
+      })
+      rtc.client.on("onTokenPrivilegeWillExpire", function(){
+        // After requesting a new token
+        // rtc.client.renewToken(token);
+        Toast.info("onTokenPrivilegeWillExpire")
+        console.log("onTokenPrivilegeWillExpire")
+      });
+      rtc.client.on("onTokenPrivilegeDidExpire", function(){
+        // After requesting a new token
+        // client.renewToken(token);
+        Toast.info("onTokenPrivilegeDidExpire")
+        console.log("onTokenPrivilegeDidExpire")
+      })
+    }
+
+    /**
+      * rtc: rtc object
+      * option: {
+      *  mode: string, 'live' | 'rtc'
+      *  codec: string, 'h264' | 'vp8'
+      *  appID: string
+      *  channel: string, channel name
+      *  uid: number
+      *  token; string,
+      * }
+     **/
+
+    function join (rtc) {
+	var option={
+		appID: "cb056ec72e9b4ad692b83d745f1b864e",
+channel: "1000",
+token: "",
+uid: randNum,
+cameraId: "",
+microphoneId: "default",
+cameraResolution: "default",
+mode: "live",
+codec: "h264"
+	}
+      if (rtc.joined) {
+        Toast.error("Your already joined");
+        return;
+      }
+
+      /**
+       * A class defining the properties of the config parameter in the createClient method.
+       * Note:
+       *    Ensure that you do not leave mode and codec as empty.
+       *    Ensure that you set these properties before calling Client.join.
+       *  You could find more detail here. https://docs.agora.io/en/Video/API%20Reference/web/interfaces/agorartc.clientconfig.html
+      **/
+      rtc.client = AgoraRTC.createClient({mode: option.mode, codec: option.codec});
+
+      rtc.params = option;
+
+      // handle AgoraRTC client event
+      handleEvents(rtc);
+
+      // init client
+      rtc.client.init(option.appID, function () {
+        console.log("init success");
+
+        /**
+         * Joins an AgoraRTC Channel
+         * This method joins an AgoraRTC channel.
+         * Parameters
+         * tokenOrKey: string | null
+         *    Low security requirements: Pass null as the parameter value.
+         *    High security requirements: Pass the string of the Token or Channel Key as the parameter value. See Use Security Keys for details.
+         *  channel: string
+         *    A string that provides a unique channel name for the Agora session. The length must be within 64 bytes. Supported character scopes:
+         *    26 lowercase English letters a-z
+         *    26 uppercase English letters A-Z
+         *    10 numbers 0-9
+         *    Space
+         *    "!", "#", "$", "%", "&", "(", ")", "+", "-", ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", "{", "}", "|", "~", ","
+         *  uid: number | null
+         *    The user ID, an integer. Ensure this ID is unique. If you set the uid to null, the server assigns one and returns it in the onSuccess callback.
+         *   Note:
+         *      All users in the same channel should have the same type (number or string) of uid.
+         *      If you use a number as the user ID, it should be a 32-bit unsigned integer with a value ranging from 0 to (232-1).
+        **/
+        rtc.client.join(option.token ? option.token : null, option.channel, option.uid ? +option.uid : null, function (uid) {
+          Toast.notice("join channel: " + option.channel + " success, uid: " + uid);
+          console.log("join channel: " + option.channel + " success, uid: " + uid);
+          rtc.joined = true;
+
+          rtc.params.uid = uid;
+
+          // create local stream
+          rtc.localStream = AgoraRTC.createStream({
+            streamID: rtc.params.uid,
+            audio: true,
+            video: true,
+            screen: false,
+            microphoneId: option.microphoneId,
+            cameraId: option.cameraId
+          })
+
+          // init local stream
+          rtc.localStream.init(function () {
+            console.log("init local stream success");
+            // play stream with html element id "local_stream"
+            rtc.localStream.play("local_stream")
+
+            // publish local stream
+            publish(rtc);
+          }, function (err)  {
+            Toast.error("stream init failed, please open console see more detail")
+            console.error("init local stream failed ", err);
+          })
+        }, function(err) {
+          Toast.error("client join failed, please open console see more detail")
+          console.error("client join failed", err)
+        })
+      }, (err) => {
+        Toast.error("client init failed, please open console see more detail")
+        console.error(err);
+      });
+    }
+
+    function publish (rtc) {
+      if (!rtc.client) {
+        Toast.error("Please Join Room First");
+        return;
+      }
+      if (rtc.published) {
+        Toast.error("Your already published");
+        return;
+      }
+      var oldState = rtc.published;
+
+      // publish localStream
+      rtc.client.publish(rtc.localStream, function (err) {
+        rtc.published = oldState;
+        console.log("publish failed");
+        Toast.error("publish failed")
+        console.error(err);
+      })
+      Toast.info("publish")
+      rtc.published = true
+    }
+
+    function unpublish (rtc) {
+      if (!rtc.client) {
+        Toast.error("Please Join Room First");
+        return;
+      }
+      if (!rtc.published) {
+        Toast.error("Your didn't publish");
+        return;
+      }
+      var oldState = rtc.published;
+      rtc.client.unpublish(rtc.localStream, function (err) {
+        rtc.published = oldState;
+        console.log("unpublish failed");
+        Toast.error("unpublish failed");
+        console.error(err);
+      })
+      Toast.info("unpublish")
+      rtc.published = false;
+    }
+
+    function leave (rtc) {
+      if (!rtc.client) {
+        Toast.error("Please Join First!");
+        return;
+      }
+      if (!rtc.joined) {
+        Toast.error("You are not in channel");
+        return;
+      }
+      /**
+       * Leaves an AgoraRTC Channel
+       * This method enables a user to leave a channel.
+       **/
+      rtc.client.leave(function () {
+        // stop stream
+        rtc.localStream.stop();
+        // close stream
+        rtc.localStream.close();
+        while (rtc.remoteStreams.length > 0) {
+          var stream = rtc.remoteStreams.shift();
+          var id = stream.getId();
+          stream.stop();
+          removeView(id);
+        }
+        rtc.localStream = null;
+        rtc.remoteStreams = [];
+        rtc.client = null;
+        console.log("client leaves channel success");
+        rtc.published = false;
+        rtc.joined = false;
+        Toast.notice("leave success");
+      }, function (err) {
+        console.log("channel leave failed");
+        Toast.error("leave success");
+        console.error(err);
+      })
+    }
+
+    $(function () {
+      getDevices(function (devices) {
+        devices.audios.forEach(function (audio) {
+          $('<option/>', {
+            value: audio.value,
+            text: audio.name,
+          }).appendTo("#microphoneId");
+        })
+        devices.videos.forEach(function (video) {
+          $('<option/>', {
+            value: video.value,
+            text: video.name,
+          }).appendTo("#cameraId");
+        })
+        resolutions.forEach(function (resolution) {
+          $('<option/>', {
+            value: resolution.value,
+            text: resolution.name
+          }).appendTo("#cameraResolution");
+        })
+        M.AutoInit();
+      })
+
+      var fields = ['appID', 'channel'];
+
+      $("#join").on("click", function (e) {
+        console.log("join")
+        e.preventDefault();
+        var params = serializeformData();
+        if (validator(params, fields)) {
+          join(rtc, params);
+        }
+      })
+
+      $("#publish").on("click", function (e) {
+        console.log("publish")
+        e.preventDefault();
+        var params = serializeformData();
+        if (validator(params, fields)) {
+          publish(rtc);
+        }
+      });
+
+      $("#unpublish").on("click", function (e) {
+        console.log("unpublish")
+        e.preventDefault();
+        var params = serializeformData();
+        if (validator(params, fields)) {
+          unpublish(rtc);
+        }
+      });
+
+      $("#leave").on("click", function (e) {
+        console.log("leave")
+        e.preventDefault();
+        var params = serializeformData();
+        if (validator(params, fields)) {
+          leave(rtc);
+        }
+      })
+    })
+
+
+
+
+
+$(document).ready(function(){
+　　$("#join").click();
+});
+$(window).bind('beforeunload',function(){
+       room.disconnect().then(function() {
+    console.log("Leave room success");
+
+
+	// Leave the channel
+rtc.client.leave(function () {
+  // Stop playing the local stream
+  rtc.localStream.stop();
+  // Close the local stream
+  rtc.localStream.close();
+  // Stop playing the remote streams and remove the views
+  while (rtc.remoteStreams.length > 0) {
+    var stream = rtc.remoteStreams.shift();
+    var id = stream.getId();
+    stream.stop();
+    removeView(id);
+  }
+  console.log("client leaves channel success");
+}, function (err) {
+  console.log("channel leave failed");
+  console.error(err);
+})
+});
+
+client.logout();
+});
+
+  </script>
+
+</body>
+
+</html>

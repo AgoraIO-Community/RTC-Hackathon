@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="icon" href="./assets/images/favicon.png">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/night-mode.css">
+    <link rel="stylesheet" href="./assets/css/framework.css">
+
+    <!-- icons
+    ================================================== -->
+    <link rel="stylesheet" href="./assets/css/icons.css">
+
+	 <head>
+        <!-- 版本号根据最新版本更改即可 -->
+        <link rel="stylesheet" href="https://sdk.herewhite.com/white-web-sdk/2.7.1.css">
+        <script src="https://sdk.herewhite.com/white-web-sdk/2.7.1.js"></script>
+        <script>
+            //后续实现代码
+        </script>
+    </head>
+
+
+</head>
+
+
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper" class="sidebar-out">
+
+    <!-- sidebar -->
+    <div class="main_sidebar">
+        <div class="side-overlay" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></div>
+
+        <!-- sidebar header -->
+        <div class="sidebar-header">
+            <h4> Navigation</h4>
+            <span class="btn-close" uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></span>
+        </div>
+
+        <!-- sidebar Menu -->
+        <div class="sidebar">
+            <div class="sidebar_innr" data-simplebar>
+
+                <div class="sections">
+                    <h3> Browse </h3>
+                    <ul>
+                        <li class="active"> <a href="home.html"> <i class="uil-home-alt"></i> Home </a></li>
+                        <li> <a href="browse-channals.html"> <i class="uil-users-alt"></i> Subscriptions </a></li>
+                        <li> <a href="browse-catagroies.html"> <i class="uil-layers"></i> Catagories </a></li>
+                    </ul>
+                </div>
+
+
+                <div class="sections">
+                    <h3> Subscriptions </h3>
+                    <ul>
+                        <li> <a href="single-channal.html"> <img src="./assets/images/avatars/avatar-3.jpg" alt="">
+                            Stella Johnson <span class="dot-notiv"></span></a></li>
+                        <li>  <a href="single-channal.html">  <img src="./assets/images/avatars/avatar-2.jpg" alt="">
+                            Alex Dolgove <span class="dot-notiv"></span></a></li>
+                        <li>  <a href="single-channal.html">  <img src="./assets/images/avatars/avatar-4.jpg" alt="">
+                            Adrian Mohani </a> </li>
+                        <li>  <a href="single-channal.html">  <img src="./assets/images/avatars/avatar-2.jpg" alt="">
+                            Stella Johnson </a> </li>
+                    </ul>
+
+                    <!-- view more subcription-->
+                    <div class="uk-flex uk-flex-center mb-3">
+                        <a href="browse-channals.html" class="button default circle px-5">
+                            <i class="uil-plus mr-2"></i> More Channals</a>
+                    </div>
+
+                </div>
+
+                <div class="sections">
+                    <h3> PAGES </h3>
+                    <ul>
+                        <li> <a href="#"><i class="uil-code"></i> Development </a>
+                            <ul>
+                                <li>
+                                    <a href="development-elements.html"> Elements </a>
+                                    <a href="development-components.html"> Components</a>
+                                    <a href="development-icons.html"> Icons Pack </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li> <a href="#"><i class="uil-user-circle"></i> Accounts </a>
+                            <ul>
+                                <li>
+                                    <a href="form-login.html"> Login </a>
+                                    <a href="form-register.html"> Register </a>
+                                    <a href="form-modern-login.html"> Simple Register</a>
+                                    <a href="form-modern-singup.html"> Simple Register</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="foot">
+
+                    <ul>
+                        <li> <a href="#"> About Us </a></li>
+                        <li> <a href="#"> Setting </a></li>
+                        <li> <a href="#"> Privacy Policy </a></li>
+                        <li> <a href="#">  Terms - Conditions </a></li>
+                    </ul>
+
+
+                    <div class="foot-content">
+                        <p>© 2019 <strong>GoTube</strong>. All Rights Reserved. </p>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- header -->
+    <div id="main_header" class="uk-light bg-dark">
+        <header>
+
+            <!-- Logo
+            <i class="header-traiger uil-bars"
+                uk-toggle="target: #wrapper ; cls: collapse-sidebar mobile-visible"></i>
+-->
+            <!-- Logo-->
+            <div id="logo">
+                <a href="#"> <img src="./img/Logo.png" alt=""></a>
+                <a href="#"> <img src="./img/Logo.png" class="logo-inverse" alt=""></a>
+            </div>
+
+            <!-- form search-->
+            <div class="head_search">
+                <form>
+                    <div class="head_search_cont">
+                        <input value="" type="text" class="form-control"
+                               placeholder="" autocomplete="off">
+                        <i class="s_icon uil-search-alt"></i>
+                    </div>
+
+                    <!-- Search box dropdown -->
+                    <div uk-dropdown="pos: top;mode:click;animation: uk-animation-slide-bottom-small"
+                         class="dropdown-search">
+                        <!-- User menu -->
+
+
+                    </div>
+
+
+                </form>
+            </div>
+
+            <!-- user icons -->
+            <div class="head_user">
+
+
+
+                <!-- profile -image -->
+                <a class="opts_account"> <img src="./assets/images/avatars/avatar-1.jpg" alt=""></a>
+
+
+        </header>
+
+    </div>
+
+    <!-- contents -->
+    <div class="main_content content-expand">
+        <div class="main_content_inner">
+            <div style="background-color:#86d0f6;width:450px;height:250px;margin:0px auto;margin-top:100px;text-align:center;opacity:0.9;box-shadow: 0 0 16px #e7eaee;">
+                <a style="margin-top:80px;" id="createRoom" href="#" class="button info">创建房间</a>
+				<a style="margin-top:80px;" id="JoinRoom" href="#" class="button success">加入房间</a>
+				<br>
+				房间号：<input type="text" style="margin-top:20px;" placeholder="创建后分享房号" id="roomNum">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- For Night mode -->
+    <script>
+        (function (window, document, undefined) {
+            'use strict';
+            if (!('localStorage' in window)) return;
+            var nightMode = localStorage.getItem('gmtNightMode');
+            if (nightMode) {
+                document.documentElement.className += ' night-mode';
+            }
+        })(window, document);
+
+
+        (function (window, document, undefined) {
+
+            'use strict';
+
+            // Feature test
+            if (!('localStorage' in window)) return;
+
+            // Get our newly insert toggle
+            var nightMode = document.querySelector('#night-mode');
+            if (!nightMode) return;
+
+            // When clicked, toggle night mode on or off
+            nightMode.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.documentElement.classList.toggle('night-mode');
+                if (document.documentElement.classList.contains('night-mode')) {
+                    localStorage.setItem('gmtNightMode', true);
+                    return;
+                }
+                localStorage.removeItem('gmtNightMode');
+            }, false);
+
+        })(window, document);
+
+
+    </script>
+
+
+    <!-- javaScripts
+                ================================================== -->
+    <script src="./assets/js/framework.js"></script>
+    <script src="./assets/js/jquery-3.3.1.min.js"></script>
+    <script src="./assets/js/simplebar.js"></script>
+    <script src="./assets/js/main.js"></script>
+	<script>
+	$("#createRoom").on("click", function (e) {
+		var sdkToken = "WHITEcGFydG5lcl9pZD10T2lhbHhJZFZIOXRQb0pSSWxSblhFMFRPdEFQTUdsTWlXdzYmc2lnPTY5ZGI3MWJjOTdkN2EzZWQ4MDk2ZjE2ZmY4YzU1MWJhZTFiMWVkMTA6YWRtaW5JZD0xMTczJnJvbGU9bWluaSZleHBpcmVfdGltZT0xNjE3NjU0NDk4JmFrPXRPaWFseElkVkg5dFBvSlJJbFJuWEUwVE90QVBNR2xNaVd3NiZjcmVhdGVfdGltZT0xNTg2MDk3NTQ2Jm5vbmNlPTE1ODYwOTc1NDYzNjEwMA";
+var url = 'https://cloudcapiv4.herewhite.com/room?token=' + sdkToken;
+var requestInit = {
+    method: 'POST',
+    headers: {
+        "content-type": "application/json",
+    },
+    body: JSON.stringify({
+        name: "房间名称",
+        limit: 0, // 设置为 0 是不限制，推荐使用设置为 0：房间不限制，从业务上去限制。
+        mode: "persistent",  // 普通房间，无法回放
+        // mode: "historied"， // 可回放房间
+    }),
+};
+
+        $("#JoinRoom").on("click", function (e) {
+            var sdkToken = "WHITEcGFydG5lcl9pZD10T2lhbHhJZFZIOXRQb0pSSWxSblhFMFRPdEFQTUdsTWlXdzYmc2lnPTY5ZGI3MWJjOTdkN2EzZWQ4MDk2ZjE2ZmY4YzU1MWJhZTFiMWVkMTA6YWRtaW5JZD0xMTczJnJvbGU9bWluaSZleHBpcmVfdGltZT0xNjE3NjU0NDk4JmFrPXRPaWFseElkVkg5dFBvSlJJbFJuWEUwVE90QVBNR2xNaVd3NiZjcmVhdGVfdGltZT0xNTg2MDk3NTQ2Jm5vbmNlPTE1ODYwOTc1NDYzNjEwMA";
+            var uuid = $("#roomNum").val();
+// 注意加入房间的 path 为 `room/join` 而创建房间的为 `room`
+            var url = 'https://cloudcapiv4.herewhite.com/room/join?token='+sdkToken+'&uuid='+uuid+'';
+            var requestInit = {
+                method: 'POST',
+                headers: {
+                    "content-type": "application/json",
+                },
+            };
+
+            fetch(url, requestInit).then(function(response) {
+                return response.json();
+            }).then(function(json) {
+                console.log(json);
+                window.location.href = "./room.html?uuid="+uuid+'&roomToken='+json.msg.roomToken;
+            }).catch(function(err) {
+                console.error(err);
+            });
+        })
+
+// 请求创建房间，并获取 sdk 后端服务器 response
+fetch(url, requestInit).then(function(response) {
+    return response.json();
+}).then(function(json) {
+    console.log(json);
+	$("#roomNum").val(json.msg.room.uuid);
+}).catch(function(err) {
+    console.error(err);
+});
+      })
+	</script>
+
+</body>
+
+</html>
