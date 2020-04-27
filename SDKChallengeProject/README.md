@@ -3,7 +3,7 @@
 该项目实现为盲人提供全面无障碍语音周边服务，包括APP和小程序，后期也会集成启明智能眼镜
 这个开源示例项目演示了如何快速集成 Agora 音频 SDK，实现多人音频连麦直播。
 
-## 产品进行全面无障碍处理，如果作为盲人角度体验现在手机辅助功能里面打开屏幕阅读的功能，如果读屏软件，可以点击进行下载免费读屏软件 [Talkback](https://sj.qq.com/myapp/detail.htm?apkName=com.google.android.marvin.talkback)
+## 产品进行全面无障碍处理，如果作为盲人角度体验现在手机辅助功能里面打开屏幕阅读的功能，如果没有读屏软件，可以点击进行下载免费读屏软件 [Talkback](https://sj.qq.com/myapp/detail.htm?apkName=com.google.android.marvin.talkback)
 在启明新世界项目项目中包含了以下功能：
 
 - 非常全面的无障碍处理优化，包括APP和小程序模块
