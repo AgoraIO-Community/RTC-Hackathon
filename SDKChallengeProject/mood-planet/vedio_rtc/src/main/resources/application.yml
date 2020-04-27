@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: shiro
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/vediortc?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      # 上传文件总的最大值
+      max-request-size: 10MB
+      # 单个文件的最大值
+      max-file-size: 10MB
+
+mybatis:
+  #  config-locations: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+#静态资源对外暴露的访问路径（虚拟目录）
+file:
+  staticAccessPath: /photos/**
+  #文件上传目录（可根据本地磁盘更改）
+  uploadFolder: E:\\photos
+
+
+
+
