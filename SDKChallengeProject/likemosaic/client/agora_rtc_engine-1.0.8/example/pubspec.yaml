@@ -1,0 +1,22 @@
+name: agora_rtc_engine_example
+description: Demonstrates how to use the agora_rtc_engine plugin.
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.5.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  agora_rtc_engine:
+    path: ../
+
+flutter:
+  uses-material-design: true
