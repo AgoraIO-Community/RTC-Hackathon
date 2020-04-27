@@ -1,0 +1,53 @@
+pipeline {
+  agent any
+  stages {
+    stage('检出') {
+      steps {
+        checkout([$class: 'GitSCM',
+        branches: [[name: env.GIT_BUILD_REF]],
+        userRemoteConfigs: [[
+          url: env.GIT_REPO_URL,
+          credentialsId: env.CREDENTIALS_ID
+        ]]])
+      }
+    }
+    stage('测试') {
+      steps {
+        // sh 'yarn config set registry https://registry.npm.taobao.org --global'
+        // sh 'yarn config set disturl https://npm.taobao.org/dist --global'
+        // sh 'yarn install'
+        // sh 'yarn add agora-rtm-sdk'
+        // sh 'yarn add js-md5'
+        sh 'npm config set registry http://registry.npm.taobao.org'
+        sh 'npm install'
+        sh 'npm install agora-rtm-sdk'
+        sh 'npm install js-md5'
+      }
+    }
+    stage('构建') {
+      steps {
+        sh 'yarn build'
+      }
+    }
+    stage('上传到 COS Bucket') {
+      steps {
+        sh "coscmd config -a ${env.COS_SECRET_ID} -s ${env.COS_SECRET_KEY} -b ${env.COS_BUCKET_NAME} -r ${env.COS_BUCKET_REGION}"
+        sh 'coscmd upload -r ./build/ /'
+        echo "上传成功，访问 https://${env.COS_BUCKET_NAME}.cos.${env.COS_BUCKET_REGION}.myqcloud.com/index.html 预览效果"
+      }
+    }
+    // stage(' 上传到 generic 仓库') {
+    //   steps {
+    //     // 使用 fallcate 命令创建 10M 大小的文件 (持续集成默认的工作目录为 /root/workspace)
+    //     sh 'fallocate -l 20m ${env.CI_BUILD_NUMBER}'
+
+    //     codingArtifactsGeneric(
+    //         files: 'build/**',
+    //         version: "${env.CI_BUILD_NUMBER}",
+    //         zip:"${env.CI_BUILD_NUMBER}.zip",
+    //         repoName: '${env.GENERIC_REPO_NAME}',
+    //     )
+    //   }
+    // }
+  }
+}

@@ -1,0 +1,114 @@
+#background{
+    background-image: url(./bkg.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+}
+#logo{
+    width:100%;
+    height: 90px;
+    border-bottom: 1px solid gray;
+}
+#logo img{
+    float: right;
+    width: 200px;
+    height: 40px;
+}
+#main{
+    width: 700px;
+    height: 450px;
+    margin-left: 70px;
+    margin-top: 10px;
+    background-image: url(./gift-habeshaw-s9jjABueXJc-unsplash.jpg);
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+#main-bottom{
+    width: 350px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+
+}
+#voice{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+#voice img{
+    width: 100%;
+    height: 100%;
+}
+#close{
+    width: 150px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50px;
+    border: 1px solid gray;
+    text-align:center;
+    
+}
+#close img{
+    width: 50px;
+    height: 50px;
+    transform: rotate(135deg);
+}
+#video{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    background-size: cover;
+}
+
+#video img{
+    width: 100%;
+    height: 100%;
+}
+#text{
+    margin-top: -620px;
+    margin-left: 780px;
+    width:400px;
+    color: blue;
+    border-bottom: 1px solid gray;
+}
+#secondary{
+    width: 90%;
+    height: 170px;
+    margin-left: 5%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+#secondary img{
+    width: 20%;
+    height: 100%;
+    border-radius: 15px;
+}
+#bli{
+    width: 100px;
+    height: 100px;
+    margin-left: 780px;
+    background-size: cover;
+}
+#but{
+    height: 200px;
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 780px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#but button{
+    height: 50px;
+    background-color: rgb(30, 136, 229);
+    color: white;
+    border-radius: 10px;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 2px gray;
+}

@@ -1,0 +1,47 @@
+{
+    "model_name": "liveTest",
+    "model_desc": "活体检测信息",
+    "img_url": "http:\/\/cd7.yesapi.net\/38D67BB9C95D0D5BB07A5AFFBC3BC686_20190906152539_f6865e7549bde6bbc84e1dd75f765587.png",
+    "fields": [
+        {
+            "id": "196b4fad967b3f01ac487c1fae4ff5ca",
+            "field_name": "game_id",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "比赛场次"
+        },
+        {
+            "id": "9d46de2f4644778edecc5fca1c013d52",
+            "field_name": "user_id",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "辩手id"
+        },
+        {
+            "id": "b486e9964efdc788d3a4c041ae4e0e96",
+            "field_name": "voice_test_res",
+            "field_type": "tinyint",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "声纹检测结果(0False1True)"
+        },
+        {
+            "id": "96d1502b657ce89663901627b2d3e1d2",
+            "field_name": "face_test_res",
+            "field_type": "tinyint",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "人脸检测结果(0False1True)"
+        }
+    ]
+}

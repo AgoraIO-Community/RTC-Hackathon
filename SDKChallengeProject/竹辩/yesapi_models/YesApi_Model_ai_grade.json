@@ -1,0 +1,77 @@
+{
+    "model_name": "ai_grade",
+    "model_desc": "智能评分",
+    "img_url": "http:\/\/cd7.yesapi.net\/38D67BB9C95D0D5BB07A5AFFBC3BC686_20190906152539_f6865e7549bde6bbc84e1dd75f765587.png",
+    "fields": [
+        {
+            "id": "91297f599309f63252496ad18c320193",
+            "field_name": "participation",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "[{\"detect_success_times\": 0,\"detect_total_times\": 0}]",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "参与度"
+        },
+        {
+            "id": "b7cec2e0116d849482ffd4ac1cac23fe",
+            "field_name": "fluency",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "[{\"detect_success_times\": 0,\"detect_total_times\": 0}]",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "流利度"
+        },
+        {
+            "id": "e7967c0ce34245385d8b8b83c405e54e",
+            "field_name": "stage_performance",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "[{\"detect_success_times\": 0,\"detect_total_times\": 0}]",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "赛场台风"
+        },
+        {
+            "id": "ea3653c265e85c642577dfba451e681a",
+            "field_name": "self_confidence",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "[{\"detect_success_times\": 0,\"detect_total_times\": 0}]",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "互尊互重"
+        },
+        {
+            "id": "982512dafe638f0bde205ff971d3e70f",
+            "field_name": "emotions",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "[{\"anger\":0,\"contempt\":0,\"disgust\":0,\"fear\":0,\"happiness\":0,\"sadness\":0,\"surprise\":0,\"neutral\":0}]",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "情感统计"
+        },
+        {
+            "id": "1f46d32cde45f94ab931b4fe09b3ccd0",
+            "field_name": "userid",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "用户UUID"
+        },
+        {
+            "id": "a11e339642b18c1933fcff8ae5ac7f85",
+            "field_name": "gid",
+            "field_type": "int",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "赛事ID"
+        }
+    ]
+}

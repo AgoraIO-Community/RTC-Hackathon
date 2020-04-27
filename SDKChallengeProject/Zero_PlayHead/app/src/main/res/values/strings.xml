@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">拿头玩</string>
+    <string name="game_start">GAME START</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="you_win">你赢了！！</string>
+    <string name="you_lose">你输了！！</string>
+    <string name="input_nick_name">输入昵称:</string>
+    <string name="input_name_tip">请输入昵称</string>
+    <string name="network_error">网络异常</string>
+    <string name="thrower">甩锅人</string>
+    <string name="invalid_room">无效房间</string>
+    <string name="save_success">已保存到手机相册</string>
+</resources>

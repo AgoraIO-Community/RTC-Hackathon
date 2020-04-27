@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:orientation="horizontal"
+    android:gravity="center|start"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#642200"
+        android:text="@string/thrower"
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text=",mmkmkmk"
+        android:layout_weight="1"
+        android:textSize="14sp"
+        android:textColor="#88220b"
+        android:layout_marginStart="10dp"
+        android:id="@+id/item_nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    
+    <ImageView
+        android:id="@+id/btn_join"
+        android:background="@mipmap/join_room"
+        android:layout_width="95dp"
+        android:layout_height="20dp"/>
+
+</LinearLayout>

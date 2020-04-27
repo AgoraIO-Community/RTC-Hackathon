@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_play"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="local_video,remote_video,game_start,play_view,tv_point" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_result"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="result_view,btn_back" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/local_video"
+        android:layout_width="120dp"
+        android:layout_height="142dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
+        android:background="@mipmap/surface"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:textColor="#e0561f"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/local_video"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_game_start"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="30dp"
+        android:background="@mipmap/start_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/local_video"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/remote_video"
+        android:layout_width="120dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="24dp"
+        android:background="@mipmap/surface"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.zero.game.component.view.PlayView
+        android:id="@+id/play_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/result_view"
+        android:layout_width="280dp"
+        android:layout_height="372dp"
+        android:background="@mipmap/fail1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <FrameLayout
+            android:layout_marginEnd="3dp"
+            android:layout_gravity="center"
+            android:id="@+id/local_result_view"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            />
+
+        <ImageView
+            android:id="@+id/save_btn"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="bottom|center"
+            android:background="@mipmap/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+
+
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@mipmap/back_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
