@@ -1,0 +1,17 @@
+export const EMBED_UID = "syncit-embed";
+export const APP_UID = "syncit-app";
+
+export const CUSTOM_EVENT_TAGS = {
+  PING: "PING",
+  MOUSE_SIZE: "MOUSE_SIZE",
+  ACCEPT_REMOTE_CONTROL: "ACCEPT_REMOTE_CONTROL",
+  STOP_REMOTE_CONTROL: "STOP_REMOTE_CONTROL",
+};
+
+export const REMOTE_CONTROL_ACTIONS = {
+  REQUEST: "REQUEST",
+  STOP: "STOP",
+  CLICK: "CLICK",
+  SCROLL: "SCROLL",
+  INPUT: "INPUT",
+};

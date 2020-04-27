@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Syncit: Embed</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/build/bundle.css" />
+  </head>
+
+  <body>
+    <div class="count"></div>
+    <input type="text" />
+    <input type="checkbox" name="a" id="" />
+    <input type="radio" name="b" id="" />
+    <input type="radio" name="b" id="" />
+
+    <button onclick="alert('yes')">click me</button>
+
+    <div class="block1" style="width: 400px; height: 200px;">block-1</div>
+    <div class="block2" style="width: 100px; height: 250px;">block-2</div>
+    <div class="block3" style="width: 300px; height: 300px;">block-3</div>
+
+    <script>
+      const el = document.querySelector(".count");
+      let count = 0;
+      // const timer = setInterval(() => {
+      //   el.innerText = count++;
+      //   if (count > 100000) {
+      //     clearInterval(timer);
+      //   }
+      // }, 50);
+    </script>
+    <script src="/build/bundle.js"></script>
+    <script>
+      new app.Embed({
+        target: document.body,
+      });
+    </script>
+  </body>
+</html>

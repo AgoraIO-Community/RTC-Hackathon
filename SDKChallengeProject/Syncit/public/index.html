@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Syncit: App</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./build/bundle.css" />
+    <style>
+      .message {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        font-size: 13px;
+        line-height: 20px;
+        color: #fff;
+        background-color: #ff7c7c;
+        font-weight: bold;
+        text-align: center;
+        z-index: 9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="message">Mirror</div>
+    <script src="./build/bundle.js"></script>
+    <script>
+      new app.App({
+        target: document.body,
+      });
+    </script>
+  </body>
+</html>
