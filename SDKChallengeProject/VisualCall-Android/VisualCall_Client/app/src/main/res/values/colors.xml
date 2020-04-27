@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/app_color_blue</color>
+    <color name="colorPrimaryDark">@color/app_color_blue_disabled</color>
+    <color name="colorAccent">@color/app_color_blue_pressed</color>
+
+    <!-- common -->
+    <color name="app_color_blue">#00A8E1</color>
+    <color name="app_color_blue_disabled">#8000A8E1</color>
+    <color name="app_color_blue_pressed">#c000A8E1</color>
+
+    <color name="app_color_blue_2">#31BDF3</color>
+    <color name="app_color_blue_2_disabled">#7F31BDF3</color>
+    <color name="app_color_blue_2_pressed">#7F31BDF3</color>
+
+    <color name="app_color_blue_3">#EBF9FF</color>
+    <color name="app_color_blue_3_disabled">#7FEBF9FF</color>
+    <color name="app_color_blue_3_pressed">#7FEBF9FF</color>
+
+    <color name="app_color_theme_1">#EF5362</color> <!-- Grapefruit -->
+    <color name="app_color_theme_2">#FE6D4B</color> <!-- Bittersweet -->
+    <color name="app_color_theme_3">#FFCF47</color> <!-- Sunflower -->
+    <color name="app_color_theme_4">#9FD661</color> <!-- Grass -->
+    <color name="app_color_theme_5">#3FD0AD</color> <!-- Mint -->
+    <color name="app_color_theme_6">#2BBDF3</color> <!-- Aqua -->
+    <color name="app_color_theme_7">#5A9AEF</color> <!-- Blue Jeans -->
+    <color name="app_color_theme_8">#AC8FEF</color> <!-- Lavender -->
+    <color name="app_color_theme_9">#EE85C1</color> <!-- Pink Rose -->
+
+    <color name="app_color_description">@color/qmui_config_color_gray_5</color>
+
+    <color name="bar_divider">#D4D6D8</color>
+    <color name="tab_panel_bg">#ffffff</color>
+    <color name="tab_panel_divider">@color/bar_divider</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+
+    <color name="yellow">#FFFF00</color>
+    <color name="orange">#ff6200</color>
+    <color name="pink">#FF87EF</color>
+    <color name="purple">#AA00EF</color>
+
+    <color name="gray_black">#444444</color>
+    <color name="gray_dark">#666666</color>
+    <color name="gray">#7c7c7c</color>
+    <color name="gray_light">#acacac</color>
+    <color name="gray_white">#ebebeb</color>
+
+    <color name="colorBackgroud">#FFFFFF</color>
+    <color name="colorBackgroudDark">#f2f2f2</color>
+    <color name="colorDivision">#dedede</color>
+
+    <color name="colorTextTitle">#333333</color>
+    <color name="colorTextContent">#444444</color>
+    <color name="colorTextAssistant">#777777</color>
+    <color name="colorTextGray">#999999</color>
+
+    <color name="colorToolbarText">#FFFFFF</color>
+    <color name="colorToolbarTextDark">#444444</color>
+    <color name="colorToolbarBackgroundLight">#FFFFFF</color>
+
+    <color name="redPrimary">#EE4444</color>
+    <color name="redPrimaryDark">#CC3333</color>
+    <color name="redPrimaryLight">#FF5555</color>
+
+    <!--<color name="bluePrimary">#1177EE</color>-->
+    <!--<color name="bluePrimaryDark">#0066DD</color>-->
+    <!--<color name="bluePrimaryLight">#2277FF</color>-->
+    <color name="bluePrimary">#3198F2</color>
+    <color name="bluePrimaryDark">#2187E1</color>
+    <color name="bluePrimaryLight">#42A9FF</color>
+
+    <color name="greenPrimary">#1bc98e</color>
+    <color name="greenPrimaryDark">#18ab79</color>
+    <color name="greenPrimaryLight">#5fd9b0</color>
+
+    <color name="yellowPrimary">#e4d836</color>
+    <color name="yellowPrimaryDark">#c6bc31</color>
+    <color name="yellowPrimaryLight">#ece472</color>
+
+    <color name="orangePrimary">#EE8822</color>
+    <color name="orangePrimaryDark">#DD7711</color>
+    <color name="orangePrimaryLight">#FF9933</color>
+
+    <color name="pinkPrimary">#EE7777</color>
+    <color name="pinkPrimaryDark">#DD6666</color>
+    <color name="pinkPrimaryLight">#FF8888</color>
+
+    <color name="purplePrimary">#8A6DE9</color>
+    <color name="purplePrimaryDark">#795CD8</color>
+    <color name="purplePrimaryLight">#9B7EFA</color>
+
+    <!-- 白色 -->
+    <color name="white95">#F2FFFFFF</color>
+    <color name="white90">#E6FFFFFF</color>
+    <color name="white85">#D9FFFFFF</color>
+    <color name="white80">#CCFFFFFF</color>
+    <color name="white75">#BFFFFFFF</color>
+    <color name="white70">#B3FFFFFF</color>
+    <color name="white65">#A6FFFFFF</color>
+    <color name="white60">#99FFFFFF</color>
+    <color name="white55">#8CFFFFFF</color>
+    <color name="white50">#80FFFFFF</color>
+    <color name="white45">#73FFFFFF</color>
+    <color name="white40">#66FFFFFF</color>
+    <color name="white35">#59FFFFFF</color>
+    <color name="white30">#4DFFFFFF</color>
+    <color name="white25">#40FFFFFF</color>
+    <color name="white20">#33FFFFFF</color>
+    <color name="white15">#26FFFFFF</color>
+    <color name="white10">#1AFFFFFF</color>
+    <color name="white5">#0DFFFFFF</color>
+
+    <!-- 黑色 -->
+    <color name="black95">#F2000000</color>
+    <color name="black90">#E6000000</color>
+    <color name="black85">#D9000000</color>
+    <color name="black80">#CC000000</color>
+    <color name="black75">#B000000F</color>
+    <color name="black70">#B3000000</color>
+    <color name="black65">#A6000000</color>
+    <color name="black60">#99000000</color>
+    <color name="black55">#8C000000</color>
+    <color name="black50">#80000000</color>
+    <color name="black45">#73000000</color>
+    <color name="black40">#66000000</color>
+    <color name="black35">#59000000</color>
+    <color name="black30">#4D000000</color>
+    <color name="black25">#40000000</color>
+    <color name="black20">#33000000</color>
+    <color name="black15">#26000000</color>
+    <color name="black10">#1A000000</color>
+    <color name="black5">#0D000000</color>
+
+
+    <!-- Chat Activity -->
+    <color name="localBackground">@color/gray_dark</color>
+    <color name="remoteBackground">@color/gray_black</color>
+
+</resources>
