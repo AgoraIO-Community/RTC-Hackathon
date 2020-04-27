@@ -1,0 +1,67 @@
+{
+    "model_name": "veri",
+    "model_desc": "认证码",
+    "img_url": "http:\/\/cd7.yesapi.net\/38D67BB9C95D0D5BB07A5AFFBC3BC686_20190906152539_f6865e7549bde6bbc84e1dd75f765587.png",
+    "fields": [
+        {
+            "id": "f3fa9b5d11fcefa547c9acab527daa44",
+            "field_name": "catagory",
+            "field_type": "tinyint",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "类别(0-辩手 1-工作人员 2-裁判)"
+        },
+        {
+            "id": "ecd2761c7804224274717b2397c10a99",
+            "field_name": "game_id",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "场次id"
+        },
+        {
+            "id": "2d1b7555d643b67a641c101bef8b61f4",
+            "field_name": "com_id",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "比赛id"
+        },
+        {
+            "id": "830a1d9d91d4ae44f3bea441167c9f68",
+            "field_name": "vcode",
+            "field_type": "char",
+            "field_length": "5",
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "认证码"
+        },
+        {
+            "id": "2ba270deed5c2ec27b9c47088573a4bc",
+            "field_name": "position",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "位置（辩手就是辩位，裁判就无所谓）"
+        },
+        {
+            "id": "df3f6079bc5095665b1664edaddefcd5",
+            "field_name": "userid",
+            "field_type": "varchar",
+            "field_length": "256",
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "UUID"
+        }
+    ]
+}

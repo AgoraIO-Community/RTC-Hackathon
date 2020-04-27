@@ -1,0 +1,47 @@
+{
+    "model_name": "article_slider",
+    "model_desc": "辩论文章slider",
+    "img_url": "http:\/\/cd7.yesapi.net\/38D67BB9C95D0D5BB07A5AFFBC3BC686_20190906152539_f6865e7549bde6bbc84e1dd75f765587.png",
+    "fields": [
+        {
+            "id": "13f54c7dcaee043239fb2f7e7b341e7a",
+            "field_name": "caption",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "标题"
+        },
+        {
+            "id": "6b74c768b6c020e11bda7becb7775753",
+            "field_name": "href",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "链接"
+        },
+        {
+            "id": "61deca5383c29fc71ffa1f66ae048b66",
+            "field_name": "imgUrl",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "图片链接"
+        },
+        {
+            "id": "b7c2482b18b5281fd5be05736afbd496",
+            "field_name": "author",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "出品方"
+        }
+    ]
+}

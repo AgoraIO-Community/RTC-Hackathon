@@ -1,0 +1,127 @@
+{
+    "model_name": "game",
+    "model_desc": "场次表",
+    "img_url": "http:\/\/cd7.yesapi.net\/38D67BB9C95D0D5BB07A5AFFBC3BC686_20190906152539_f6865e7549bde6bbc84e1dd75f765587.png",
+    "fields": [
+        {
+            "id": "b6529aa7db77b902c1a95977657d850a",
+            "field_name": "game_title",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "辩题"
+        },
+        {
+            "id": "d9486a493d50b7765234611711180e79",
+            "field_name": "team_info",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "队伍信息"
+        },
+        {
+            "id": "20c7f96f4acd3011f38bc7e1cc8470bc",
+            "field_name": "com_id",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "比赛id"
+        },
+        {
+            "id": "14e79682459d9830971714c033e5d165",
+            "field_name": "time_s",
+            "field_type": "datetime",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "0",
+            "field_index": "no",
+            "field_desc": "开始时间"
+        },
+        {
+            "id": "973882fd174d5688ed0bdcdf011c073b",
+            "field_name": "judge_info",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "裁判数据"
+        },
+        {
+            "id": "b270bdb26a5af12cdb0f43eda58ce418",
+            "field_name": "rules",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "规则"
+        },
+        {
+            "id": "7d016b00039fd05b760f531448806234",
+            "field_name": "rtcChannelPublic",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "音频频道号（公开）"
+        },
+        {
+            "id": "ce239575daa782b02659e8de434c98b0",
+            "field_name": "rtcChannelPrivate",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "音频频道号（私有）"
+        },
+        {
+            "id": "2c9989f3db56c0a58b9f180e47542cc8",
+            "field_name": "rtmChannel",
+            "field_type": "tinytext",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "信令频道号"
+        },
+        {
+            "id": "36cc67d9057785d1f914ca3c92544730",
+            "field_name": "grade",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "null",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "成绩"
+        },
+        {
+            "id": "f9aa15411277bdb5c7ec5b130faf2f63",
+            "field_name": "current_round",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "比赛进程"
+        },
+        {
+            "id": "16b995dac608954b1dca8d8a154a5623",
+            "field_name": "winner",
+            "field_type": "text",
+            "field_length": null,
+            "field_default": "",
+            "field_is_null": "1",
+            "field_index": "no",
+            "field_desc": "获胜方"
+        }
+    ]
+}
