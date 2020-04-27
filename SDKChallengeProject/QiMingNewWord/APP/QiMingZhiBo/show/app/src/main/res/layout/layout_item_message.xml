@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="@dimen/item_message_avatar_size"
+        android:layout_height="@dimen/item_message_avatar_size"
+        android:layout_marginEnd="@dimen/item_message_avatar_margin_end" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_avatar"
+        android:background="@drawable/bg_radius_container"
+        android:paddingStart="@dimen/item_message_text_padding_horizontal"
+        android:paddingTop="@dimen/item_message_text_padding_vertical"
+        android:paddingEnd="@dimen/item_message_text_padding_horizontal"
+        android:paddingBottom="@dimen/item_message_text_padding_vertical"
+        android:textColor="@color/item_text_color"
+        android:textSize="@dimen/item_message_text_size" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_avatar" />
+
+</RelativeLayout>

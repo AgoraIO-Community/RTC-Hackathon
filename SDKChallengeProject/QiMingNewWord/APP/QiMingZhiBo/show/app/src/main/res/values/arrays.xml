@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="channel_list_title">
+        <item>启明直播</item>
+        <!--<item>002</item>-->
+        <!--<item>003</item>-->
+        <!--<item>004</item>-->
+        <!--<item>005</item>-->
+    </string-array>
+
+    <array name="channel_list_drawable">
+        <item>@mipmap/img_channel_0</item>
+        <!--<item>@mipmap/img_channel_1</item>-->
+        <!--<item>@mipmap/img_channel_2</item>-->
+        <!--<item>@mipmap/img_channel_3</item>-->
+        <!--<item>@mipmap/img_channel_4</item>-->
+    </array>
+
+    <array name="channel_list_background">
+        <item>@mipmap/bg_channel_0</item>
+        <item>@mipmap/bg_channel_1</item>
+        <item>@mipmap/bg_channel_2</item>
+        <item>@mipmap/bg_channel_3</item>
+        <item>@mipmap/bg_channel_4</item>
+    </array>
+
+    <array name="random_avatar_images">
+        <item>@mipmap/img_avatar_0</item>
+        <item>@mipmap/img_avatar_1</item>
+        <item>@mipmap/img_avatar_2</item>
+        <item>@mipmap/img_avatar_3</item>
+        <item>@mipmap/img_avatar_4</item>
+        <item>@mipmap/img_avatar_5</item>
+        <item>@mipmap/img_avatar_6</item>
+        <item>@mipmap/img_avatar_7</item>
+        <item>@mipmap/img_avatar_8</item>
+        <item>@mipmap/img_avatar_9</item>
+        <item>@mipmap/img_avatar_10</item>
+        <item>@mipmap/img_avatar_11</item>
+    </array>
+
+    <integer-array name="voice_beautify_values">
+        <item>0</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+    </integer-array>
+
+    <integer-array name="voice_effect_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </integer-array>
+</resources>

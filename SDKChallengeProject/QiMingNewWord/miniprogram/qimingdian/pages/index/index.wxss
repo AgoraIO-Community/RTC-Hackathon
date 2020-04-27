@@ -1,0 +1,91 @@
+@import "../../common.wxss";
+
+page {
+    height: 100%;
+}
+
+.content {
+  position: absolute;
+  left: 80rpx;
+  right: 80rpx;
+  width: auto;
+  height: 100%;
+}
+
+.content .logo-section .logo{
+  margin-bottom: 20rpx;
+}
+
+.content .logo-section .h1{
+  margin-bottom: 10rpx;
+}
+
+.content .user-section{
+  margin-bottom: 40rpx;
+}
+
+
+.content .userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 40rpx 20rpx 20rpx 20rpx;
+  border-radius: 128rpx;
+  border: 2px solid white;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.content .userinfo-nickname {
+  color: #2F597A;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.content .form-section{
+  width: 100%;
+}
+
+.content .inputWrapper{
+  width: 100%;
+  border-radius: 10rpx;
+  background-color: rgba(255,255,255,0.4);
+  border: 1px solid #98BECA;
+}
+
+.content .channelInput{
+  font-size: 28rpx;
+  padding: 0 30rpx;
+  height: 80rpx;
+  color: #5083AA;
+}
+
+.content .joinBtn{
+  background-color: #FEFFFE;
+  color: #5083AA;
+  width: 100%;
+  height: 80rpx;
+  font-size: 28rpx;
+  margin-top: 32rpx;
+  line-height: 80rpx;
+  box-shadow: 0px 4px 4px rgba(84,163,186,0.15);  
+  font-weight: bold;
+  border: 0; 
+}
+
+.content .envBtn{
+  /* background-color: white; */
+  color: white;
+  height: 80rpx;
+  font-size: 28rpx;
+  margin-top: 32rpx;
+  line-height: 80rpx;
+  border: 0;
+  margin-bottom: -10rpx;
+}
+
+.content .footer{
+  justify-content: flex-end;
+  flex-grow: 1;
+  font-size: 24rpx;
+  margin-bottom: 32rpx;
+  color: #63C5E6;
+}

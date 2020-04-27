@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">启明直播</string>
+    <string name="title_activity_chat_room">启明直播</string>
+    <string name="title_activity_channel_list">启明直播间列表</string>
+    <string name="to_broadcast">上麦</string>
+    <string name="to_audience">下麦</string>
+    <string name="audio_accents">变声</string>
+    <string name="audio_mixing">伴奏</string>
+    <string name="member_num">0</string>
+    <string name="channel_member_list">房间成员列表（%1$d人）</string>
+    <string name="turn_off_mic">禁麦</string>
+    <string name="turn_game_over">下线</string>
+    <string name="turn_on_mic">解麦</string>
+    <string name="close_seat">封麦</string>
+    <string name="open_seat">解封</string>
+    <string name="giving_gift">向主播赠送了礼物</string>
+    <string name="placeholder">说点什么…</string>
+    <string name="voice_effect">音效</string>
+    <string name="beautify_voice">美声</string>
+    <string name="anchor">（主播）</string>
+    <string name="set_nikName">编辑昵称</string>
+
+    <string-array name="random_surnames">
+        <item>赵</item>
+        <item>钱</item>
+        <item>孙</item>
+        <item>李</item>
+        <item>周</item>
+        <item>吴</item>
+        <item>郑</item>
+        <item>王</item>
+        <item>冯</item>
+        <item>陈</item>
+        <item>褚</item>
+        <item>卫</item>
+    </string-array>
+
+    <string-array name="random_names">
+        <item>富强</item>
+        <item>民主</item>
+        <item>文明</item>
+        <item>和谐</item>
+        <item>自由</item>
+        <item>平等</item>
+        <item>公正</item>
+        <item>法治</item>
+        <item>爱国</item>
+        <item>敬业</item>
+        <item>诚信</item>
+        <item>友善</item>
+    </string-array>
+
+    <string-array name="voice_effect_keys">
+        <item>原声</item>
+        <item>KTV</item>
+        <item>演唱会</item>
+        <item>大叔</item>
+        <item>小姐姐</item>
+        <item>录音棚</item>
+        <item>流行</item>
+        <item>R&amp;B</item>
+        <item>留声机</item>
+    </string-array>
+
+    <string-array name="voice_beautify_keys">
+        <item>原声</item>
+        <item>浑厚</item>
+        <item>低沉</item>
+        <item>圆润</item>
+        <item>假音</item>
+        <item>饱满</item>
+        <item>清澈</item>
+        <item>高亢</item>
+        <item>嘹亮</item>
+        <item>空旷</item>
+    </string-array>
+</resources>

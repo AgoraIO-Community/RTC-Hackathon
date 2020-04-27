@@ -1,0 +1,47 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_channel_list"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.ChannelGridActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="@dimen/activity_title_padding_horizontal"
+        android:paddingEnd="@dimen/activity_title_padding_horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            android:text="@string/title_activity_channel_list"
+            android:textColor="@color/title_text_color"
+            android:textSize="@dimen/activity_title_text_size"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_set_nikName"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_action_edit"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="0dp"
+            android:contentDescription="@string/set_nikName"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/num_btn_text_size"
+            />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_channel_grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" />
+    <stroke
+        android:width="@dimen/divider_height"
+        android:color="@color/blue" />
+    <corners android:radius="@dimen/dialog_changer_item_radius" />
+    <size
+        android:width="@dimen/dialog_changer_item_width"
+        android:height="@dimen/dialog_changer_item_height" />
+</shape>

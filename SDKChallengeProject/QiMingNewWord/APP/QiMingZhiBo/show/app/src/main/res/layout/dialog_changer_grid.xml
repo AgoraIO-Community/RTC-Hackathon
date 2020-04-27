@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dialog_changer_height"
+    android:background="@drawable/bg_member_dialog">
+
+    <RadioGroup
+        android:id="@+id/rg_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_changer_title_height"
+        android:background="@drawable/bg_changer_title"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rb_effect"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_changer_rb"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/voice_effect"
+            android:textColor="@color/selector_changer_rb"
+            android:textSize="@dimen/activity_title_text_size" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/rb_beautify"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_changer_rb"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/beautify_voice"
+            android:textColor="@color/selector_changer_rb"
+            android:textSize="@dimen/activity_title_text_size" />
+
+    </RadioGroup>
+
+    <mobi.accessible.show.widget.VoiceChangerGridRecyclerView
+        android:id="@+id/rv_changer_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/rg_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

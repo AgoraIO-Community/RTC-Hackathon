@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:id="@+id/line"
+    android:layout_height="wrap_content">
+    <com.qmt.okhttplibrary.view.MyImageView
+        android:id="@+id/logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="应用名称"
+            android:textColor="@color/black_3"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/introduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="应用介绍"
+            android:textColor="#696969"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</LinearLayout>
+
+    <com.qmt.okhttplibrary.recommend.ProcessDownload.ProcessButton
+        android:id="@+id/pb"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:text="下载"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+</LinearLayout>

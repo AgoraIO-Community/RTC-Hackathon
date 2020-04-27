@@ -1,0 +1,12 @@
+/* components/agora-pusher.wxss */
+@import "../../common.wxss";
+.pusher-container{
+  background: black;
+  display: block;
+  position: absolute;
+}
+
+.sud{
+  background-color: #1B2A38;
+  opacity:0.65; 
+}

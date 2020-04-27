@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "mobi.accessible.show"
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def date = new Date().format("yy-MM-dd", TimeZone.getTimeZone("GMT+08"))
+            if (variant.buildType.name.equals('debug')) {
+                outputFileName = "启明直播间_${versionCode}_${versionName}_${date}_debug.apk"
+            }
+            if (variant.buildType.name.equals('release')) {
+                outputFileName = "启明直播间_${versionCode}_${versionName}_${date}_release.apk"
+            }
+        }
+    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            buildConfigField("String", "BASE_URL", "\"${BASE_URL_PRODUCT}\"")
+//            buildConfigField("boolean", "BUGLY", "${BUGLY_PRODUCT}")
+//        }
+//        debug {
+//            minifyEnabled false
+//            buildConfigField("String", "BASE_URL", "\"${BASE_URL_DEV}\"")
+//            buildConfigField("boolean", "BUGLY", "${BUGLY_DEV}")
+//        }
+//    }
+
+
+    buildToolsVersion = '29.0.3'
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':popmenu')
+    implementation project(path: ':okhttplibrary')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation 'junit:junit:4.12'
+    implementation files('libs/agora-rtm-sdk.jar')
+
+
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+}

@@ -1,0 +1,77 @@
+<resources>
+    <dimen name="activity_title_text_size">17sp</dimen>
+    <dimen name="activity_title_padding_horizontal">15dp</dimen>
+    <dimen name="item_mute_size">14dp</dimen>
+    <dimen name="simple_radius">6dp</dimen>
+    <dimen name="divider_margin">10dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
+    <dimen name="line_height">1dp</dimen>
+    <dimen name="large_radius">19dp</dimen>
+
+    <!-- ChannelGridActivity -->
+    <dimen name="item_channel_spacing">10dp</dimen>
+    <dimen name="item_channel_name_padding_horizontal">15dp</dimen>
+    <dimen name="item_channel_name_padding_vertical">12dp</dimen>
+    <dimen name="item_channel_name_text_size">14sp</dimen>
+
+    <!-- ChatRoomActivity -->
+    <dimen name="exit_btn_size">30dp</dimen>
+    <dimen name="num_btn_width">62dp</dimen>
+    <dimen name="num_btn_height">34dp</dimen>
+    <dimen name="num_btn_text_size">17sp</dimen>
+    <dimen name="seat_grid_margin_vertical">25dp</dimen>
+
+    <dimen name="item_seat_spacing">10dp</dimen>
+    <dimen name="item_seat_size">60dp</dimen>
+    <dimen name="item_seat_btn_size">50dp</dimen>
+    <dimen name="item_seat_btn_radius">25dp</dimen>
+
+    <dimen name="item_message_spacing">15dp</dimen>
+    <dimen name="item_message_avatar_size">30dp</dimen>
+    <dimen name="item_message_avatar_margin_end">8dp</dimen>
+    <dimen name="item_message_text_padding_horizontal">15dp</dimen>
+    <dimen name="item_message_text_padding_vertical">9dp</dimen>
+    <dimen name="item_message_text_size">14sp</dimen>
+
+    <dimen name="bottom_padding">15dp</dimen>
+    <dimen name="bottom_spacing">12dp</dimen>
+    <dimen name="bottom_input_text_size">14sp</dimen>
+    <dimen name="bottom_input_padding_vertical">9dp</dimen>
+    <dimen name="bottom_btn_size">38dp</dimen>
+    <dimen name="bottom_btn_text_size">17sp</dimen>
+
+    <dimen name="gift_pop_width">220dp</dimen>
+    <dimen name="gift_pop_height">56dp</dimen>
+    <dimen name="gift_pop_radius">28dp</dimen>
+    <dimen name="gift_padding_horizontal">4dp</dimen>
+    <dimen name="gift_margin_horizontal">11dp</dimen>
+    <dimen name="gift_img_size">48dp</dimen>
+    <dimen name="gift_name_text_size">14sp</dimen>
+    <dimen name="gift_tips_text_size">12sp</dimen>
+
+    <dimen name="dialog_changer_height">350dp</dimen>
+    <dimen name="dialog_changer_title_inset">15dp</dimen>
+    <dimen name="dialog_changer_title_height">55dp</dimen>
+    <dimen name="dialog_changer_rb_inset">28dp</dimen>
+    <dimen name="dialog_changer_item_text_size">17sp</dimen>
+    <dimen name="dialog_changer_item_width">100dp</dimen>
+    <dimen name="dialog_changer_item_height">44dp</dimen>
+    <dimen name="dialog_changer_item_radius">22dp</dimen>
+
+    <!-- MemberListDialog -->
+    <dimen name="dialog_member_width">325dp</dimen>
+    <dimen name="dialog_member_height">375dp</dimen>
+    <dimen name="dialog_member_radius">16dp</dimen>
+    <dimen name="dialog_member_title_margin">18dp</dimen>
+    <dimen name="dialog_member_title_text_size">14sp</dimen>
+    <dimen name="dialog_member_title_btn_size">26dp</dimen>
+    <dimen name="dialog_member_item_text_size">14sp</dimen>
+    <dimen name="dialog_member_item_spacing">19dp</dimen>
+
+    <dimen name="item_member_spacing">19dp</dimen>
+    <dimen name="item_member_avatar_size">36dp</dimen>
+    <dimen name="item_member_btn_width">46dp</dimen>
+    <dimen name="item_member_btn_height">32dp</dimen>
+    <dimen name="item_member_btn_text_size">12sp</dimen>
+    <dimen name="item_member_margin_horizontal">12dp</dimen>
+</resources>

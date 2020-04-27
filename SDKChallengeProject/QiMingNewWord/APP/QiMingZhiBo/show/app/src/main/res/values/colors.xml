@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title_text_color">#EEEEEE</color>
+    <color name="item_text_color">#EEEEEE</color>
+    <color name="btn_text_color">#CCCCCC</color>
+    <color name="edit_text_color">#CCCCCC</color>
+    <color name="tips_text_color">#999999</color>
+
+    <color name="gray">#333333</color>
+    <color name="black_alpha30">#4C9D9C98</color>
+    <color name="white_alpha10">#19FFFFFF</color>
+    <color name="white_alpha30">#4CFFFFFF</color>
+    <color name="white_alpha40">#66FFFFFF</color>
+    <color name="white_alpha60">#99FFFFFF</color>
+    <color name="seat_border">#09BDF4</color>
+    <color name="black">#202932</color>
+    <color name="blue">#007AFF</color>
+</resources>
