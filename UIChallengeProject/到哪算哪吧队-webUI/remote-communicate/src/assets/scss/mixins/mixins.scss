@@ -1,0 +1,151 @@
+$dark_mainfont: #fff;
+$light_mainfont: rgb(82, 65, 71);
+// welcome to的字体颜色
+$wel_color_dark: #7992d4;
+$wel_color_light: rgb(243, 224, 224);
+// login界面的背景图片
+$login_bg_dark: url(~@/assets/image/login_bg.jpg);
+$login_bg_light: url(~@/assets/image/login_bg_pink.jpg);
+// remote communicate的字体颜色
+$rc_color_dark: rgba(255, 255, 255,.6);
+$rc_color_light: rgba($color:$light_mainfont, $alpha:.6);
+// login form 背景色
+$form_bg_dark:rgba(20, 47, 51,.6);
+$form_bg_light: rgba(234, 240, 241, 0.6);
+// 主题高亮色
+$heighlight_dark: rgb(91, 245, 237);
+$heighlight_light: rgb(240, 6, 170);
+// facingroom的色
+$body_bg_dark: #01041d;
+$body_bg_light: #dbd2d4;
+// header的颜色
+$header_bg_dark: #1e212e;
+$header_bg_light: #2e1e24;
+$header_shadow_dark: #6c9c9c;
+$header_shadow_light: #db7196;
+// 两边方框的颜色
+$side_block_border_dark: #80ffff;
+$font_color_dark: #11f0f8;
+$side_block_border_light: #f3a7c3;
+
+@mixin welcomeColor($color) {
+  color: $color;
+  [data-theme = 'light-theme'] & {
+    color: $wel_color_light;
+  }
+}
+@mixin loginBg($bg_img){
+  background: $bg_img no-repeat center;
+  background-size: cover;
+  [data-theme = 'light-theme'] & {
+    background: $login_bg_light no-repeat center;
+    background-size: cover;
+  }
+}
+@mixin rcColor($color) {
+  color: $color;
+  [data-theme = 'light-theme'] & {
+    color: $rc_color_light;
+  }
+}
+@mixin formBgColor($color) {
+  background: $color;
+  box-shadow: 0px 0px 20px 10px rgba(255, 255, 255,.4);
+  [data-theme = 'light-theme'] & {
+    background: $form_bg_light;
+    box-shadow: 0px 0px 20px 10px rgba(82, 65, 71,.4);
+  }
+}
+// form 中字体和button的颜色
+@mixin formColor($color) {
+  color: $color;
+  button {
+    color: $color;
+    border: 2px solid $color;
+  }
+  input{
+    border-bottom: 2px solid $color;
+    color: $color;
+    &:focus{
+      border-bottom: 2px solid $heighlight_dark;
+    }
+    label{
+      color: $dark_mainfont;
+    }
+  }
+  [data-theme = 'light-theme'] & {
+    color: $light_mainfont;
+    button {
+      color: $light_mainfont;
+      border: 2px solid $light_mainfont;
+    }
+    input{
+      border-bottom: 2px solid $light_mainfont;
+      color: $light_mainfont;
+      &:focus{
+        border-bottom: 2px solid $heighlight_light;
+      }
+      label{
+        color: $light_mainfont;
+      }
+    }
+  }
+}
+@mixin sideBlock($color) {
+  color: $color;
+  border: 2px solid $color;
+  background: rgba($color: $color, $alpha: .3);
+  [data-theme = 'light-theme'] & {
+    color: $light_mainfont;
+    border: 2px solid $side_block_border_light;
+    background: rgba($color: $side_block_border_light, $alpha: .3);
+  }
+}
+@mixin header($color) {
+  background: rgba($color: $color, $alpha: .8);
+  [data-theme = 'light-theme'] & {
+    background: rgba($color: $header_bg_light, $alpha: .8);
+  }
+}
+@mixin roomBg($color) {
+  background: rgba($color: $color, $alpha: .9);
+  [data-theme = 'light-theme'] & {
+    background: rgba($color: $body_bg_light, $alpha: .9);
+  }
+}
+@mixin sVideoShadow($color) {
+  box-shadow: 0px 0px 10px 5px rgba($color: $color, $alpha: .4);
+  [data-theme = 'light-theme'] & {
+    box-shadow: 0px 0px 10px 5px rgba($color: $light_mainfont, $alpha: .4);
+  }
+}
+@mixin headerShadow($color) {
+  box-shadow: 0 2px 10px 5px rgba($color: $color, $alpha: .6);
+  [data-theme = 'light-theme'] & {
+    box-shadow: 0 2px 10px 5px rgba($color: $header_shadow_light, $alpha: .6);
+  }
+}
+@mixin tokenBtn($color, $bg) {
+  background: $bg;
+  color: $color;
+  [data-theme = 'light-theme'] & {
+    background: $light_mainfont;
+    color: $wel_color_light;
+  }
+}
+@mixin inputBg($color, $bg) {
+  background: rgba($color: $bg, $alpha: .3);
+  color: $color;
+  [data-theme = 'light-theme'] & {
+    background: rgba($color: $dark_mainfont, $alpha: .3);
+    color: $light_mainfont;
+  }
+}
+@mixin hoverBtn($bg, $shadow) {
+  background: rgba($color: $bg, $alpha: .6);
+  box-shadow: 0 0 10px 5px rgba($color: $shadow, $alpha: .9);
+  [data-theme = 'light-theme'] & {
+    background: rgba($color: $wel_color_light, $alpha: .6);
+    box-shadow: 0 0 10px 5px rgba($color: $header_shadow_light, $alpha: .9);
+  }
+}
