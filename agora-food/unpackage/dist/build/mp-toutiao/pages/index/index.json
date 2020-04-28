@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "HX商城",
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "mescroll-body": "/components/mescroll-uni/mescroll-body"
+  }
+}

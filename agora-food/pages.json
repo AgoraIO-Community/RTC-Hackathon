@@ -1,0 +1,230 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "HX商城",
+				"app-plus":{
+					"scrollIndicator": "none"
+					//"enablePullDownRefresh": true
+				}
+			}
+		}
+		,{
+		    "path" : "pages/store/index",
+		    "style" : {
+				"app-plus":{
+					"scrollIndicator": "none"
+				}
+			}
+		}
+		
+	    ,{
+            "path" : "pages/product/product",
+            "style" : {
+				"app-plus": {
+				        "animationType": "zoom-out",
+				        "animationDuration": 300
+				}
+			}
+        }
+		
+		,{
+		    "path" : "pages/user/login/login",
+		    "style" : {
+				"app-plus":{
+					"scrollIndicator": "none"
+				}
+			}
+		}
+		,{
+		    "path" : "pages/user/register/register",
+		    "style" : {
+				"app-plus":{
+					"scrollIndicator": "none"
+				}
+			}
+		}
+		,{
+		    "path" : "pages/user/forget/forget",
+		    "style" : {
+				"app-plus":{
+					"scrollIndicator": "none"
+				}
+			}
+		}
+		,{
+		    "path" : "pages/user/center/center",
+		    "style" : {
+				"app-plus":{
+					"scrollIndicator": "none"
+				}
+			}
+		}
+		,{
+		    "path" : "pages/user/setting/setting",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/bash/bash",
+		    "style" : {
+				"app-plus":{
+					"scrollIndicator": "none"
+				}
+			}
+		}
+		
+		,{
+		    "path" : "pages/user/account_security/security",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/account_security/phone",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/account_security/update_password",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/account_security/address_book",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/account_security/update_phone",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/account_security/bind_phone",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/base/protocol/protocol",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/base/about",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/base/features",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/base/release_notes",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/base/help_feedback",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/base/help_problem",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/account_security/forget_password",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/account_security/verification_phone",
+		    "style" : {}
+		}
+		
+		,{
+		    "path" : "pages/user/address/address",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/user/address/addressManage",
+		    "style" : {}
+		}
+        
+        ,{
+            "path" : "pages/order/order",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/order/preview",
+            "style" : {
+				"app-plus":{
+					"scrollIndicator": "none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/order/pay",
+            "style" : {
+				"app-plus":{
+					"scrollIndicator": "none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/coupon/coupon",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/map/location",
+            "style" : {
+				
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationStyle": "custom",
+		"backgroundColor": "#F8F8F8" 
+	},
+	"tabBar": {
+		"color": "#C0C4CC",
+		"selectedColor": "#ffc107",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"fontSize": "11px",
+		"spacing": "5px",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/tab-home.png",
+				"selectedIconPath": "static/tabbar/tab-home-current.png",
+				
+				"text": "首页"
+			},
+			// {
+			// 	"pagePath": "pages/user/address/address",
+			// 	"iconPath": "static/tabbar/tab-cart.png",
+			// 	"selectedIconPath": "static/tabbar/tab-cart-current.png",
+			// 	"text": "购物车"
+			// },
+			
+			{
+				"pagePath": "pages/order/order",
+				"iconPath": "static/tabbar/order.png",
+				"selectedIconPath": "static/tabbar/order-current.png",
+				"text": "订单"
+			},
+			{
+				"pagePath": "pages/user/center/center",
+				"iconPath": "static/tabbar/tab-my.png",
+				"selectedIconPath": "static/tabbar/tab-my-current.png",
+				"text": "我的"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

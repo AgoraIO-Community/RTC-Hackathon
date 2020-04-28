@@ -1,0 +1,135 @@
+page {
+	-webkit-overflow-scrolling: touch; /* 使iOS滚动流畅 */
+}
+.mescroll-body {
+	position: relative; /* 下拉刷新区域相对自身定位 */
+	height: auto; /* 不可固定高度,否则overflow: hidden, 可通过设置最小高度使列表不满屏仍可下拉*/
+	overflow: hidden; /* 遮住顶部下拉刷新区域 */
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box; /* 避免设置padding出现双滚动条的问题 */
+}
+
+/* 下拉刷新区域 */
+.mescroll-downwarp {
+	position: absolute;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+/* 下拉刷新--内容区,定位于区域底部 */
+.mescroll-downwarp .downwarp-content {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	min-height: 60rpx;
+	padding: 20rpx 0;
+	text-align: center;
+}
+
+/* 下拉刷新--提示文本 */
+.mescroll-downwarp .downwarp-tip {
+	display: inline-block;
+	font-size: 28rpx;
+	vertical-align: middle;
+	margin-left: 16rpx;
+	/* color: gray; 已在style设置color,此处删去*/
+}
+
+/* 下拉刷新--旋转进度条 */
+.mescroll-downwarp .downwarp-progress {
+	display: inline-block;
+	width: 32rpx;
+	height: 32rpx;
+	border-radius: 50%;
+	border: 2rpx solid gray;
+	border-bottom-color: transparent !important; /*已在style设置border-color,此处需加 !important*/
+	vertical-align: middle;
+}
+
+/* 旋转动画 */
+.mescroll-downwarp .mescroll-rotate {
+	-webkit-animation: mescrollDownRotate 0.6s linear infinite;
+	        animation: mescrollDownRotate 0.6s linear infinite;
+}
+@-webkit-keyframes mescrollDownRotate {
+0% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+}
+100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+}
+}
+@keyframes mescrollDownRotate {
+0% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+}
+100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+}
+}
+
+/* 上拉加载区域 */
+.mescroll-upwarp {
+	min-height: 60rpx;
+	padding: 30rpx 0;
+	text-align: center;
+	clear: both;
+}
+
+/*提示文本 */
+.mescroll-upwarp .upwarp-tip,
+.mescroll-upwarp .upwarp-nodata {
+	display: inline-block;
+	font-size: 28rpx;
+	vertical-align: middle;
+	/* color: gray; 已在style设置color,此处删去*/
+}
+.mescroll-upwarp .upwarp-tip {
+	margin-left: 16rpx;
+}
+
+/*旋转进度条 */
+.mescroll-upwarp .upwarp-progress {
+	display: inline-block;
+	width: 32rpx;
+	height: 32rpx;
+	border-radius: 50%;
+	border: 2rpx solid gray;
+	border-bottom-color: transparent !important; /*已在style设置border-color,此处需加 !important*/
+	vertical-align: middle;
+}
+
+/* 旋转动画 */
+.mescroll-upwarp .mescroll-rotate {
+	-webkit-animation: mescrollUpRotate 0.6s linear infinite;
+	        animation: mescrollUpRotate 0.6s linear infinite;
+}
+@-webkit-keyframes mescrollUpRotate {
+0% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+}
+100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+}
+}
+@keyframes mescrollUpRotate {
+0% {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+}
+100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+}
+}
+

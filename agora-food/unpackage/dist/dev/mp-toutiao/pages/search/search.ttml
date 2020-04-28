@@ -1,0 +1,1 @@
+<view><hx-navbar vue-id="50c96cdf-1" title="搜索页面" bind:__l="__l"></hx-navbar><view class="contianer"><text class="txt">{{dataType}}</text></view><view class="contianer"><text class="txt">待开发</text></view></view>

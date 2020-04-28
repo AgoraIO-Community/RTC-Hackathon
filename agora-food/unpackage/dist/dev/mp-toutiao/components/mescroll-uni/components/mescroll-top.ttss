@@ -1,0 +1,79 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 回到顶部的按钮 */
+.mescroll-totop {
+	z-index: 9990;
+	position: fixed !important; /* 加上important避免编译到H5,在多mescroll中定位失效 */
+	right: 20rpx;
+	bottom: 120rpx;
+	width: 72rpx;
+	height: auto;
+	border-radius: 50%;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s; /* 过渡 */
+	margin-bottom: 0px; /* css变量 */
+}
+/* 适配 iPhoneX */
+.mescroll-safe-bottom{
+	margin-bottom: calc(0px + constant(safe-area-inset-bottom)); /* window-bottom + 适配 iPhoneX */
+	margin-bottom: calc(0px + env(safe-area-inset-bottom));
+}
+/* 显示 -- 淡入 */
+.mescroll-totop-in {
+	opacity: 1;
+}
+/* 隐藏 -- 淡出且不接收事件*/
+.mescroll-totop-out {
+	opacity: 0;
+	pointer-events: none;
+}
+

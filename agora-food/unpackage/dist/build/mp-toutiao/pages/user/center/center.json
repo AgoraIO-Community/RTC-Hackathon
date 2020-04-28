@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "hx-navbar": "/components/hx-navbar/hx-navbar",
+    "list-cell": "/components/mix-list-cell"
+  }
+}

@@ -1,0 +1,86 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 无任何数据的空布局 */
+.mescroll-empty {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	width: 100%;
+	padding: 100rpx 50rpx;
+	text-align: center;
+}
+.mescroll-empty.empty-fixed {
+	z-index: 99;
+	position: absolute; /*transform会使fixed失效,最终会降级为absolute */
+	top: 100rpx;
+	left: 0;
+}
+.mescroll-empty .empty-icon {
+	width: 280rpx;
+	height: 280rpx;
+}
+.mescroll-empty .empty-tip {
+	margin-top: 20rpx;
+	font-size: 24rpx;
+	color: gray;
+}
+.mescroll-empty .empty-btn {
+	display: inline-block;
+	margin-top: 40rpx;
+	min-width: 200rpx;
+	padding: 18rpx;
+	font-size: 28rpx;
+	border: 1rpx solid #e04b28;
+	border-radius: 60rpx;
+	color: #e04b28;
+}
+.mescroll-empty .empty-btn:active {
+	opacity: 0.75;
+}
+
