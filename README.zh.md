@@ -1,6 +1,8 @@
 # RTC-Hackathon
 *简体中文 | [English](README.md)*
 
+*本仓库为 RTC 2019 创新编程挑战赛参赛者提交作品，仅供参考*
+
 # 赛事简介
 
 RTC（Real Time Communication）黑客马拉松，是声网Agora面向全球RTC开发者、编程爱好者与极客举办的一场在线黑客马拉松。
