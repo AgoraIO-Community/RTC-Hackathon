@@ -1,6 +1,8 @@
 # RTC-Hackathon
 *English | [简体中文](README.zh.md)*
 
+*All the projects were submitted by the challenge contestants, for reference only.*
+
 # Challenge Introduction
 
 RTC (Real Time Communication) Hackathon is an online hackathon held by Agora for RTC developers, programming enthusiasts and geeks worldwide.
