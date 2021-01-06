@@ -10,7 +10,7 @@
   "dependencies": {
     "agora-rtc-sdk": "^3.0.2",
     "agora-rtc-sdk-ng": "^0.1.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "echarts": "^4.7.0",
     "element": "^0.1.4",
